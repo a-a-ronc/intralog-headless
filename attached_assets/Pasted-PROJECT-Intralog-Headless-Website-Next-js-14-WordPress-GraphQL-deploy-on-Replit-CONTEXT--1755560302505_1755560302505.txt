@@ -1,0 +1,299 @@
+PROJECT: Intralog Headless Website (Next.js 14 + WordPress GraphQL, deploy on Replit)
+
+CONTEXT
+- Brand: Intralog — automated material handling integrator (conveyors, AMRs, racking, sortation, AS/RS, palletizing).
+- Visual goals: modern, clean, premium like Bastian/Fortna; white space; bold, legible type; subtle motion; fast.
+- Keep brand colors: deep blue + dark gray from logo.
+
+TECH STACK (NO NEW PAID SERVICES)
+- Next.js 14 (App Router) + TypeScript
+- Fetch WordPress content via WPGraphQL (free plugin on the WP side)
+- Email via nodemailer using Gmail SMTP + App Password (no SendGrid, no new SaaS)
+- Deployed on Replit (Autoscale or VM)
+- No Tailwind (keep dependencies light); use CSS tokens in a global stylesheet
+- SEO basics: Next metadata, OG tags, sensible slugs, alt text
+- Accessibility: semantic headings, focus states, alt text for partner logos
+
+ENV VARS (create `.env` and use Replit Secrets)
+- WP_GRAPHQL_ENDPOINT = e.g. https://<your-wp>/graphql
+- WP_MEDIA_HOST = e.g. intralog.io (domain serving WP images)
+- SMTP_HOST = smtp.gmail.com
+- SMTP_PORT = 465
+- SMTP_SECURE = true
+- SMTP_USER = <your gmail>
+- SMTP_PASS = <gmail app password>
+- CONTACT_TO = aaron@intralog.io
+- CONTACT_FROM = "Intralog Website <your gmail>"
+
+ROUTES & PAGES
+- /             Home (hero, stat bar, partners rail, featured case studies, CTA band)
+- /solutions    Parent page with short overview (six solution categories)
+- /partners     Logo grid of collaborators (Stow, Interlake, Daifuku, etc.) pulled from WP featured images
+- /case-studies         Grid list
+- /case-studies/[slug]  Detail page (hero image, content)
+- /about        Pull from WP page content via nodeByUri('/about'), with reasonable fallback
+- /careers      Static copy for now
+- /contact      Form posting to /api/contact (nodemailer via Gmail)
+
+DATA & CACHING
+- Use simple `fetch` helper for GraphQL (see code below) with `next: { revalidate: 60 }` for ISR-like caching.
+- If WP is empty or endpoint missing, fail gracefully: render placeholders/fallback copy (no hard crash).
+
+UI COMPONENTS
+- Header: sticky, logo text “Intralog”, nav links (Solutions, Partners, Case Studies, About, Contact CTA)
+- Hero: dark gradient overlay on background image/video, H1 + subhead + primary CTA
+- Stat bar: 3 chips (e.g., +30% throughput, −18% travel time, 99.5% uptime)
+- Partners logo rail: grayscale logos that brighten on hover
+- Case study card: image, title, excerpt, “Read case study →”
+- CTA band: full-width brand-blue background, inverse button
+
+DESIGN TOKENS (globals.css)
+:root {
+  --brand-blue:#0B2D52;
+  --brand-gray:#2E2E2E;
+  --light:#F6F8FB;
+  --accent:#2AA3FF;
+  --radius:16px;
+}
+Use these tokens for buttons, cards, sections, hero overlay, and logo rail styles. Provide a clean, responsive layout with a max container width ~1200px.
+
+FILE TREE (create exactly these with working implementations)
+- app/
+  - layout.tsx (global header/footer)
+  - page.tsx (home)
+  - solutions/page.tsx
+  - partners/page.tsx
+  - case-studies/page.tsx
+  - case-studies/[slug]/page.tsx
+  - about/page.tsx
+  - careers/page.tsx
+  - contact/page.tsx (client component with form)
+  - api/contact/route.ts (nodemailer, Gmail SMTP)
+- components/
+  - PartnerLogoRail.tsx
+  - CaseStudyCard.tsx
+- lib/
+  - wp.ts (GraphQL fetch helper)
+  - queries.ts (GraphQL queries)
+- app/globals.css (brand tokens + layout)
+- public/hero.jpg (placeholder note if image not provided)
+- next.config.mjs
+- tsconfig.json (with @ path alias)
+- package.json (Next 14 + nodemailer + types)
+
+IMPORTANT CODE SNIPPETS (use these verbatim to avoid common pitfalls)
+
+1) GraphQL fetch helper (lib/wp.ts):
+----------------------------------------------------------------
+export async function wpFetch<T>(query: string, variables: Record<string, any> = {}): Promise<T> {
+  const endpoint = process.env.WP_GRAPHQL_ENDPOINT
+  if (!endpoint) throw new Error('Missing WP_GRAPHQL_ENDPOINT env var')
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, variables }),
+    next: { revalidate: 60 }
+  })
+  if (!res.ok) throw new Error('WP fetch failed: ' + await res.text())
+  const data = await res.json()
+  if (data.errors) throw new Error('GraphQL errors: ' + JSON.stringify(data.errors))
+  return data.data
+}
+----------------------------------------------------------------
+
+2) Queries (lib/queries.ts):
+----------------------------------------------------------------
+export const PARTNERS_QUERY = `#graphql
+  query Partners($first: Int = 24) {
+    partners(first: $first) {
+      nodes {
+        id
+        slug
+        title
+        uri
+        featuredImage { node { sourceUrl altText } }
+      }
+    }
+  }`
+
+export const CASE_STUDIES_QUERY = `#graphql
+  query CaseStudies($first: Int = 12) {
+    caseStudies(first: $first) {
+      nodes {
+        id
+        slug
+        title
+        excerpt
+        uri
+        featuredImage { node { sourceUrl altText } }
+      }
+    }
+  }`
+
+export const CASE_STUDY_BY_SLUG_QUERY = `#graphql
+  query CaseStudy($slug: ID!) {
+    caseStudy(id: $slug, idType: SLUG) {
+      id
+      title
+      content
+      featuredImage { node { sourceUrl altText } }
+    }
+  }`
+
+export const PAGES_QUERY = `#graphql
+  query PageByUri($uri: ID!) {
+    nodeByUri(uri: $uri) {
+      ... on Page { id title content }
+    }
+  }`
+----------------------------------------------------------------
+
+3) Contact API (app/api/contact/route.ts) — Gmail SMTP, NO paid provider:
+----------------------------------------------------------------
+import nodemailer from 'nodemailer'
+import { NextResponse } from 'next/server'
+
+export async function POST(req: Request) {
+  try {
+    const form = await req.formData()
+    const name = String(form.get('name') || '')
+    const email = String(form.get('email') || '')
+    const company = String(form.get('company') || '')
+    const message = String(form.get('message') || '')
+
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 465),
+      secure: String(process.env.SMTP_SECURE || 'true') === 'true',
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
+    })
+
+    const info = await transporter.sendMail({
+      from: process.env.CONTACT_FROM || process.env.SMTP_USER,
+      to: process.env.CONTACT_TO || process.env.SMTP_USER,
+      subject: `Website Contact — ${name}`,
+      replyTo: email,
+      text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`
+    })
+
+    return NextResponse.json({ ok: true, id: info.messageId })
+  } catch (e: any) {
+    console.error(e)
+    return NextResponse.json({ ok: false, error: e?.message || 'Error' }, { status: 500 })
+  }
+}
+----------------------------------------------------------------
+
+4) Next config (next.config.mjs) — allow remote WP images:
+----------------------------------------------------------------
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: process.env.WP_MEDIA_HOST || '**' }
+    ]
+  },
+  experimental: { typedRoutes: true }
+}
+export default nextConfig
+----------------------------------------------------------------
+
+5) tsconfig.json — enable "@/..." path alias (avoid module-not-found):
+----------------------------------------------------------------
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["dom", "dom.iterable", "es2020"],
+    "strict": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": { "@/*": ["./*"] }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+}
+----------------------------------------------------------------
+
+6) Minimal package.json:
+----------------------------------------------------------------
+{
+  "name": "intralog-headless",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "nodemailer": "6.9.13"
+  },
+  "devDependencies": {
+    "typescript": "5.5.4",
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.66",
+    "@types/react-dom": "18.2.22",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.2.5"
+  }
+}
+----------------------------------------------------------------
+
+7) Global CSS tokens + basic layout (app/globals.css) — keep it simple and fast:
+----------------------------------------------------------------
+:root{
+  --brand-blue:#0B2D52;
+  --brand-gray:#2E2E2E;
+  --light:#F6F8FB;
+  --accent:#2AA3FF;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.section{padding:clamp(2rem,4vw,5rem) 0}
+.btn{display:inline-block;border-radius:var(--radius);padding:.8rem 1.2rem;font-weight:600;background:var(--brand-blue);color:#fff}
+.card{background:#fff;border-radius:var(--radius);box-shadow:0 8px 24px rgba(0,0,0,.06);padding:1.25rem}
+.hero{position:relative;padding:6rem 0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.25)),url('/hero.jpg') center/cover no-repeat;color:#fff}
+.hero h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem}
+.nav{display:flex;gap:1rem;align-items:center}
+.header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:10}
+.header .inner{display:flex;justify-content:space-between;align-items:center;padding:.8rem 0}
+.footer{background:#0B2D52;color:#fff;padding:2rem 0;margin-top:3rem}
+.logo-rail{display:flex;gap:2rem;flex-wrap:wrap;align-items:center;justify-content:center;opacity:.9}
+.logo-rail img{height:40px;filter:grayscale(100%);opacity:.85}
+.logo-rail img:hover{filter:none;opacity:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
+.statbar{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;color:#333}
+.stat{background:#fff;border-radius:var(--radius);padding:.8rem 1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.05)}
+.small{color:#6b7280;font-size:.92rem}
+----------------------------------------------------------------
+
+ACCEPTANCE CRITERIA
+- `npm run dev` runs locally; `npm run build && npm start` works for Replit Deployments.
+- Visiting `/` shows hero, stat chips, partners rail (pulls from WP if available, else hides cleanly), featured case studies grid (or hides).
+- `/partners` renders a grid of logos (uses WP featured images).
+- `/case-studies` lists cards; `[slug]` page renders full content.
+- `/contact` successfully sends an email via Gmail SMTP (App Password).
+- All images hosted on WP domain load through Next/Image (allowed by next.config remotePatterns).
+- No paid providers (no SendGrid). Only Gmail SMTP + WPGraphQL.
+- If WP endpoint unavailable, the site still builds and the home page renders fallback text with no 500s.
+
+DEPLOYMENT NOTES (Replit)
+- Build: `npm run build`
+- Run: `npm start`
+- Add custom domain `www.intralog.io` in Replit Deployment → Custom Domains; create the provided CNAME at your DNS.
+- Forward apex `intralog.io` → `https://www.intralog.io` via registrar/DNS (HTTP 301 or ALIAS/ANAME if supported).
+
+BONUS (nice-to-have if time permits)
+- Metadata: set per-page titles; OG image for Home.
+- Simple client-side filters on /case-studies (by industry/solution once WP taxonomies exist).
+- Light scroll/hover animations (CSS only).
