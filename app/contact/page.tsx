@@ -17,10 +17,10 @@ export default function ContactPage(){
       <div className="container" style={{maxWidth:720}}>
         <h1>Contact</h1>
         <form onSubmit={onSubmit} className="card">
-          <label>Name<br/><input required name="name" style={{width:'100%', padding:'.6rem', borderRadius:8, border:'1px solid #ddd'}}/></label><br/>
-          <label>Email<br/><input required type="email" name="email" style={{width:'100%', padding:'.6rem', borderRadius:8, border:'1px solid #ddd'}}/></label><br/>
-          <label>Company<br/><input name="company" style={{width:'100%', padding:'.6rem', borderRadius:8, border:'1px solid #ddd'}}/></label><br/>
-          <label>Message<br/><textarea required name="message" rows={5} style={{width:'100%', padding:'.6rem', borderRadius:8, border:'1px solid #ddd'}}/></label><br/>
+          <label htmlFor="name">Name<br/><input required id="name" name="name" style={{width:'100%', padding:'.6rem', borderRadius:8, border:'1px solid #ddd'}}/></label><br/>
+          <label htmlFor="email">Email<br/><input required type="email" id="email" name="email" style={{width:'100%', padding:'.6rem', borderRadius:8, border:'1px solid #ddd'}}/></label><br/>
+          <label htmlFor="company">Company<br/><input id="company" name="company" style={{width:'100%', padding:'.6rem', borderRadius:8, border:'1px solid #ddd'}}/></label><br/>
+          <label htmlFor="message">Message<br/><textarea required id="message" name="message" rows={5} style={{width:'100%', padding:'.6rem', borderRadius:8, border:'1px solid #ddd'}}/></label><br/>
           <button className="btn" type="submit">Send</button>
           {status && <div className="small" style={{marginTop:'.6rem'}}>{status}</div>}
         </form>
