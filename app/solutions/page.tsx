@@ -135,15 +135,19 @@ export default function SolutionsPage() {
                   ))}
                 </ul>
 
-                {/* Consistent media box */}
-                <div style={{ 
-                  marginTop: '1rem', 
-                  borderRadius: '0.75rem', 
-                  border: '1px solid #f1f5f9', 
-                  background: '#f8fafc',
-                  height: '160px',
-                  position: 'relative'
-                }}>
+                {/* Consistent media box with accent coloring */}
+                <div 
+                  className="accent-sky" 
+                  style={{ 
+                    marginTop: '1rem', 
+                    borderRadius: '0.75rem', 
+                    border: '1px solid #f1f5f9', 
+                    background: '#f8fafc',
+                    height: '160px',
+                    position: 'relative',
+                    color: '#1e293b'
+                  }}
+                >
                   <Image
                     src={s.img}
                     alt=""
@@ -173,7 +177,7 @@ export default function SolutionsPage() {
           }}>
             {[
               { name: "Daifuku", src: "/partners/daifuku.svg" },
-              { name: "Modula", src: "/partners/modula.svg" },
+              { name: "Modula", src: "/images/modula.svg" },
             ].map((logo) => (
               <div key={logo.name} style={{ 
                 display: 'flex', 

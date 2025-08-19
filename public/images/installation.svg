@@ -5,15 +5,17 @@
 .accent{stroke:var(--accent,#0ea5e9)}
 .fillAccent{fill:var(--accent,#0ea5e9)}
 </style>
-<!-- Building/facility -->
-<rect x="40" y="60" width="120" height="60" rx="4" class="line"/>
-<path d="M40 80h120M40 100h120" class="line"/>
-<!-- Wrench/tool -->
-<circle cx="80" cy="40" r="8" class="accent"/>
-<path d="M86 46l12 12M92 40l6 6" class="accent"/>
-<!-- Checkmarks for go-live -->
-<path d="M180 70l6 6 12-12M180 90l6 6 12-12M180 110l6 6 12-12" class="accent"/>
-<!-- KPI gauge -->
-<path d="M200 40a16 16 0 0 1 0 32" class="accent"/>
-<path d="M208 48l8 8" class="accent"/>
+<!-- Gear -->
+<circle cx="76" cy="76" r="16" class="line"/>
+<path d="M76 56v6M76 90v6M56 76h6M90 76h6M62 62l4 4M90 62l-4 4M62 90l4-4M90 90l-4-4" class="line"/>
+<circle cx="76" cy="76" r="5" class="accent"/>
+<!-- Wrench -->
+<path d="M100 60l12 12-18 18-12-12z" class="line"/>
+<path d="M107 67l6-6" class="accent"/>
+<!-- Progress bar / commissioning -->
+<rect x="128" y="96" width="88" height="12" rx="6" class="line"/>
+<rect x="128" y="96" width="52" height="12" rx="6" class="fillAccent"/>
+<!-- FAT/SAT checks -->
+<path d="M164 58l6 6 12-12" class="accent"/>
+<path d="M164 74l6 6 12-12" class="accent"/>
 </svg>
