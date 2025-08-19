@@ -7,6 +7,10 @@
   --brand-gray:#2E2E2E;
   --light:#F6F8FB;
   --accent:#2AA3FF;
+  --intralog-orange:#FF6B35;
+  --intralog-cyan:#00D4FF;
+  --tech-purple:#8B5CF6;
+  --tech-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --radius:16px;
 }
 *{box-sizing:border-box}
@@ -36,4 +40,76 @@ a{color:inherit;text-decoration:none}
 .partner-logo:hover {
   filter: grayscale(0%);
   transform: scale(1.05);
+}
+
+/* Tech-forward enhancements */
+.tech-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.tech-grid {
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+}
+
+/* Enhanced button styles */
+.btn-tech {
+  background: linear-gradient(135deg, var(--accent), var(--intralog-cyan));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btn-tech:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(42, 163, 255, 0.3);
+}
+
+/* Circuit-like decorative elements */
+.circuit-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--intralog-cyan), transparent);
+  animation: circuit 3s linear infinite;
+}
+
+@keyframes circuit {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
