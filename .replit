@@ -10,3 +10,15 @@ run = ["sh", "-c", "npm run dev"]
 [[ports]]
 localPort = 3000
 externalPort = 80
+
+[workflows]
+runButton = "Vite Dev Server"
+
+[[workflows.workflow]]
+name = "Vite Dev Server"
+author = 41406856
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
