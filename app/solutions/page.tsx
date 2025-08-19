@@ -81,7 +81,7 @@ export default function SolutionsPage() {
     <div>
       {/* HERO */}
       <section className="section-pad">
-        <div className="page-wrap text-center max-w-3xl">
+        <div className="page-wrap text-center max-w-3xl mx-auto">
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             Turnkey Warehouse Optimization
           </h1>
@@ -92,7 +92,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* PROCESS GRID */}
-      <section className="border-t border-slate-100 bg-slate-50/60">
+      <section className="border-t border-slate-100 bg-slate-50">
         <div className="page-wrap section-pad">
           <div className="mb-8 flex items-baseline justify-between">
             <h2 className="text-2xl font-semibold">Our Process, Step by Step</h2>
@@ -118,7 +118,6 @@ export default function SolutionsPage() {
 
                 {/* Consistent media box */}
                 <div className="mt-4 rounded-xl border border-slate-100 bg-slate-50">
-                  {/* Use fixed-height box + object-contain for absolute symmetry */}
                   <div className="relative w-full" style={{ height: 160 }}>
                     <Image
                       src={s.img}
@@ -147,7 +146,6 @@ export default function SolutionsPage() {
             {[
               { name: "Daifuku", src: "/partners/daifuku.svg" },
               { name: "Modula",  src: "/partners/modula.svg"  },
-              // add more here
             ].map((logo) => (
               <div key={logo.name} className="partner-box">
                 <div className="relative w-full" style={{ height: 40 }}>

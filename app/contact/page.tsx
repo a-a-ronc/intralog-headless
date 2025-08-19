@@ -1,8 +1,10 @@
-'use client'
-import { useState } from 'react'
+
+"use client";
+import { useState } from 'react';
 
 export default function ContactPage(){
-  const [status, setStatus] = useState<string| null>(null)
+  const [status, setStatus] = useState<string | null>(null)
+  
   async function onSubmit(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault()
     setStatus('Sending...')
@@ -12,6 +14,7 @@ export default function ContactPage(){
     else setStatus('Something went wrong. Please try again.')
     e.currentTarget.reset()
   }
+  
   return (
     <main className="section">
       <div className="container" style={{maxWidth:720}}>
