@@ -1,0 +1,87 @@
+Where to put assets
+
+Put your graphics in /public/images:
+
+/images/rightsize.svg – algorithm/footprint visual
+
+/images/data-study.svg – flow/throughput chart or heatmap
+
+/images/simulation.svg – simulated conveyors/buffers
+
+/images/floorplan.svg – layout wireframe
+
+/images/procurement.svg – RFQ/value matrix
+
+/images/installation.svg – site photo or commissioning graphic
+
+/images/daifuku.svg and /images/modula.svg – partner logos
+
+In the file, update the STEPS array image fields and the PARTNER_LOGOS list. No layout changes needed.
+
+How the page is structured (what to edit)
+
+Hero: headline + subhead—keep short and outcome‑oriented.
+
+Process flow: 6 cards (your categories), each with:
+
+kicker (tiny label), title, summary, bullets, and image.
+
+Partners: grid of logos (SVGs).
+
+CTA: single focused call to action.
+
+Visual rhythm & whitespace tips
+
+The grid uses 3 columns on desktop, 2 on tablet, 1 on mobile—keeps it airy.
+
+Cards have subtle motion on scroll, not gimmicky.
+
+Use monochrome partner logos by default; switch to color on hover if you like. (You can add a grayscale→color hover effect by adding a .partner-logo:hover { filter: none; transform: scale(1.03); } rule and defaulting to filter: grayscale(100%).)
+
+Content guidance (what to write in each step)
+
+Right‑Size the Facility
+
+Summary: what the algorithm does; input/output.
+
+Bullets: inputs (order profile, SKUs, growth), outputs (footprint, constraints), scenario slider.
+
+Data Study & Throughput Modeling
+
+Summary: method + accuracy.
+
+Bullets: peak vs avg, storage profiles, envelopes → equipment class.
+
+Concept Design & Simulation
+
+Summary: prove before build.
+
+Bullets: digital twin, bottlenecks, iterate to ROI.
+
+Floorplans & Travel Optimization
+
+Summary: travel-time + real estate efficiency.
+
+Bullets: aisle/dock logic, modules/AMRs/sortation, code-ready.
+
+Value Engineering & Procurement
+
+Summary: quotes + TCO.
+
+Bullets: apples-to-apples, spec checks, lead‑time alignment.
+
+Installation & Commissioning
+
+Summary: controls + mechanical through go‑live.
+
+Bullets: FAT/SAT, training, post‑go‑live KPIs.
+
+Aesthetic guardrails (so it never feels cluttered)
+
+Keep each summary ≤ 2 sentences, 3 bullets max (already wired).
+
+Prefer line icons or simple SVGs over stock photos.
+
+If an image is busy, keep the next card’s image minimal to avoid noise.
+
+Maintain consistent visual height for partner logos.
