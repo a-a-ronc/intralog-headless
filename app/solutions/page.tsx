@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Box, Building2, Cpu, Database, Hammer, LayoutGrid } from "lucide-react";
