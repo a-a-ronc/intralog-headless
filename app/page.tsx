@@ -30,11 +30,11 @@ export default async function HomePage() {
 
       <section className="section">
         <div className="container">
-          <div className="statbar">
-            <div className="stat">+30% throughput</div>
-            <div className="stat">−18% travel time</div>
-            <div className="stat">99.5% system uptime</div>
-          </div>
+          <img 
+            src="https://yt3.googleusercontent.com/u9BR-rnXe3BW9w_txou9SrwD8jAHu2M3p8jrFMM3VL9uSMXtytgu7_nHez4EirBvQyOApl4j8wI=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" 
+            alt="" 
+            style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius)' }}
+          />
         </div>
       </section>
 
