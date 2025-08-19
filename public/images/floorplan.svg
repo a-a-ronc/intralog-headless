@@ -1,0 +1,22 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+<style>
+.line{stroke:currentColor}
+.accent{stroke:var(--accent,#0ea5e9)}
+.fillAccent{fill:var(--accent,#0ea5e9)}
+</style>
+<!-- Racking blocks -->
+<rect x="24" y="28" width="52" height="16" rx="3" class="line"/>
+<rect x="24" y="50" width="52" height="16" rx="3" class="line"/>
+<rect x="24" y="72" width="52" height="16" rx="3" class="line"/>
+<rect x="84" y="28" width="52" height="16" rx="3" class="line"/>
+<rect x="84" y="50" width="52" height="16" rx="3" class="line"/>
+<rect x="84" y="72" width="52" height="16" rx="3" class="line"/>
+<!-- Dock/staging -->
+<rect x="168" y="28" width="48" height="28" rx="4" class="line"/>
+<rect x="168" y="62" width="48" height="26" rx="4" class="line"/>
+<!-- Travel path -->
+<circle cx="30" cy="110" r="4" class="fillAccent"/>
+<path d="M30 110c20-10 36-6 52 0 20 8 24 12 44 12 16 0 26-6 32-12" class="accent"/>
+<path d="M160 110l6-6m-6 6l6 6" class="accent"/>
+</svg>

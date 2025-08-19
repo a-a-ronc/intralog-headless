@@ -1,0 +1,21 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+<style>
+.line{stroke:currentColor}
+.accent{stroke:var(--accent,#0ea5e9)}
+.fillAccent{fill:var(--accent,#0ea5e9)}
+</style>
+<!-- Canvas/monitor -->
+<rect x="24" y="24" width="192" height="92" rx="8" class="line"/>
+<path d="M60 126h120" class="line"/>
+<!-- Blocks/nodes -->
+<rect x="44" y="44" width="28" height="18" rx="4" class="line"/>
+<rect x="96" y="44" width="28" height="18" rx="4" class="line"/>
+<rect x="148" y="44" width="28" height="18" rx="4" class="line"/>
+<!-- Connections -->
+<path d="M72 53h22M124 53h22" class="accent"/>
+<!-- Play & check -->
+<circle cx="80" cy="90" r="10" class="accent"/>
+<path d="M76 86l8 4-8 4" class="accent"/>
+<path d="M140 86l6 6 12-12" class="accent"/>
+</svg>

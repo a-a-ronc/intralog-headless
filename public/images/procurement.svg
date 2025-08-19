@@ -1,0 +1,21 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+<style>
+.line{stroke:currentColor}
+.accent{stroke:var(--accent,#0ea5e9)}
+.fillAccent{fill:var(--accent,#0ea5e9)}
+</style>
+<!-- Two quote cards (apples-to-apples) -->
+<rect x="34" y="30" width="68" height="80" rx="8" class="line"/>
+<rect x="138" y="30" width="68" height="80" rx="8" class="line"/>
+<!-- Checks/specs -->
+<path d="M48 50h34M48 64h28M48 78h22" class="line"/>
+<path d="M152 50h34M152 64h28M152 78h22" class="line"/>
+<path d="M60 98l6 6 10-10M164 98l6 6 10-10" class="accent"/>
+<!-- Value tag -->
+<path d="M116 56l8-8 16 0 0 16-8 8-16 0z" class="accent"/>
+<circle cx="132" cy="56" r="2" class="accent"/>
+<!-- Lead-time alignment (clock) -->
+<circle cx="120" cy="107" r="10" class="accent"/>
+<path d="M120 102v7M120 109l5 3" class="accent"/>
+</svg>

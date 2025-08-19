@@ -1,0 +1,26 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+<style>
+.line{stroke:currentColor}
+.accent{stroke:var(--accent,#0ea5e9)}
+.fillAccent{fill:var(--accent,#0ea5e9)}
+</style>
+<!-- Footprint box -->
+<rect x="40" y="30" width="160" height="90" rx="6" class="line"/>
+<!-- Inputs -->
+<rect x="6" y="46" width="20" height="12" rx="3" class="line"/>
+<rect x="6" y="66" width="20" height="12" rx="3" class="line"/>
+<rect x="6" y="86" width="20" height="12" rx="3" class="line"/>
+<path d="M26 52H40 M26 72H40 M26 92H40" class="accent"/>
+<!-- Dimension arrows -->
+<path d="M40 20h160" class="accent"/>
+<path d="M40 20l6 -6M40 20l6 6M200 20l-6 -6M200 20l-6 6" class="accent"/>
+<path d="M20 30v90" class="accent"/>
+<path d="M20 30l-6 6M20 30l6 6M20 120l-6 -6M20 120l6 -6" class="accent"/>
+<!-- Output chips -->
+<rect x="205" y="44" width="28" height="14" rx="7" class="accent"/>
+<rect x="205" y="66" width="28" height="14" rx="7" class="accent"/>
+<!-- Scenario slider -->
+<path d="M70 135h100" class="accent"/>
+<circle cx="120" cy="135" r="6" class="fillAccent"/>
+</svg>
