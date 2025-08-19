@@ -3,7 +3,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Box, Building2, Cpu, Database, Hammer, LayoutGrid, Zap, Circuit, Cog } from "lucide-react";
+import { ArrowRight, Box, Building2, Cpu, Database, Hammer, LayoutGrid, Zap, Cog, Settings } from "lucide-react";
 
 const STEPS = [
   {
@@ -140,7 +140,7 @@ export default function SolutionsPage() {
               >
                 <Zap className="h-8 w-8 text-cyan-400" />
                 <span className="text-cyan-400 font-semibold tracking-wide uppercase text-sm">Automation Excellence</span>
-                <Circuit className="h-8 w-8 text-cyan-400" />
+                <Settings className="h-8 w-8 text-cyan-400" />
               </motion.div>
               
               <motion.h1
@@ -177,7 +177,7 @@ export default function SolutionsPage() {
                   <span>Real-Time Simulation</span>
                 </div>
                 <div className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-full border border-slate-700">
-                  <Circuit className="h-4 w-4 text-purple-400" />
+                  <Settings className="h-4 w-4 text-purple-400" />
                   <span>Digital Twin Technology</span>
                 </div>
               </motion.div>
@@ -311,7 +311,7 @@ export default function SolutionsPage() {
             <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-3xl p-12 text-center overflow-hidden">
               {/* Tech pattern overlay */}
               <div className="absolute inset-0 opacity-20">
-                <Circuit className="absolute top-4 left-4 h-16 w-16" />
+                <Settings className="absolute top-4 left-4 h-16 w-16" />
                 <Cog className="absolute bottom-4 right-4 h-20 w-20 animate-spin" />
                 <Zap className="absolute top-1/2 left-8 h-12 w-12" />
               </div>
