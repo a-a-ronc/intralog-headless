@@ -176,7 +176,7 @@ export default function SolutionsPage() {
             gap: '1.5rem' 
           }}>
             {[
-              { name: "Daifuku", src: "/partners/daifuku.svg" },
+              { name: "Daifuku", src: "/images/daifuku.svg"},
               { name: "Modula", src: "/images/modula.svg" },
             ].map((logo) => (
               <div key={logo.name} style={{ 
@@ -206,3 +206,5 @@ export default function SolutionsPage() {
     </div>
   );
 }
+
+
