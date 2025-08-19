@@ -80,53 +80,77 @@ export default function SolutionsPage() {
   return (
     <div>
       {/* HERO */}
-      <section className="section-pad">
-        <div className="page-wrap text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+      <section className="section">
+        <div className="container" style={{ maxWidth: '768px', textAlign: 'center' }}>
+          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '600', margin: '0 0 1rem' }}>
             Turnkey Warehouse Optimization
           </h1>
-          <p className="mt-4 text-lg text-slate-600">
+          <p style={{ fontSize: '1.125rem', color: '#64748b', margin: '1rem 0' }}>
             From right-sizing and data studies to simulation, layout, procurement and installation — one partner, accountable end-to-end.
           </p>
         </div>
       </section>
 
       {/* PROCESS GRID */}
-      <section className="border-t border-slate-100 bg-slate-50">
-        <div className="page-wrap section-pad">
-          <div className="mb-8 flex items-baseline justify-between">
-            <h2 className="text-2xl font-semibold">Our Process, Step by Step</h2>
-            <p className="text-sm text-slate-600">Transparent stages with measurable outputs</p>
+      <section style={{ borderTop: '1px solid #f1f5f9', background: '#f8fafc' }}>
+        <div className="container section">
+          <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: '600' }}>Our Process, Step by Step</h2>
+            <p style={{ fontSize: '0.875rem', color: '#64748b' }}>Transparent stages with measurable outputs</p>
           </div>
 
-          <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ol className="grid">
             {steps.map((s) => (
-              <li key={s.id} className="card flex flex-col h-full">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-white text-xs font-semibold">
+              <li key={s.id} className="card" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    height: '36px',
+                    width: '36px',
+                    borderRadius: '50%',
+                    background: '#1e293b',
+                    color: 'white',
+                    fontSize: '0.75rem',
+                    fontWeight: '600'
+                  }}>
                     {s.id}
                   </div>
-                  <div className="text-xs uppercase tracking-wide text-slate-500">{s.kicker}</div>
+                  <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748b' }}>
+                    {s.kicker}
+                  </div>
                 </div>
 
-                <h3 className="mt-3 text-lg font-semibold leading-tight">{s.title}</h3>
-                <p className="mt-2 text-slate-600">{s.summary}</p>
+                <h3 style={{ marginTop: '0.75rem', fontSize: '1.125rem', fontWeight: '600', lineHeight: '1.2' }}>
+                  {s.title}
+                </h3>
+                <p style={{ marginTop: '0.5rem', color: '#64748b' }}>
+                  {s.summary}
+                </p>
 
-                <ul className="mt-3 space-y-1 text-sm text-slate-600">
-                  {s.bullets.map((b, i) => <li key={i}>• {b}</li>)}
+                <ul style={{ marginTop: '0.75rem', fontSize: '0.875rem', color: '#64748b' }}>
+                  {s.bullets.map((b, i) => (
+                    <li key={i} style={{ marginBottom: '0.25rem' }}>• {b}</li>
+                  ))}
                 </ul>
 
                 {/* Consistent media box */}
-                <div className="mt-4 rounded-xl border border-slate-100 bg-slate-50">
-                  <div className="relative w-full" style={{ height: 160 }}>
-                    <Image
-                      src={s.img}
-                      alt=""
-                      fill
-                      className="object-contain p-3"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
+                <div style={{ 
+                  marginTop: '1rem', 
+                  borderRadius: '0.75rem', 
+                  border: '1px solid #f1f5f9', 
+                  background: '#f8fafc',
+                  height: '160px',
+                  position: 'relative'
+                }}>
+                  <Image
+                    src={s.img}
+                    alt=""
+                    fill
+                    className="object-contain p-3"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
               </li>
             ))}
@@ -135,20 +159,33 @@ export default function SolutionsPage() {
       </section>
 
       {/* PARTNERS WALL */}
-      <section className="border-t border-slate-100">
-        <div className="page-wrap section-pad">
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Equipment Partners</h2>
-            <p className="text-sm text-slate-600">Best value, best fit</p>
+      <section style={{ borderTop: '1px solid #f1f5f9' }}>
+        <div className="container section">
+          <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: '600' }}>Equipment Partners</h2>
+            <p style={{ fontSize: '0.875rem', color: '#64748b' }}>Best value, best fit</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+            gap: '1.5rem' 
+          }}>
             {[
               { name: "Daifuku", src: "/partners/daifuku.svg" },
-              { name: "Modula",  src: "/partners/modula.svg"  },
+              { name: "Modula", src: "/partners/modula.svg" },
             ].map((logo) => (
-              <div key={logo.name} className="partner-box">
-                <div className="relative w-full" style={{ height: 40 }}>
+              <div key={logo.name} style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                borderRadius: '0.75rem',
+                border: '1px solid #e2e8f0',
+                background: 'white',
+                padding: '1rem',
+                height: '80px'
+              }}>
+                <div style={{ position: 'relative', width: '100%', height: '40px' }}>
                   <Image
                     src={logo.src}
                     alt={`${logo.name} logo`}

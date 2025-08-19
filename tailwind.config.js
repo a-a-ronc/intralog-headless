@@ -1,9 +1,11 @@
 
-module.exports = {
+import { fontFamily } from "tailwindcss/defaultTheme";
+
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -16,7 +18,10 @@ module.exports = {
         'intralog-cyan': '#00D4FF',
         'tech-purple': '#8B5CF6',
       },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
     },
   },
   plugins: [],
-}
+};
