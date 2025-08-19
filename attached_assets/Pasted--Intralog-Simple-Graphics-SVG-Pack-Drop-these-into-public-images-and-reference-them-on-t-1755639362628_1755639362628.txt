@@ -1,0 +1,187 @@
+# Intralog Simple Graphics – SVG Pack
+
+> Drop these into `/public/images/` and reference them on the Solutions page. Each SVG is lightweight, 2‑color (text color + accent). Override the accent with CSS: `.accent-sky { --accent: #0ea5e9 }` or `.accent-amber { --accent: #f59e0b }` etc.
+
+---
+
+## 1) rightsize.svg – Right‑Size the Facility
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+  <style>
+    .line{stroke:currentColor}
+    .accent{stroke:var(--accent,#0ea5e9)}
+    .fillAccent{fill:var(--accent,#0ea5e9)}
+  </style>
+  <!-- Footprint box -->
+  <rect x="40" y="30" width="160" height="90" rx="6" class="line"/>
+  <!-- Inputs -->
+  <rect x="6" y="46" width="20" height="12" rx="3" class="line"/>
+  <rect x="6" y="66" width="20" height="12" rx="3" class="line"/>
+  <rect x="6" y="86" width="20" height="12" rx="3" class="line"/>
+  <path d="M26 52H40 M26 72H40 M26 92H40" class="accent"/>
+  <!-- Dimension arrows -->
+  <path d="M40 20h160" class="accent"/>
+  <path d="M40 20l6 -6M40 20l6 6M200 20l-6 -6M200 20l-6 6" class="accent"/>
+  <path d="M20 30v90" class="accent"/>
+  <path d="M20 30l-6 6M20 30l6 6M20 120l-6 -6M20 120l6 -6" class="accent"/>
+  <!-- Output chips -->
+  <rect x="205" y="44" width="28" height="14" rx="7" class="accent"/>
+  <rect x="205" y="66" width="28" height="14" rx="7" class="accent"/>
+  <!-- Scenario slider -->
+  <path d="M70 135h100" class="accent"/>
+  <circle cx="120" cy="135" r="6" class="fillAccent"/>
+</svg>
+```
+
+---
+
+## 2) data-study.svg – Data Study & Throughput Modeling
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+  <style>
+    .line{stroke:currentColor}
+    .accent{stroke:var(--accent,#0ea5e9)}
+    .fillAccent{fill:var(--accent,#0ea5e9)}
+  </style>
+  <!-- Database cylinder -->
+  <ellipse cx="50" cy="44" rx="26" ry="8" class="accent"/>
+  <path d="M24 44v34c0 4 12 8 26 8s26-4 26-8V44" class="accent"/>
+  <path d="M24 62c0 4 12 8 26 8s26-4 26-8" class="accent"/>
+  <!-- Bars -->
+  <rect x="105" y="70" width="14" height="40" rx="2" class="line"/>
+  <rect x="125" y="58" width="14" height="52" rx="2" class="line"/>
+  <rect x="145" y="82" width="14" height="28" rx="2" class="line"/>
+  <!-- Throughput line over bars -->
+  <path d="M102 96l12-16 20-18 20 12 20-8" class="accent"/>
+  <!-- Envelope -> class icon (arrow into box) -->
+  <rect x="190" y="60" width="28" height="22" rx="4" class="line"/>
+  <path d="M168 71h20" class="accent"/>
+  <path d="M186 66l6 5-6 5" class="accent"/>
+</svg>
+```
+
+---
+
+## 3) simulation.svg – Concept Design & Simulation
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+  <style>
+    .line{stroke:currentColor}
+    .accent{stroke:var(--accent,#0ea5e9)}
+    .fillAccent{fill:var(--accent,#0ea5e9)}
+  </style>
+  <!-- Canvas/monitor -->
+  <rect x="24" y="24" width="192" height="92" rx="8" class="line"/>
+  <path d="M60 126h120" class="line"/>
+  <!-- Blocks/nodes -->
+  <rect x="44" y="44" width="28" height="18" rx="4" class="line"/>
+  <rect x="96" y="44" width="28" height="18" rx="4" class="line"/>
+  <rect x="148" y="44" width="28" height="18" rx="4" class="line"/>
+  <!-- Connections -->
+  <path d="M72 53h22M124 53h22" class="accent"/>
+  <!-- Play & check -->
+  <circle cx="80" cy="90" r="10" class="accent"/>
+  <path d="M76 86l8 4-8 4" class="accent"/>
+  <path d="M140 86l6 6 12-12" class="accent"/>
+</svg>
+```
+
+---
+
+## 4) floorplan.svg – Floorplans & Travel Optimization
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+  <style>
+    .line{stroke:currentColor}
+    .accent{stroke:var(--accent,#0ea5e9)}
+    .fillAccent{fill:var(--accent,#0ea5e9)}
+  </style>
+  <!-- Racking blocks -->
+  <rect x="24" y="28" width="52" height="16" rx="3" class="line"/>
+  <rect x="24" y="50" width="52" height="16" rx="3" class="line"/>
+  <rect x="24" y="72" width="52" height="16" rx="3" class="line"/>
+  <rect x="84" y="28" width="52" height="16" rx="3" class="line"/>
+  <rect x="84" y="50" width="52" height="16" rx="3" class="line"/>
+  <rect x="84" y="72" width="52" height="16" rx="3" class="line"/>
+  <!-- Dock/staging -->
+  <rect x="168" y="28" width="48" height="28" rx="4" class="line"/>
+  <rect x="168" y="62" width="48" height="26" rx="4" class="line"/>
+  <!-- Travel path -->
+  <circle cx="30" cy="110" r="4" class="fillAccent"/>
+  <path d="M30 110c20-10 36-6 52 0 20 8 24 12 44 12 16 0 26-6 32-12" class="accent"/>
+  <path d="M160 110l6-6m-6 6l6 6" class="accent"/>
+</svg>
+```
+
+---
+
+## 5) procurement.svg – Value Engineering & Procurement
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+  <style>
+    .line{stroke:currentColor}
+    .accent{stroke:var(--accent,#0ea5e9)}
+    .fillAccent{fill:var(--accent,#0ea5e9)}
+  </style>
+  <!-- Two quote cards (apples-to-apples) -->
+  <rect x="34" y="30" width="68" height="80" rx="8" class="line"/>
+  <rect x="138" y="30" width="68" height="80" rx="8" class="line"/>
+  <!-- Checks/specs -->
+  <path d="M48 50h34M48 64h28M48 78h22" class="line"/>
+  <path d="M152 50h34M152 64h28M152 78h22" class="line"/>
+  <path d="M60 98l6 6 10-10M164 98l6 6 10-10" class="accent"/>
+  <!-- Value tag -->
+  <path d="M116 56l8-8 16 0 0 16-8 8-16 0z" class="accent"/>
+  <circle cx="132" cy="56" r="2" class="accent"/>
+  <!-- Lead-time alignment (clock) -->
+  <circle cx="120" cy="107" r="10" class="accent"/>
+  <path d="M120 102v7M120 109l5 3" class="accent"/>
+</svg>
+```
+
+---
+
+## 6) installation.svg – Installation & Commissioning
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="accent-sky">
+  <style>
+    .line{stroke:currentColor}
+    .accent{stroke:var(--accent,#0ea5e9)}
+    .fillAccent{fill:var(--accent,#0ea5e9)}
+  </style>
+  <!-- Gear -->
+  <circle cx="76" cy="76" r="16" class="line"/>
+  <path d="M76 56v6M76 90v6M56 76h6M90 76h6M62 62l4 4M90 62l-4 4M62 90l4-4M90 90l-4-4" class="line"/>
+  <circle cx="76" cy="76" r="5" class="accent"/>
+  <!-- Wrench -->
+  <path d="M100 60l12 12-18 18-12-12z" class="line"/>
+  <path d="M107 67l6-6" class="accent"/>
+  <!-- Progress bar / commissioning -->
+  <rect x="128" y="96" width="88" height="12" rx="6" class="line"/>
+  <rect x="128" y="96" width="52" height="12" rx="6" class="fillAccent"/>
+  <!-- FAT/SAT checks -->
+  <path d="M164 58l6 6 12-12" class="accent"/>
+  <path d="M164 74l6 6 12-12" class="accent"/>
+</svg>
+```
+
+---
+
+### Usage tips
+
+* **Color:** The stroke defaults to `currentColor`. Set the container color (e.g., `text-slate-900` or `text-white`). Override the accent with a CSS variable on a parent: `.accent-amber { --accent:#f59e0b }`.
+* **Sizing:** These scale crisply. Example in React/Next:
+
+  ```tsx
+  <div className="h-40 w-full text-slate-900 accent-amber">
+    <img src="/images/rightsize.svg" alt="Right-size graphic" className="h-full w-full object-contain" />
+  </div>
+  ```
+* **Dark mode:** Wrap the section with `text-white` and set `.accent` to a bright hue, or keep the same accent for brand continuity.
+* **Performance:** Inline the SVG for fine-grain CSS control, or keep as files under `/public/images` for cacheability.
