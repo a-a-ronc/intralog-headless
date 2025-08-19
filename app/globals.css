@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base tweaks for smoother type + spacing */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-slate-900 antialiased; }
+}
+
+/* A single source of truth for page gutters & max width */
+@layer components {
+  .page-wrap { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section-pad { @apply py-12 sm:py-16 lg:py-20; }
+  .card { @apply rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200; }
+  .card-tight { @apply rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-200; }
+}
+
+/* Uniform logo boxes (partners, navbar brand, etc) */
+.logo-box { height: clamp(28px, 4vw, 40px); }
+.partner-box { @apply flex items-center justify-center rounded-xl border border-slate-200 bg-white p-4; }
+.partner-img { @apply h-8 md:h-10 w-auto object-contain opacity-90 transition ease-out duration-300; }
+.partner-img:hover { @apply opacity-100; }
+
 :root{
   --brand-blue:#0B2D52;
   --brand-gray:#2E2E2E;
