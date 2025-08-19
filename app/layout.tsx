@@ -12,7 +12,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <header className="header">
           <div className="container inner">
-            <div><Link href="/"><strong>Intralog</strong></Link></div>
+            <div>
+              <Link href="/">
+                <img 
+                  src="https://intralog.io/wp-content/uploads/2023/02/logo_rbg_primary_color.png" 
+                  alt="Intralog" 
+                  className="h-8 w-auto"
+                />
+              </Link>
+            </div>
             <nav className="nav">
               <Link href="/solutions">Solutions</Link>
               <Link href="/partners">Partners</Link>
