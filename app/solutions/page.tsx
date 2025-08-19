@@ -107,7 +107,7 @@ const STEPS = [
 ];
 
 const PARTNER_LOGOS = [
-  { name: "Daifuku", src: "/images/daifuku.svg" },
+  { name: "Daifuku", src: "https://www.daifuku.com/assets/images/common/logo_main.svg" },
   { name: "Modula", src: "/images/modula.svg" },
   // Add more logos as needed
 ];
