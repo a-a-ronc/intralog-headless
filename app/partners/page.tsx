@@ -56,6 +56,30 @@ export default async function PartnersPage() {
             </svg>
             <div>Modula</div>
           </div>
+          <div className="card" style={{textAlign:'center'}}>
+            <img src="/media/u15eb2t3/tomiartboard-1.png?width=770&height=420&v=1db70b147ad65b0" alt="Tomi" style={{height:'44px', width:'auto', marginBottom:'0.6rem'}} className="partner-logo" />
+            <div>Tomi</div>
+          </div>
+          <div className="card" style={{textAlign:'center'}}>
+            <img src="https://ryson.com/wp-content/uploads/2023/05/ryson-logo_sm.png" alt="Ryson" style={{height:'44px', width:'auto', marginBottom:'0.6rem'}} className="partner-logo" />
+            <div>Ryson</div>
+          </div>
+          <div className="card" style={{textAlign:'center'}}>
+            <img src="//www.ashlandconveyor.com/cdn/shop/files/ashland-logo.png?v=1613782398" alt="Ashland Conveyor" style={{height:'44px', width:'auto', marginBottom:'0.6rem'}} className="partner-logo" />
+            <div>Ashland Conveyor</div>
+          </div>
+          <div className="card" style={{textAlign:'center'}}>
+            <img src="https://fmhconveyors.com/wp-content/uploads/2021/03/fmh-logo.svg" alt="FMH Conveyors" style={{height:'44px', width:'auto', marginBottom:'0.6rem'}} className="partner-logo" />
+            <div>FMH Conveyors</div>
+          </div>
+          <div className="card" style={{textAlign:'center'}}>
+            <img src="https://www.mccue.com/hubfs/images/assets/logos/mccue-logo-on-dark.svg" alt="McCue" style={{height:'44px', width:'auto', marginBottom:'0.6rem'}} className="partner-logo" />
+            <div>McCue</div>
+          </div>
+          <div className="card" style={{textAlign:'center'}}>
+            <img src="https://www.handleitinc.com/wp-content/uploads/2025/05/HII-Horizontal-Logo-center-justified-2024-scaled-e1748528058528.png" alt="Handle It Inc" style={{height:'44px', width:'auto', marginBottom:'0.6rem'}} className="partner-logo" />
+            <div>Handle It Inc</div>
+          </div>
         </div>
       </div>
     </main>
