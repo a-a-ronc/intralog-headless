@@ -156,13 +156,13 @@ body {
 }
 
 .partner-logo {
-  filter: grayscale(100%);
-  transition: all 0.3s ease;
+  filter: grayscale(100%) !important;
+  transition: all 0.3s ease !important;
 }
 
 .partner-logo:hover {
-  filter: grayscale(0%);
-  transform: scale(1.05);
+  filter: grayscale(0%) !important;
+  transform: scale(1.05) !important;
 }
 
 /* Tech-forward enhancements */
