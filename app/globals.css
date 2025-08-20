@@ -28,26 +28,37 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(1rem, 4vw, 2rem);
 }
 
 .section {
-  padding: clamp(2rem, 4vw, 5rem) 0;
+  padding: clamp(2rem, 8vw, 5rem) 0;
 }
 
 .btn {
   display: inline-block;
   border-radius: var(--radius);
-  padding: 0.8rem 1.2rem;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
   font-weight: 600;
   background: var(--brand-blue);
   color: white;
   text-decoration: none;
   transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  text-align: center;
+  min-width: fit-content;
 }
 
 .btn:hover {
   opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 .card {
@@ -82,8 +93,14 @@ body {
 
 .nav {
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  white-space: nowrap;
 }
 
 .header {
@@ -98,7 +115,29 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0;
+  padding: clamp(0.5rem, 2vw, 0.8rem) 0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header img {
+  height: clamp(1.5rem, 4vw, 2rem);
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .nav .btn {
+    order: 1;
+    margin-left: auto;
+  }
 }
 
 .footer {
@@ -131,8 +170,14 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .statbar {
@@ -163,6 +208,68 @@ body {
 .partner-logo:hover {
   filter: grayscale(0%) !important;
   transform: scale(1.05) !important;
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+  
+  .hero p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover {
+    transform: none;
+  }
+  
+  .partner-logo:hover {
+    transform: scale(1.02) !important;
+  }
+  
+  /* Larger touch targets */
+  .btn {
+    min-height: 44px;
+    padding: 0.875rem 1.25rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
 }
 
 /* Tech-forward enhancements */

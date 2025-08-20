@@ -21,10 +21,22 @@ export default async function HomePage() {
     <main>
       <section className="hero">
         <div className="container">
-          <h1>Automated Material Handling, Engineered for ROI.</h1>
-          <p>Conveyors, AMRs, racking, and high‑throughput sortation—designed, integrated, and supported for 3PLs and enterprise DCs.</p>
-          <div style={{marginTop:'1rem'}}>
-            <Link className="btn" href="/contact">Let&apos;s Talk</Link>
+          <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', lineHeight: '1.2', textAlign: 'center' }}>
+            Automated Material Handling, Engineered for ROI.
+          </h1>
+          <p style={{ 
+            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', 
+            maxWidth: '800px', 
+            margin: '1rem auto', 
+            textAlign: 'center',
+            lineHeight: '1.6'
+          }}>
+            Conveyors, AMRs, racking, and high‑throughput sortation—designed, integrated, and supported for 3PLs and enterprise DCs.
+          </p>
+          <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <Link className="btn" href="/contact" style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)' }}>
+              Let&apos;s Talk
+            </Link>
           </div>
         </div>
       </section>
@@ -33,19 +45,32 @@ export default async function HomePage() {
         <div className="container">
           <img 
             src="https://yt3.googleusercontent.com/u9BR-rnXe3BW9w_txou9SrwD8jAHu2M3p8jrFMM3VL9uSMXtytgu7_nHez4EirBvQyOApl4j8wI=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" 
-            alt="" 
-            style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius)' }}
+            alt="Company overview" 
+            style={{ 
+              width: '100%', 
+              height: 'auto', 
+              borderRadius: 'var(--radius)',
+              maxHeight: '60vh',
+              objectFit: 'cover'
+            }}
           />
         </div>
       </section>
 
-      <section className="section" style={{background:'var(--light)'}}>
+      <section className="section" style={{ background: 'var(--light)' }}>
         <div className="container">
-          <h2 style={{marginTop:0}}>Trusted Partners</h2>
+          <h2 style={{ 
+            marginTop: 0, 
+            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', 
+            textAlign: 'center',
+            marginBottom: '2rem'
+          }}>
+            Trusted Partners
+          </h2>
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', 
-            gap: '1.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', 
+            gap: 'clamp(1rem, 3vw, 1.5rem)',
             marginTop: '1.5rem'
           }}>
             {/* Daifuku */}
@@ -56,10 +81,11 @@ export default async function HomePage() {
               borderRadius: '0.75rem',
               border: '1px solid #e2e8f0',
               background: 'white',
-              padding: '1rem',
-              height: '80px'
+              padding: 'clamp(0.75rem, 2vw, 1rem)',
+              height: 'clamp(60px, 15vw, 80px)',
+              aspectRatio: '3/2'
             }}>
-              <div style={{ position: 'relative', width: '100%', height: '40px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
                   src="/images/daifuku.svg"
                   alt="Daifuku logo"
@@ -85,10 +111,11 @@ export default async function HomePage() {
               borderRadius: '0.75rem',
               border: '1px solid #e2e8f0',
               background: 'white',
-              padding: '1rem',
-              height: '80px'
+              padding: 'clamp(0.75rem, 2vw, 1rem)',
+              height: 'clamp(60px, 15vw, 80px)',
+              aspectRatio: '3/2'
             }}>
-              <div style={{ position: 'relative', width: '100%', height: '40px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
                   src="/images/modula.svg"
                   alt="Modula logo"
@@ -106,7 +133,7 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* stow Group */}
+            {/* Stow Group */}
             <div style={{ 
               display: 'flex', 
               alignItems: 'center', 
@@ -114,10 +141,11 @@ export default async function HomePage() {
               borderRadius: '0.75rem',
               border: '1px solid #e2e8f0',
               background: 'white',
-              padding: '1rem',
-              height: '80px'
+              padding: 'clamp(0.75rem, 2vw, 1rem)',
+              height: 'clamp(60px, 15vw, 80px)',
+              aspectRatio: '3/2'
             }}>
-              <div style={{ position: 'relative', width: '100%', height: '40px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
                   src="/images/stowgroup.svg"
                   alt="Stow Group logo"
@@ -143,10 +171,11 @@ export default async function HomePage() {
               borderRadius: '0.75rem',
               border: '1px solid #e2e8f0',
               background: 'white',
-              padding: '1rem',
-              height: '80px'
+              padding: 'clamp(0.75rem, 2vw, 1rem)',
+              height: 'clamp(60px, 15vw, 80px)',
+              aspectRatio: '3/2'
             }}>
-              <div style={{ position: 'relative', width: '100%', height: '40px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
                   src="https://interlakemecalux.cdnwm.com/o/corporate-theme/images/common/logo-interlake-mecalux.svg"
                   alt="Interlake Mecalux logo"
@@ -172,10 +201,11 @@ export default async function HomePage() {
               borderRadius: '0.75rem',
               border: '1px solid #e2e8f0',
               background: 'white',
-              padding: '1rem',
-              height: '80px'
+              padding: 'clamp(0.75rem, 2vw, 1rem)',
+              height: 'clamp(60px, 15vw, 80px)',
+              aspectRatio: '3/2'
             }}>
-              <div style={{ position: 'relative', width: '100%', height: '40px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
                   src="https://www.joloda.com/assets/images/LAI_Logo.png"
                   alt="Joloda Hydraroll logo"
@@ -201,10 +231,11 @@ export default async function HomePage() {
               borderRadius: '0.75rem',
               border: '1px solid #e2e8f0',
               background: 'white',
-              padding: '1rem',
-              height: '80px'
+              padding: 'clamp(0.75rem, 2vw, 1rem)',
+              height: 'clamp(60px, 15vw, 80px)',
+              aspectRatio: '3/2'
             }}>
-              <div style={{ position: 'relative', width: '100%', height: '40px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
                   src="//www.ashlandconveyor.com/cdn/shop/files/ashland-logo.png?v=1613782398"
                   alt="Ashland Conveyor logo"
@@ -227,21 +258,66 @@ export default async function HomePage() {
 
       <section className="section">
         <div className="container">
-          <h2 style={{marginTop:0}}>Featured Case Studies</h2>
-          <div className="grid">
+          <h2 style={{ 
+            marginTop: 0, 
+            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', 
+            textAlign: 'center',
+            marginBottom: '2rem'
+          }}>
+            Featured Case Studies
+          </h2>
+          <div className="grid" style={{ 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 'clamp(1rem, 3vw, 1.5rem)'
+          }}>
             {caseStudies.map(cs => <CaseStudyCard key={cs.id} cs={cs} />)}
           </div>
-          <div style={{marginTop:'1rem'}}><Link href="/case-studies">See all case studies →</Link></div>
+          <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <Link href="/case-studies" style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)' }}>
+              See all case studies →
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="section" style={{background:'var(--brand-blue)', color:'#fff'}}>
-        <div className="container" style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:'1rem',flexWrap:'wrap'}}>
-          <div>
-            <h2 style={{margin:'0 0 .4rem'}}>Ready to boost throughput?</h2>
-            <div className="small" style={{opacity:.9}}>We design and integrate the right mix of equipment for your ROI.</div>
+      <section className="section" style={{ background: 'var(--brand-blue)', color: '#fff' }}>
+        <div className="container" style={{ 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center', 
+          gap: '2rem', 
+          flexWrap: 'wrap',
+          textAlign: 'center'
+        }}>
+          <div style={{ flex: '1', minWidth: '280px' }}>
+            <h2 style={{ 
+              margin: '0 0 .5rem', 
+              fontSize: 'clamp(1.5rem, 4vw, 2.25rem)',
+              lineHeight: '1.3'
+            }}>
+              Ready to boost throughput?
+            </h2>
+            <div className="small" style={{ 
+              opacity: 0.9, 
+              fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+              lineHeight: '1.5'
+            }}>
+              We design and integrate the right mix of equipment for your ROI.
+            </div>
           </div>
-          <Link className="btn" href="/contact" style={{background:'#fff', color:'var(--brand-blue)'}}>Get in touch</Link>
+          <Link 
+            className="btn" 
+            href="/contact" 
+            style={{ 
+              background: '#fff', 
+              color: 'var(--brand-blue)',
+              fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
+              padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem)',
+              flexShrink: 0
+            }}
+          >
+            Get in touch
+          </Link>
         </div>
       </section>
     </main>
