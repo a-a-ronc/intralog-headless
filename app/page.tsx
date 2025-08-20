@@ -60,7 +60,7 @@ export default async function HomePage() {
             }}>
               <div style={{ position: 'relative', width: '100%', height: '40px' }}>
                 <img
-                  src="/partners/daifuku.svg"
+                  src="/images/daifuku.svg"
                   alt="Daifuku logo"
                   style={{ 
                     maxWidth: '100%', 
@@ -118,8 +118,8 @@ export default async function HomePage() {
             }}>
               <div style={{ position: 'relative', width: '100%', height: '40px' }}>
                 <img
-                  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDIyNS42IDc0LjYiPjxkZWZzPjxzdHlsZT4uZHtmaWxsOiNmMzcwMjE7fS5le2ZpbGw6IzJiOTNkMTt9PC9zdHlsZT48L2RlZnM+PGcgaWQ9"
-                  alt="stow Group logo"
+                  src="/images/stowgroup.svg"
+                  alt="Stow Group logo"
                   style={{ 
                     maxWidth: '100%', 
                     maxHeight: '100%', 
