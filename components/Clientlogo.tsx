@@ -18,10 +18,9 @@ export default function ClientLogo({
 }) {
   const isSvg = src.toLowerCase().endsWith('.svg')
 
-  // SVGs aren’t bitmap-optimized by next/image; either <img> or Image with unoptimized both work.
+  // SVGs: serve directly to avoid next/image warnings and preserve crisp vectors
   if (isSvg) {
     return (
-      // Using <img> keeps colors crisp and avoids any SVG optimization warnings
       <img
         src={src}
         alt={alt}
@@ -33,7 +32,7 @@ export default function ClientLogo({
     )
   }
 
-  // Raster logos (PNG/JPG/WEBP/AVIF/GIF) – fully optimized by next/image
+  // Raster logos (PNG / JPG / WEBP / AVIF etc.) use next/image for optimization
   return (
     <Image
       src={src}

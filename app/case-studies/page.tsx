@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { wpFetch } from '@/lib/wp'
 import { CASE_STUDIES_QUERY } from '@/lib/queries'
 import CaseStudyCard from '@/components/CaseStudyCard'
+import ClientLogo from '@/components/Clientlogo' //added for little giant logo
 
 export const metadata = { title: 'Project Showcase | Intralog' }
 
@@ -12,12 +13,12 @@ export const metadata = { title: 'Project Showcase | Intralog' }
 const clients = [
   { name: 'New Balance', src: '/clients/newbalance.svg' },
   { name: "Sportsman's Warehouse", src: '/clients/sportsmans.svg' },
-  { name: 'Little Giant', src: '/clients/little-giant.svg' },
+  { name: 'Little Giant', src: '/clients/littlegiant' },
   { name: 'Lion Energy', src: '/clients/lionenergy.svg' },
   { name: 'Built Brands', src: '/clients/builtbrands.png' },
 ]
 
-/**
+/*
  * The project showcase page lists recent warehouse projects with a modern, client‑focused
  * design.  It pulls projects from WordPress via `wpFetch` and arranges them in a
  * responsive grid.  A hero section introduces the purpose of the page, a client
