@@ -2,7 +2,7 @@ import { wpFetch } from '@/lib/wp'
 import { CASE_STUDIES_QUERY } from '@/lib/queries'
 import CaseStudyCard from '@/components/CaseStudyCard'
 
-export const metadata = { title: 'Case Studies | Intralog' }
+export const metadata = { title: 'Showcase | Intralog' }
 
 export default async function CaseStudiesPage() {
   let items: any[] = []
@@ -14,7 +14,7 @@ export default async function CaseStudiesPage() {
   return (
     <main className="section">
       <div className="container">
-        <h1>Case Studies</h1>
+        <h1>Project Showcase</h1>
         <div className="grid" style={{marginTop:'1rem'}}>
           {items.map(cs => <CaseStudyCard key={cs.id} cs={cs} />)}
         </div>

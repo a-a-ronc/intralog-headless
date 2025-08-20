@@ -264,7 +264,7 @@ export default async function HomePage() {
             textAlign: 'center',
             marginBottom: '2rem'
           }}>
-            Featured Case Studies
+            Innovation in Action
           </h2>
           <div className="grid" style={{ 
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -274,7 +274,7 @@ export default async function HomePage() {
           </div>
           <div style={{ marginTop: '2rem', textAlign: 'center' }}>
             <Link href="/case-studies" style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)' }}>
-              See all case studies →
+              View our showcase →
             </Link>
           </div>
         </div>

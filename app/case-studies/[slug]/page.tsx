@@ -1,6 +1,7 @@
 import { wpFetch } from '@/lib/wp'
 import { CASE_STUDY_BY_SLUG_QUERY } from '@/lib/queries'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 type Params = { params: { slug: string } }
@@ -17,6 +18,7 @@ export default async function CaseStudyDetail({ params }: Params) {
   return (
     <main className="section">
       <div className="container">
+        <div className="small" style={{marginBottom: '1rem', color: '#6b7280'}}>← Back to <Link href="/case-studies">Showcase</Link></div>
         <h1>{data.title}</h1>
         {data.featuredImage?.node?.sourceUrl && (
           <Image src={data.featuredImage.node.sourceUrl} alt={data.featuredImage.node.altText || ''} width={1200} height={600} style={{width:'100%', height:'auto', borderRadius:'12px', margin:'1rem 0'}}/>

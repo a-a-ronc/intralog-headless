@@ -24,7 +24,7 @@ export default function CaseStudyCard({ cs }: { cs: CS }) {
       )}
       <h3 style={{margin:'0 0 .5rem'}}>{cs.title}</h3>
       {cs.excerpt && <div className="small" dangerouslySetInnerHTML={{__html: cs.excerpt}} />}
-      <div className="small" style={{marginTop:'.6rem'}}>Read case study →</div>
+      <div className="small" style={{marginTop:'.6rem'}}>View project →</div>
     </Link>
   )
 }
