@@ -1,0 +1,32 @@
+Below is a proposed top‑level navigation and sub‑menus. Each heading is a hover target; sub‑menus appear on hover with columns, similar to KPI and Fortna. Keep your existing styling (clean typography, muted colours, rounded cards) but extend the header to support these drop‑downs.
+
+Solutions (what you design & build)
+By Technology – Pallet Shuttles, Vertical Lift Modules (VLM), Conveyor & Sortation Systems, AMRs/AGVs, Warehouse Control & Execution Software (WCS/WES), Robotics (Piece Picking, Palletizing).
+By Function – Storage & Retrieval, Picking & Packing, Buffering/Sequencing, Palletizing, Sortation.
+By Industry – Retail & E‑Commerce, Food & Beverage, Manufacturing, Healthcare/Pharma, Third‑Party Logistics (3PL), Sporting Goods/Outdoors (custom if relevant).
+
+Services (your integrator activities)
+Consulting & Planning – Supply‑chain & network analysis, SKU profiling/ABC analysis, concept selection, vendor comparison.
+Design & Engineering – Facility sizing & throughput modeling, simulation & digital twins, layout & slotting, specification drafting.
+Implementation & Integration – Value engineering & procurement, installation & commissioning, controls integration (through partners).
+Support – Training & on‑site start‑up, upgrades/retrofits (as needed), partner after‑sales programs.
+These sections map directly to the first four activities in the integrator report
+ and show clients that you handle projects from concept to go‑live while partnering for heavy manufacturing and service.
+
+Industries
+A simple drop‑down listing the verticals you serve (e.g., Mid‑market warehouses, Sporting Goods, Outdoor & Adventure, Apparel, Food & Beverage, Energy/Consumer Brands). Each link can lead to a landing page with a brief description and relevant showcase items.
+
+Showcase (or “Projects”)
+Use the improved project gallery you built earlier—highlighting customer stories (New Balance, Sportsman’s Warehouse, Little Giant, Lion Energy, Built Brands, etc.) with photos/videos/drawings. Keep a link in the Resources section to your future data‑heavy case studies once you have quantifiable metrics.
+
+Resources
+Combine your blog, news/events, and video content into one searchable library (similar to Fortna’s “Insights & Resources”). Include filters for Topic (Consulting, Automation, Software) and Content Type (Blog, Video, Project Highlight).
+
+Company
+Sub‑pages: About Us (mission & Tier‑3 positioning), Partners (technology partners & suppliers), Careers, Contact Us. Consider a “Why Choose Us” page emphasising your integrator tier, project size sweet spot, and ability to bridge manual to semi‑automated operations.
+
+4. Implementing the mega‑menu
+
+Your current navigation in components/Header.tsx is a simple horizontal list of Link elements
+raw.githubusercontent.com
+. To implement hover drop‑downs while keeping the same styling, you can modify Header.tsx to wrap each top‑level link in a div with Tailwind’s group utility, and reveal the submenu on group hover. Here’s an example for the Solutions item:

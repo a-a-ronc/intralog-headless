@@ -1,0 +1,84 @@
+// components/Header.tsx (simplified excerpt)
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+export default function Header() {
+  const navItems = [
+    {
+      title: 'Solutions',
+      columns: [
+        {
+          heading: 'By Technology',
+          links: [
+            { href: '/solutions/pallet-shuttles', label: 'Pallet Shuttles' },
+            { href: '/solutions/vlm', label: 'Vertical Lift Modules' },
+            // ...other technologies
+          ],
+        },
+        {
+          heading: 'By Function',
+          links: [
+            { href: '/solutions/storage', label: 'Storage & Retrieval' },
+            // ...other functions
+          ],
+        },
+        {
+          heading: 'By Industry',
+          links: [
+            { href: '/industries/retail', label: 'Retail & E‑Commerce' },
+            // ...other industries
+          ],
+        },
+      ],
+    },
+    // Define Services, Industries, Resources, Company similarly…
+  ];
+
+  return (
+    <header className="border-b border-slate-100 bg-white">
+      <nav className="page-wrap flex items-center justify-between h-16 md:h-20">
+        {/* logo omitted for brevity */}
+        <div className="hidden md:flex items-center gap-8 text-sm">
+          {navItems.map((item) => (
+            <div key={item.title} className="relative group">
+              <Link href="#" className="text-slate-700 hover:text-slate-900">
+                {item.title}
+              </Link>
+              {/* Submenu */}
+              <div className="absolute left-0 top-full hidden group-hover:flex bg-white shadow-lg border border-slate-100 py-6 px-8 z-50">
+                {item.columns.map((col) => (
+                  <div key={col.heading} className="mr-10">
+                    <h4 className="font-semibold mb-3 text-slate-900">
+                      {col.heading}
+                    </h4>
+                    <ul className="space-y-2">
+                      {col.links.map((link) => (
+                        <li key={link.href}>
+                          <Link
+                            href={link.href}
+                            className="text-slate-600 hover:text-slate-900"
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+          {/* separate Contact button */}
+          <Link
+            href="/contact"
+            className="rounded-full bg-slate-900 text-white px-4 py-2 hover:opacity-90 ml-4"
+          >
+            Contact
+          </Link>
+        </div>
+        {/* mobile menu logic can remain similar (no submenus) */}
+      </nav>
+    </header>
+  );
+}
