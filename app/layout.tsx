@@ -11,26 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <header className="header">
-          <div className="container inner">
-            <div>
-              <Link href="/">
-                <img 
-                  src="https://intralog.io/wp-content/uploads/2023/02/logo_rbg_primary_color.png" 
-                  alt="Intralog" 
-                  className="h-8 w-auto"
-                />
-              </Link>
-            </div>
-            <nav className="nav">
-              <Link href="/solutions">Solutions</Link>
-              <Link href="/partners">Partners</Link>
-              <Link href="/case-studies">Showcase</Link>
-              <Link href="/about">About</Link>
-              <Link href="/contact" className="btn">Let&apos;s Talk</Link>
-            </nav>
-          </div>
-        </header>
+        <Header />
         {children}
         <footer className="footer">
           <div className="container">
