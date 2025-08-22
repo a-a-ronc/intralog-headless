@@ -1,35 +1,114 @@
-# Intralog Headless (Next.js + WordPress)
+# Intralog Headless Website
 
-A minimal headless starter for intralog.io. Edit content in WordPress (via WPGraphQL), render with Next.js, deploy on Replit.
+This repository contains the source code for **Intralog’s headless company website**.  
+The site is designed to showcase our **material handling expertise**—including warehouse automation technologies, turnkey engineering services, and real-world project showcases—while maintaining a clean, modern design.
 
-## 1) WordPress setup
-- Install/activate **WPGraphQL** plugin.
-- (Optional) Create CPTs for `Solutions`, `Case Studies`, `Partners` or just use Pages/Posts to start.
-- Make sure your GraphQL endpoint is reachable at `/graphql`.
-- Note your **media host** (domain that serves images) for `WP_MEDIA_HOST` env var.
+---
 
-## 2) Local/Replit env
-- Copy `.env.example` to `.env` and fill values.
-- On Replit, add the same secrets in the Secrets tab (Environment Variables).
+## 🚀 Project Overview
 
-## 3) Scripts
-- `npm run dev` — start in dev
-- `npm run build && npm start` — production
+Intralog is a **Tier 3 system integrator** (per STIQ 2025 standards), delivering automation and semi-automation projects in the ~$10M annual revenue range.  
+Our team specializes in **mid-market distribution centers (300k–500k sq ft)**, supporting 3PLs and brand operators with scalable automation solutions.
 
-## 4) Pages overview
-- `/` — Home: pulls a small list of "partners" and "case studies" (fallbacks included).
-- `/partners` — grid of partners.
-- `/case-studies` — list; click into `/case-studies/[slug]`.
-- `/contact` — simple contact form posts to `/api/contact` (nodemailer/Gmail).
+This website serves to:
 
-## 5) Deploy on Replit
-- Create a Deployment (Autoscale or Reserved VM).
-- Set build: `npm run build`
-- Set run: `npm start`
-- Add custom domain **www.intralog.io** in Deployment → Custom Domains; then create the CNAME in your DNS.
-- Forward root apex `intralog.io` to `https://www.intralog.io` at your DNS provider.
+- Present **solutions by category** (e.g., Pallet Shuttles, VLMs, Conveyor & Sortation, AMRs/AGVs, Robotics).
+- Highlight **services** (consulting, design/engineering, implementation, support).
+- Showcase **industries we serve** (retail/e-commerce, food & beverage, manufacturing, 3PL, etc.).
+- Feature **customer projects** (Showcase gallery with photos, videos, drawings).
+- Provide **resources** (blog, videos, events).
+- Offer **company insights** (About, Partners, Careers).
+- Convert visitors via **contact forms and CTAs**.
 
-## 6) Notes
-- This starter uses **fetch** to call WPGraphQL. You can swap in a client later.
-- Image components rely on Next/Image and `WP_MEDIA_HOST` so remote images are optimized.
-- The GraphQL queries are intentionally conservative (title, excerpt, featured image) to work without ACF. Expand as you add fields.
+---
+
+## 🛠 Tech Stack
+
+- **Framework**: [Next.js 13+ (App Router)](https://nextjs.org/)  
+- **CMS**: WordPress (Headless, via GraphQL + `wpFetch` queries)  
+- **Styling**: TailwindCSS + custom utility classes  
+- **Deployment**: Vercel / Replit + GitHub workflow  
+- **Assets**: Optimized SVG/PNG logos, hero images, and conceptual graphics  
+- **Videos**: YouTube embeds for solution overviews, vendor demos, and customer highlight reels  
+
+---
+
+## 📂 Project Structure
+app/
+├─ layout.tsx # Global layout
+├─ page.tsx # Homepage
+├─ solutions/ # Solution categories
+│ ├─ pallet-shuttles/ # Stow Pallet Shuttle highlight
+│ ├─ vlm/ # Modula VLMs + Flexibox
+│ ├─ conveyor/ # Conveyor & Sortation systems
+│ ├─ amr-agv/ # AMRs & AGVs (HAI, SEER, Tompkins)
+│ ├─ robotics/ # Picking & Palletizing robots
+├─ case-studies/ # Showcase gallery
+├─ services/ # Consulting, Design, Implementation
+├─ industries/ # Industry verticals
+├─ resources/ # Blog, videos, events
+├─ about/ # Company info
+├─ partners/ # Client & vendor partners
+public/
+├─ clients/ # Logos (SVG/PNG)
+├─ images/solutions/ # Solution galleries
+
+
+---
+
+## ✨ Key Features
+
+- **Hero & CTA sections** on every solution page
+- **Video embeds** (e.g., Stow Pallet Shuttle, Modula Flexibox, Tompkins tSort, SEER forklift AMRs)
+- **Benefits grid** + **How-it-works steps**
+- **Gallery cards** for visual storytelling
+- **Use case lists** for each technology
+- **Dropdown mega-menu navbar** (Solutions, Services, Industries, Showcase, Resources, Company)
+- **Responsive grid layouts** with cards and imagery
+- **Modern typography & styling** with consistent underline headers
+
+---
+
+## 📈 Content Highlights
+
+- **Pallet Shuttles**: High-density storage, FIFO/LIFO, cold-storage fit, NFPA flue compliance benefit.  
+- **VLMs (Modula Lift + Flexibox)**: Goods-to-person picking, cold storage utility, tray accessories, visual aids, authentication.  
+- **Conveyor & Sortation**: Belt, roller, chain, and pallet conveyors; high-speed sorters; integration with shuttles/palletizers.  
+- **AMRs/AGVs**: Goods-to-Person ACR (HAI Robotics), robotic sortation (Tompkins), pallet AMRs/forklifts (SEER).  
+- **Robotics (Picking/Palletizing)**: Vision-guided robots, collaborative robots, palletizing cells, ergonomic labor reduction.  
+
+---
+
+## 📸 Assets
+
+- Partner/client logos (e.g., New Balance, Sportsman’s Warehouse, Little Giant, Lion Energy, Built Brands).  
+- Custom generated/conceptual images for:
+  - High-speed sortation
+  - Multi-level conveyor (poly tier)
+  - Automated induction
+  - Pack station integration  
+
+---
+
+## 🔗 Live Links
+
+- GitHub Repo: [intralog-headless](https://github.com/a-a-ronc/intralog-headless)  
+- Demo: (Add Vercel/Replit link here once deployed)  
+
+---
+
+## 📬 Contributing / Feedback
+
+For content updates (new projects, industries, or solution pages):  
+1. Add images/logos to `public/clients` or `public/images/solutions/...`.  
+2. Update the corresponding `page.tsx`.  
+3. Push to GitHub → triggers redeploy.  
+
+---
+
+## 📢 Contact
+
+Interested in automation or want to collaborate?  
+📩 [Contact Us](https://intralog.io/contact)
+
+---
