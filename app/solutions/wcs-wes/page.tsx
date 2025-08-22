@@ -1,6 +1,7 @@
 
 // app/solutions/wcs-wes/page.tsx
 import SolutionPage from "@/components/SolutionPage";
+import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Warehouse Control & Execution Software | Intralog" };
 
@@ -8,72 +9,71 @@ const benefits = [
   { title: "Orchestrate all automation", body: "Single platform controls conveyors, sorters, robots, and storage systems in real-time." },
   { title: "Optimize task allocation", body: "AI-driven algorithms assign work to maximize throughput and resource utilization." },
   { title: "Real-time visibility", body: "Monitor equipment status, inventory levels, and performance metrics across all systems." },
-  { title: "Seamless WMS integration", body: "Bi-directional communication with warehouse management systems for unified operations." },
-  { title: "Reduce manual intervention", body: "Automated exception handling and self-healing capabilities minimize operator involvement." },
-  { title: "Scalable architecture", body: "Cloud-native platform grows with your operation and integrates new technologies easily." },
-  { title: "Predictive maintenance", body: "Machine learning identifies potential equipment issues before they cause downtime." },
-  { title: "Performance analytics", body: "Comprehensive reporting and KPI tracking for continuous improvement initiatives." },
+  { title: "Seamless WMS integration", body: "Bi-directional data flow between warehouse management and control systems ensures synchronized operations." },
+  { title: "Predictive maintenance", body: "Equipment monitoring and analytics predict failures before they impact operations." },
+  { title: "Scalable architecture", body: "Modular design allows adding new equipment and zones without system-wide disruption." },
+  { title: "Exception handling", body: "Automated error recovery and alert systems minimize downtime and manual intervention." },
+  { title: "Performance analytics", body: "Detailed reporting and KPI dashboards drive continuous operational improvement." },
 ];
 
 const steps = [
-  { step: 1, title: "Receive order data", body: "WCS receives pick lists and shipping requirements from WMS or ERP systems." },
-  { step: 2, title: "Plan & optimize", body: "System allocates tasks across equipment and resources for maximum efficiency." },
-  { step: 3, title: "Execute & monitor", body: "Real-time control of automated equipment with continuous status monitoring." },
-  { step: 4, title: "Report & analyze", body: "Performance data flows back to WMS with analytics for operational insights." },
+  { step: 1, title: "Task coordination", body: "WCS receives orders from WMS and coordinates equipment to execute picking, packing, and shipping tasks." },
+  { step: 2, title: "Equipment control", body: "Real-time control signals direct conveyors, sorters, robots, and automated storage systems." },
+  { step: 3, title: "Status monitoring", body: "Continuous monitoring of equipment health, inventory levels, and task completion status." },
+  { step: 4, title: "Data synchronization", body: "Completed transactions and inventory updates flow back to WMS for accurate system state." },
 ];
 
 const options = [
   {
-    name: "Core Modules",
+    name: "Control Modules",
     items: [
-      { title: "Task Management" },
-      { title: "Equipment Control" },
-      { title: "Inventory Tracking" },
-      { title: "Performance Analytics" },
+      { title: "Conveyor Control Systems" },
+      { title: "Robotic Fleet Management" },
+      { title: "Storage System Control" },
+      { title: "Sortation Management" },
     ],
   },
   {
-    name: "Integration APIs",
+    name: "Integration Capabilities",
     items: [
-      { title: "WMS Connector" },
-      { title: "ERP Integration" },
-      { title: "TMS Interface" },
-      { title: "Custom APIs" },
+      { title: "WMS Integration" },
+      { title: "ERP Connectivity" },
+      { title: "Third-party Equipment APIs" },
+      { title: "Custom Protocol Support" },
     ],
   },
   {
-    name: "Equipment Drivers",
+    name: "Analytics & Reporting",
     items: [
-      { title: "Conveyor Controls" },
-      { title: "Robot Fleet Management" },
-      { title: "AS/RS Integration" },
-      { title: "Sortation Systems" },
+      { title: "Real-time Dashboards" },
+      { title: "Performance KPIs" },
+      { title: "Predictive Analytics" },
+      { title: "Custom Report Builder" },
     ],
   },
   {
     name: "Advanced Features",
     items: [
-      { title: "Machine Learning" },
-      { title: "Digital Twin" },
-      { title: "Predictive Analytics" },
-      { title: "Exception Handling" },
+      { title: "Machine Learning Optimization" },
+      { title: "Digital Twin Simulation" },
+      { title: "Energy Management" },
+      { title: "Cybersecurity Framework" },
     ],
   },
 ];
 
 const gallery = [
-  { title: "Control dashboard", src: "/images/solutions/wcs/dashboard.jpg" },
-  { title: "Real-time monitoring", src: "/images/solutions/wcs/monitoring.jpg" },
-  { title: "Analytics reporting", src: "/images/solutions/wcs/analytics.jpg" },
-  { title: "System architecture", src: "/images/solutions/wcs/architecture.jpg" },
+  { title: "Control Dashboard", src: "/images/solutions/conveyor/automation-induction.png" },
+  { title: "System Integration", src: "/images/solutions/amr/acr.jpg" },
+  { title: "Analytics Interface", src: "/images/solutions/vlm/robot-interface.jpg" },
 ];
 
 const useCases = [
-  "Multi-vendor automation: unified control of equipment from different suppliers",
-  "Complex fulfillment operations: orchestrating picks, packs, and shipping processes",
-  "Omnichannel distribution: managing store, e-commerce, and B2B fulfillment",
-  "High-volume operations: optimizing throughput in large-scale facilities",
-  "Legacy system modernization: adding intelligence to existing automation",
+  "Multi-zone fulfillment centers: coordinating complex workflows across picking, packing, and shipping",
+  "Automated warehouses: managing robotic systems, conveyors, and storage equipment as integrated operations",
+  "3PL facilities: supporting multiple client requirements with flexible, configurable control logic",
+  "Manufacturing distribution: coordinating finished goods flow from production through shipping",
+  "Omnichannel operations: managing store fulfillment, e-commerce, and B2B distribution from single platform",
 ];
 
 export default function Page() {
