@@ -13,7 +13,7 @@ type OptionsCategory = { name: string; items: OptionItem[] };
 export default function SolutionPage({
   title,
   description,
-  videoUrl, // optional
+  videos, // optional
   benefits,
   steps,
   gallery = [],
@@ -21,21 +21,21 @@ export default function SolutionPage({
   options = [], // customization buckets
   brochureCta = {
     blurb:
-      "Want the full Modula options guide? Drop your email and we’ll send the latest brochure.",
+      "Want the full Modula options guide? Drop your email and we'll send the latest brochure.",
     buttonText: "Request brochure",
     href: "/contact",
   },
   cta = {
     title: "Ready to size a system for your SKU profile?",
     body:
-      "We’ll help pick the right configuration (Lift or FlexiBox), trays, and accessories for your throughput and environment.",
+      "We'll help pick the right configuration (Lift or FlexiBox), trays, and accessories for your throughput and environment.",
     buttonText: "Talk with an engineer",
     href: "/contact",
   },
 }: {
   title: string;
   description: string;
-  videos?: { url: string; title: string }[],
+  videos?: { url: string; title: string }[];
   benefits: Benefit[];
   steps: Step[];
   gallery?: GalleryImage[];
@@ -57,21 +57,23 @@ export default function SolutionPage({
       </section>
 
       {/* VIDEO */}
-      {videoUrl && (
+      {videos && videos.length > 0 && (
         <section className="section">
           <div className="container">
-            <div className="max-w-[960px] mx-auto">
-              <div className="relative overflow-hidden rounded-xl shadow-xl" style={{ paddingTop: "56.25%" }}>
-                <iframe
-                  src={videoUrl}
-                  title={`${title} Video`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full border-0"
-                />
-              </div>
-              <p className="small text-slate-500 mt-3 text-center">Watch: {title} in action.</p>
+            <div className={`grid gap-6 max-w-[1200px] mx-auto ${videos.length > 1 ? "md:grid-cols-2" : ""}`}>
+              {videos.map((vid) => (
+                <div key={vid.url} className="relative overflow-hidden rounded-xl shadow-xl" style={{ paddingTop: "56.25%" }}>
+                  <iframe
+                    src={vid.url}
+                    title={vid.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full border-0"
+                  />
+                </div>
+              ))}
             </div>
+            <p className="small text-slate-500 mt-3 text-center">Watch: {title} in action.</p>
           </div>
         </section>
       )}

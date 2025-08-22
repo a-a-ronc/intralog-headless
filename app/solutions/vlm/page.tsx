@@ -96,7 +96,10 @@ export default function Page() {
     <SolutionPage
       title="Vertical Lift Modules (VLM)"
       description="Automated vertical storage that brings trays to your operators—saving space, increasing pick speed, and improving accuracy from ambient to cold‑storage environments."
-      videoUrl="https://www.youtube.com/embed/H5GIY7PTyR0"
+      videos={[
+        { url: "https://www.youtube.com/embed/H5GIY7PTyR0", title: "FlexiBox Overview" },
+        { url: "https://www.youtube.com/embed/DNVNXjgT5MU", title: "Modula Lift Overview" },
+      ]}
       benefits={benefits}
       steps={steps}
       options={options}
@@ -104,14 +107,14 @@ export default function Page() {
       useCases={useCases}
       brochureCta={{
         blurb:
-          "Want the complete Modula options catalog (Lift & FlexiBox)? Share your email and we’ll send you the current brochure.",
+          "Want the complete Modula options catalog (Lift & FlexiBox)? Share your email and we'll send you the current brochure.",
         buttonText: "Request brochure",
         href: "/contact", // or route to a dedicated /contact?topic=vlm
       }}
       cta={{
         title: "Considering a VLM or FlexiBox for cold storage?",
         body:
-          "We’ll size the unit, trays, and software to match your SKU profile, temperature band, and throughput.",
+          "We'll size the unit, trays, and software to match your SKU profile, temperature band, and throughput.",
         buttonText: "Talk with an engineer",
         href: "/contact",
       }}
