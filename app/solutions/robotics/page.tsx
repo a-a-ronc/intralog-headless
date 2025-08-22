@@ -100,3 +100,20 @@ export default function Page() {
     />
   );
 }
+// app/solutions/robotics/page.tsx
+import SolutionPage from "@/components/SolutionPage";
+
+export const metadata = { title: "Robotics | Intralog" };
+
+export default function Page() {
+  return (
+    <main className="section">
+      <div className="container">
+        <h1 className="text-3xl font-semibold mb-2">Robotics</h1>
+        <div className="card">
+          <p className="text-slate-700">Content coming soon. We'll publish examples, photos, and workflows here.</p>
+        </div>
+      </div>
+    </main>
+  );
+}
