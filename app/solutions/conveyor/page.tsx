@@ -1,88 +1,105 @@
-
 // app/solutions/conveyor/page.tsx
 import SolutionPage from "@/components/SolutionPage";
 
 export const metadata = { title: "Conveyor & Sortation Systems | Intralog" };
 
 const benefits = [
-  { title: "High-throughput processing", body: "Move thousands of packages per hour with automated conveyor lines and sortation systems." },
-  { title: "Flexible routing & diverting", body: "Direct items to multiple destinations with pop-up transfers, push diverters, and merge points." },
-  { title: "Reduce labor costs", body: "Automate material flow between zones, reducing manual cart pushing and walking." },
-  { title: "Scalable & modular design", body: "Add sections, zones, and sortation points as your operation grows." },
-  { title: "Integration-ready", body: "Connect with WMS, WCS, and automated equipment for seamless data flow." },
-  { title: "Minimize damage & errors", body: "Controlled transport reduces handling damage and misdirected items." },
-  { title: "Real-time tracking", body: "Monitor item location and flow rates with integrated sensors and controls." },
-  { title: "Energy efficient", body: "Modern motors and zone controls minimize power consumption during operation." },
+  { title: "High‑throughput movement", body: "Automate transport and sortation to process thousands of items per hour from induction to shipping." },
+  { title: "Flexible routing & diverting", body: "Merge, divert, and buffer with pop‑up transfers, right‑angle transfers, steerable wheels, and controlled merges." },
+  { title: "Labor & travel reduction", body: "Cut walk time and manual cart moves by connecting work areas with automated flow." },
+  { title: "Scalable & modular", body: "Add zones, tiers, and sort points as volumes grow without re‑architecting the whole line." },
+  { title: "Integration‑ready controls", body: "Tie into WMS/WCS, scanners, dimensioning, scales, and print/apply for real‑time tracking and decisions." },
+  { title: "Gentle, consistent handling", body: "Controlled acceleration, accumulation, and zero‑pressure logic help minimize damage and errors." },
+  { title: "Energy‑aware operation", body: "Zone‑driven conveyors (e.g., MDR) run only where product is present, reducing power draw." },
+  { title: "Pallet handling compatibility", body: "Pallet conveyor interfaces cleanly with pallet shuttles / LoadMatic for automated infeed, outfeed, and staging." },
 ];
 
 const steps = [
-  { step: 1, title: "Item induction", body: "Products enter the conveyor system via manual placement or automated feeders." },
-  { step: 2, title: "Transport & routing", body: "Conveyor belt moves items while scanners read barcodes for routing decisions." },
-  { step: 3, title: "Sortation decision", body: "Control system directs items to appropriate lanes via diverters or pop-ups." },
-  { step: 4, title: "Destination delivery", body: "Items arrive at designated zones for packing, shipping, or further processing." },
+  { step: 1, title: "Induct & identify", body: "Items or pallets enter the line and are identified via barcode/RFID, dimensioning, or lookups from WMS/WCS." },
+  { step: 2, title: "Convey & accumulate", body: "Zero‑pressure accumulation and speed‑matched transfers move flow between work zones." },
+  { step: 3, title: "Decision & divert", body: "Controls execute routing to doors, lanes, buffers, or value‑add stations via the chosen sortation method." },
+  { step: 4, title: "Destination hand‑off", body: "Product arrives to pack, palletize, shipping, pallet shuttle, or storage—ready for the next step." },
 ];
 
 const options = [
   {
     name: "Conveyor Types",
     items: [
-      { title: "Belt Conveyor" },
-      { title: "Roller Conveyor" },
-      { title: "Chain Conveyor" },
-      { title: "Slat Conveyor" },
+      { title: "MDR / Zero‑pressure Roller" },
+      { title: "Belt & Belt‑on‑Roller" },
+      { title: "Chain & Chain‑Driven Live Roller (CDLR)" },
+      { title: "Mat‑top / Modular Plastic Belt" },
+      { title: "Pallet Conveyor (rollers, CDLR, chain)" },
+      { title: "Incline/Decline & Spirals" },
     ],
   },
   {
     name: "Sortation Methods",
     items: [
-      { title: "Push Diverter" },
-      { title: "Pop-up Transfer" },
-      { title: "Sliding Shoe Sorter" },
-      { title: "Tilt Tray Sorter" },
+      { title: "Sliding‑Shoe Sorter" },
+      { title: "Cross‑Belt / Tilt‑Tray" },
+      { title: "Narrow‑Belt Sorter (NBS) / Belt‑with‑Pop‑up Wheels" },
+      { title: "Steerable Wheel / Swivel Wheel" },
+      { title: "Pushers & Right‑Angle Transfers" },
     ],
   },
   {
     name: "Control & Tracking",
     items: [
-      { title: "Barcode Scanners" },
-      { title: "RFID Readers" },
-      { title: "Photo Eyes" },
-      { title: "Weight Scales" },
+      { title: "WMS / WCS Integration" },
+      { title: "Barcode & RFID Scanners" },
+      { title: "Photo‑eyes & Zone Control" },
+      { title: "Dimensioning & Weighing (DWS)" },
+      { title: "Print/Apply & Verify" },
+    ],
+  },
+  {
+    name: "Pallet Handling & Interfaces",
+    items: [
+      { title: "Pallet Infeed/Outfeed to Shuttle / LoadMatic" },
+      { title: "Pallet Turntables & Indexers" },
+      { title: "Pallet Transfers (Chain ↔ CDLR)" },
+      { title: "Pallet Stackers / Destackers" },
+      { title: "End‑of‑Line Palletizing Handoffs" },
     ],
   },
   {
     name: "Safety & Access",
     items: [
-      { title: "Light Curtains" },
-      { title: "Emergency Stops" },
-      { title: "Guard Rails" },
-      { title: "Access Gates" },
+      { title: "Light Curtains & E‑Stops" },
+      { title: "Guarding & Handrails" },
+      { title: "Access Gates & Interlocks" },
+      { title: "Lockout/Tagout Provisions" },
     ],
   },
 ];
 
 const gallery = [
-  { title: "High-speed sortation", src: "/images/solutions/conveyor/sortation.jpg" },
-  { title: "Multi-level conveyor", src: "/images/solutions/conveyor/multi-level.jpg" },
-  { title: "Automated induction", src: "/images/solutions/conveyor/induction.jpg" },
-  { title: "Pack station integration", src: "/images/solutions/conveyor/pack-station.jpg" },
+  { title: "High‑speed sortation", src: "/images/solutions/conveyor/shoe-sorter.jpg" },
+  { title: "Multi‑level conveyor", src: "/images/solutions/conveyor/polytier.JPG" },
+  { title: "Automated induction", src: "/images/solutions/conveyor/automation-induction.png" },
+  { title: "Pack station integration", src: "/images/solutions/conveyor/pack-station-integration.JPG" },
 ];
 
 const useCases = [
-  "E-commerce fulfillment: high-volume order processing and shipping",
-  "Distribution centers: cross-docking and zone-to-zone transport",
-  "Manufacturing: work-in-process movement and finished goods handling",
-  "Postal & parcel: automated sorting by destination and service level",
-  "Retail: store replenishment and returns processing",
+  "E‑commerce fulfillment: order routing, carrier sort, and pack lane feeds",
+  "Distribution centers: zone‑to‑zone transport, pre‑sort to doors, and shipping lanes",
+  "Manufacturing: WIP conveyance, kitting lines, and finished‑goods handling",
+  "Postal & parcel: destination sorting by service level and route",
+  "Retail & returns: putaway, restock flow, and reverse logistics",
 ];
 
 export default function Page() {
   return (
     <SolutionPage
       title="Conveyor & Sortation Systems"
-      description="Automated material handling that moves products efficiently through your facility—from simple transport to high-speed sortation for order fulfillment and distribution."
+      description="Automated material flow from induction to shipping—combining modular conveyors, intelligent sortation, and pallet interfaces that scale with your throughput."
       videos={[
-        { url: "https://www.youtube.com/embed/dQw4w9WgXcQ", title: "Conveyor System Overview" },
+        { url: "https://www.youtube.com/embed/jf3IbA9pigs", title: "AutoRoll+™ MDR Conveyor" },
+        { url: "https://www.youtube.com/embed/zyoootwqbqA", title: "Belt Conveyor" },
+        { url: "https://www.youtube.com/embed/4GX7exZGpmQ", title: "Gravity Conveyor" },
+        { url: "https://www.youtube.com/embed/E5BwPlU46QQ", title: "Narrow Belt Live Roller (NBLR) Conveyor" },
+        { url: "https://www.youtube.com/embed/iOdUktCFxiY", title: "V‑Belt Conveyor" },
       ]}
       benefits={benefits}
       steps={steps}
@@ -90,13 +107,13 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       brochureCta={{
-        blurb: "Want detailed conveyor specifications and layouts? Share your email for our complete systems guide.",
+        blurb: "Want detailed conveyor specifications and layout options? Share your email to get our systems guide.",
         buttonText: "Request brochure",
         href: "/contact",
       }}
       cta={{
-        title: "Ready to design a conveyor system for your facility?",
-        body: "We'll map your material flow, size the system, and specify the right conveyor types and sortation methods for your throughput requirements.",
+        title: "Ready to design a conveyor & sortation system?",
+        body: "We’ll map your flows, size throughput, and specify the right conveyor types, sortation method, and pallet interfaces for your targets.",
         buttonText: "Talk with an engineer",
         href: "/contact",
       }}

@@ -1,88 +1,121 @@
-
 // app/solutions/amr-agv/page.tsx
 import SolutionPage from "@/components/SolutionPage";
 
-export const metadata = { title: "AMRs/AGVs | Intralog" };
+export const metadata = { title: "AMRs & AGVs | Intralog" };
 
 const benefits = [
-  { title: "Flexible material transport", body: "Autonomous mobile robots adapt to changing layouts and workflows without fixed infrastructure." },
-  { title: "Reduce labor dependency", body: "Automate repetitive transport tasks, freeing workers for higher-value activities." },
-  { title: "24/7 operation capability", body: "Robots work continuously with automated charging and minimal downtime." },
-  { title: "Scalable fleet management", body: "Add or remove robots based on seasonal demand and operational needs." },
-  { title: "Safe human collaboration", body: "Advanced sensors and AI enable safe operation alongside workers." },
-  { title: "Real-time optimization", body: "Fleet management software optimizes routes and task allocation dynamically." },
-  { title: "Quick ROI", body: "Lower implementation costs compared to fixed automation with faster payback periods." },
-  { title: "Data-driven insights", body: "Track utilization, efficiency, and bottlenecks with comprehensive analytics." },
+  {
+    title: "Goods‑to‑Person efficiency (ACR systems)",
+    body:
+      "Autonomous case‑handling robots (ACR) bring totes directly to workstations for fast, ergonomic picking with dense vertical storage.",
+  },
+  {
+    title: "Flexible robotic sortation",
+    body:
+      "Track‑free AMR sortation scales up/down quickly and reconfigures without major mechanical work—great for peaks and changing SKUs.",
+  },
+  {
+    title: "Autonomous pallet movement",
+    body:
+      "Forklift and pallet‑truck AMRs automate horizontal moves, dock runs, and buffer feeds with high repeatability and multi‑navigation options.",
+  },
+  {
+    title: "Modular, scalable footprint",
+    body:
+      "Add robots, workstations, or lanes as volume grows—software orchestrates fleet activity for balanced throughput.",
+  },
+  {
+    title: "High storage density",
+    body:
+      "ACR shelving leverages vertical space and narrow aisles while software optimizes bin locations for fewer touches.",
+  },
+  {
+    title: "Accuracy & traceability",
+    body:
+      "Integrated WMS/WCS, scanning, and workstation UIs provide guided picks, confirmations, and real‑time inventory visibility.",
+  },
+  {
+    title: "Cold‑storage & extended environments",
+    body:
+      "Solutions and options exist for controlled environments, supporting food, pharma, and other temperature‑sensitive operations.",
+  },
+  {
+    title: "Safe, ergonomic operations",
+    body:
+      "Robots handle repetitive travel and lifts; people handle exceptions and value‑add—reducing fatigue, strain, and travel time.",
+  },
 ];
 
 const steps = [
-  { step: 1, title: "Task assignment", body: "Fleet management system assigns transport tasks based on priorities and robot availability." },
-  { step: 2, title: "Autonomous navigation", body: "Robot navigates using SLAM technology, avoiding obstacles and optimizing routes." },
-  { step: 3, title: "Material handling", body: "Robot picks up or delivers materials using appropriate handling mechanism." },
-  { step: 4, title: "Mission completion", body: "Robot confirms task completion and returns to charging station or next assignment." },
+  { step: 1, title: "Induct / request", body: "Orders or transport tasks are released by WMS/WCS; robots receive missions and optimal routes." },
+  { step: 2, title: "Autonomous travel", body: "AMRs/AGVs navigate with SLAM or reflector guidance, coordinating traffic and zones." },
+  { step: 3, title: "Pick / move / sort", body: "ACR bots present totes to GTP stations; pallet AMRs stage loads; AMR sorters route to destinations." },
+  { step: 4, title: "Confirm & handoff", body: "Scanners and UIs confirm actions; items move to pack, palletize, shuttle/conveyor, or shipping." },
 ];
 
 const options = [
   {
     name: "Robot Types",
     items: [
-      { title: "Shelf-moving AMRs" },
-      { title: "Cart-pulling AGVs" },
-      { title: "Bin-transport Robots" },
-      { title: "Pallet-handling AMRs" },
+      { title: "ACR (Autonomous Case‑handling Robots)" },
+      { title: "AMR Sortation (track‑free robotic sorters)" },
+      { title: "Forklift & Pallet‑Truck AMRs" },
+      { title: "Underride / Jacking AMRs & Tugger AMRs" },
     ],
   },
   {
-    name: "Navigation Methods",
+    name: "Navigation & Safety",
     items: [
-      { title: "LiDAR SLAM" },
-      { title: "Vision-based Navigation" },
-      { title: "Magnetic Tape Guidance" },
-      { title: "QR Code Waypoints" },
+      { title: "Laser SLAM / Natural Feature (NF)" },
+      { title: "Reflector‑based / Hybrid" },
+      { title: "Fleet Management & Traffic Control" },
+      { title: "On‑robot Safety (LiDAR, 3D cams, e‑stops)" },
     ],
   },
   {
-    name: "Handling Mechanisms",
+    name: "Workstations & Interfaces",
     items: [
-      { title: "Lifting Platforms" },
-      { title: "Telescopic Forks" },
-      { title: "Conveyor Top" },
-      { title: "Magnetic Couplers" },
+      { title: "Goods‑to‑Person Stations (ACR)" },
+      { title: "Put‑to‑Light / Pick‑to‑Light" },
+      { title: "Pack / Value‑Add Stations" },
+      { title: "Conveyor, Shuttle & Palletizer Handoffs" },
     ],
   },
   {
-    name: "Fleet Management",
+    name: "Use‑case Add‑ons",
     items: [
-      { title: "Task Orchestration" },
-      { title: "Route Optimization" },
-      { title: "Battery Management" },
-      { title: "Performance Analytics" },
+      { title: "Cold‑storage adaptations" },
+      { title: "High‑bay racking for ACR" },
+      { title: "Pallet stackers / destackers" },
+      { title: "Label / Print‑and‑Apply, DWS" },
     ],
   },
 ];
 
 const gallery = [
-  { title: "Shelf-moving AMR", src: "/images/solutions/amr/shelf-moving.jpg" },
-  { title: "Pallet transport", src: "/images/solutions/amr/pallet-transport.jpg" },
-  { title: "Fleet management dashboard", src: "/images/solutions/amr/fleet-dashboard.jpg" },
-  { title: "Charging station", src: "/images/solutions/amr/charging-station.jpg" },
+  { title: "ACR Goods‑to‑Person", src: "/images/solutions/amr/acr.jpg" },
+  { title: "AMR Robotic Sortation", src: "/images/solutions/amr/t-sort.jpg" },
+  { title: "Forklift AMR—Pallet Moves", src: "/images/solutions/amr/forklift-amr.webp" },
 ];
 
 const useCases = [
-  "E-commerce fulfillment: goods-to-person picking and inventory transport",
-  "Manufacturing: work-in-process movement and line feeding",
-  "Healthcare: medication and supply delivery throughout facilities",
-  "3PL operations: flexible material handling for multiple clients",
-  "Retail: backroom inventory management and store replenishment",
+  "E‑commerce & Retail: piece picking, order consolidation, and returns",
+  "3PL: fast onboarding of new clients with scalable fleets",
+  "Manufacturing: lineside delivery, WIP moves, finished goods to dock",
+  "Grocery & Pharma: dense storage with controlled environments",
+  "Parcel & Post: AMR sortation for destinations and service levels",
 ];
 
 export default function Page() {
   return (
     <SolutionPage
-      title="AMRs/AGVs"
-      description="Autonomous mobile robots and automated guided vehicles that transform material handling—providing flexible, scalable transport solutions that adapt to your changing operational needs."
+      title="AMRs & AGVs"
+      description="Autonomous mobile fleets for goods‑to‑person, pallet transport, and robotic sortation—modular systems that scale with demand and integrate cleanly with conveyors, pallet shuttles, and your WMS/WCS."
       videos={[
-        { url: "https://www.youtube.com/embed/dQw4w9WgXcQ", title: "AMR Fleet in Action" },
+        // Swap these as you prefer—placeholders from vendor overviews:
+        { url: "https://www.youtube.com/embed/zlMDJpZYtmY", title: "SEER — Laser‑SLAM Forklift/AMR overview" },
+        { url: "https://www.youtube.com/embed/eNwy0yAt1mA", title: "Tompkins Robotics — tSort AMR sortation" },
+        { url: "https://www.youtube.com/embed/MtT4gNDq6GA", title: "HAI Robotics — HaiPick ACR system" },
       ]}
       benefits={benefits}
       steps={steps}
@@ -90,13 +123,14 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       brochureCta={{
-        blurb: "Interested in AMR fleet specifications and ROI analysis? Get our comprehensive robotics guide.",
-        buttonText: "Request brochure",
+        blurb:
+          "Curious whether ACR, AMR sortation, or pallet AMRs fit your mix? Share your email and we’ll send a tailored brief comparing options from our dealer network.",
+        buttonText: "Request brief",
         href: "/contact",
       }}
       cta={{
-        title: "Ready to deploy autonomous robots in your facility?",
-        body: "We'll assess your material flow, recommend the right robot types, and design a fleet management strategy for optimal efficiency.",
+        title: "Ready to scope an AMR/AGV pilot?",
+        body: "We’ll analyze your SKUs, travel paths, and temperature bands, then size robots, stations, and software for a fast, low‑risk start.",
         buttonText: "Talk with an engineer",
         href: "/contact",
       }}
