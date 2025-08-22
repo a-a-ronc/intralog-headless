@@ -1,3 +1,4 @@
+
 // app/solutions/vlm/page.tsx
 import SolutionPage from "@/components/SolutionPage";
 import { demoSolutionImages } from "@/lib/demo";
@@ -12,14 +13,14 @@ const benefits = [
   { title: "Cold‑storage ready", body: "Climate‑control options protect temperature‑sensitive goods and minimize conditioned volume." },
   { title: "Enhanced ergonomics & safety", body: "Goods‑to‑person reduces travel and awkward reaches for better comfort and fewer injuries." },
   { title: "High tray capacities", body: "Lift line supports quick cycles and significant tray payloads for heavy parts." },
-  { title: "Secure, enclosed storage", body: "Access control and enclosed trays protect inventory quality." },
+  { title: "Secure, enclosed storage", body: "Access control and enclosed trays protect inventory from theft, dust, and contamination." },
 ];
 
 const steps = [
-  { step: 1, title: "Request the tray", body: "Operator uses Copilot or WMS to call a SKU or tray ID." },
-  { step: 2, title: "Lift retrieves", body: "Central elevator fetches the correct tray from vertical storage." },
-  { step: 3, title: "Ergonomic pick", body: "Tray is presented at waist height with visual aids guiding the pick." },
-  { step: 4, title: "Store & replenish", body: "Tray returns automatically; replenishment uses the same workflow." },
+  { step: 1, title: "Operator login", body: "Badge/RFID authentication ensures the right person accesses assigned tasks." },
+  { step: 2, title: "System retrieval", body: "VLM fetches the correct tray to the pick window; FlexiBox shuttles grab multiple bins." },
+  { step: 3, title: "Guided picking", body: "Laser pointers, LED bars, or pick‑to‑light direct the exact location and quantity." },
+  { step: 4, title: "Confirm & return", body: "Barcode scan or button press confirms the pick; tray returns to optimal storage position." },
 ];
 
 const options = [
@@ -80,11 +81,15 @@ const options = [
 const gallery = demoSolutionImages.vlm;
 
 const useCases = [
-  "Cold storage: dense, organized inventory with tight environmental control",
-  "Bio/Pharma & Healthcare: traceable, clean storage with access control",
-  "E‑commerce & Retail parts: high SKU variety with fast access",
-  "Manufacturing, MRO & Tooling: kitting, spares, consumables",
-  "Electronics & Aerospace: secure, serialized components",
+  "Automotive: small parts, fasteners, and service components",
+  "Electronics: ESD-safe storage for semiconductors and circuit boards",
+  "Healthcare/Pharma: temperature-controlled storage for medications",
+  "Aerospace: high-value parts with strict inventory control",
+  "Manufacturing: tooling, spare parts, and work-in-process materials",
+  "E-commerce: fast-moving SKUs in dense, climate-controlled environments",
+  "Retail: spare parts, warranty items, and high-security merchandise",
+  "Food service: ingredients, packaging, and temperature-sensitive items",
+  "Defense: secure storage for sensitive and serialized components",
 ];
 
 export default function Page() {
@@ -105,7 +110,7 @@ export default function Page() {
         blurb:
           "Want the complete Modula options catalog (Lift & FlexiBox)? Share your email and we'll send you the current brochure.",
         buttonText: "Request brochure",
-        href: "/contact", // or route to a dedicated /contact?topic=vlm
+        href: "/contact",
       }}
       cta={{
         title: "Considering a VLM or FlexiBox for cold storage?",
@@ -115,22 +120,5 @@ export default function Page() {
         href: "/contact",
       }}
     />
-  );
-}
-// app/solutions/vlm/page.tsx
-import SolutionPage from "@/components/SolutionPage";
-
-export const metadata = { title: "Vertical Lift Modules | Intralog" };
-
-export default function Page() {
-  return (
-    <main className="section">
-      <div className="container">
-        <h1 className="text-3xl font-semibold mb-2">Vertical Lift Modules</h1>
-        <div className="card">
-          <p className="text-slate-700">Content coming soon. We'll publish examples, photos, and workflows here.</p>
-        </div>
-      </div>
-    </main>
   );
 }

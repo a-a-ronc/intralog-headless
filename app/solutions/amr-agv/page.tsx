@@ -1,3 +1,4 @@
+
 // app/solutions/amr-agv/page.tsx
 import SolutionPage from "@/components/SolutionPage";
 import { demoSolutionImages } from "@/lib/demo";
@@ -121,33 +122,16 @@ export default function Page() {
       useCases={useCases}
       brochureCta={{
         blurb:
-          "Curious whether ACR, AMR sortation, or pallet AMRs fit your mix? Share your email and we’ll send a tailored brief comparing options from our dealer network.",
+          "Curious whether ACR, AMR sortation, or pallet AMRs fit your mix? Share your email and we'll send a tailored brief comparing options from our dealer network.",
         buttonText: "Request brief",
         href: "/contact",
       }}
       cta={{
         title: "Ready to scope an AMR/AGV pilot?",
-        body: "We’ll analyze your SKUs, travel paths, and temperature bands, then size robots, stations, and software for a fast, low‑risk start.",
+        body: "We'll analyze your SKUs, travel paths, and temperature bands, then size robots, stations, and software for a fast, low‑risk start.",
         buttonText: "Talk with an engineer",
         href: "/contact",
       }}
     />
-  );
-}
-// app/solutions/amr-agv/page.tsx
-import SolutionPage from "@/components/SolutionPage";
-
-export const metadata = { title: "AMRs & AGVs | Intralog" };
-
-export default function Page() {
-  return (
-    <main className="section">
-      <div className="container">
-        <h1 className="text-3xl font-semibold mb-2">AMRs & AGVs</h1>
-        <div className="card">
-          <p className="text-slate-700">Content coming soon. We'll publish examples, photos, and workflows here.</p>
-        </div>
-      </div>
-    </main>
   );
 }

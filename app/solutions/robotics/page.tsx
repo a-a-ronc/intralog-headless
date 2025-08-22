@@ -3,83 +3,91 @@
 import SolutionPage from "@/components/SolutionPage";
 import { demoSolutionImages } from "@/lib/demo";
 
-export const metadata = { title: "Robotics & Automation | Intralog" };
+export const metadata = { title: "Robotics | Intralog" };
 
 const benefits = [
-  { title: "Consistent accuracy", body: "Vision-guided robots achieve 99.5%+ pick accuracy with barcode scanning and weight verification." },
-  { title: "Labor cost reduction", body: "Automated picking and palletizing reduces direct labor costs by 30-50% while improving safety." },
-  { title: "24/7 operation", body: "Robotic cells run continuously without breaks, supporting multi-shift operations and peak demands." },
-  { title: "Ergonomic improvements", body: "Robots handle heavy lifting and repetitive motions, reducing worker strain and injury risk." },
-  { title: "Scalable throughput", body: "Add robotic cells incrementally to match volume growth without major facility changes." },
-  { title: "Quality consistency", body: "Automated palletizing ensures consistent load patterns and reduces product damage." },
-  { title: "Real-time adaptability", body: "Vision systems adapt to varying SKU sizes, orientations, and packaging types dynamically." },
-  { title: "Integration flexibility", body: "Robots integrate with conveyors, AMRs, and WMS systems for seamless material flow." },
+  { title: "Consistent throughput rates", body: "Robots maintain steady picking and palletizing speeds regardless of shift patterns or fatigue." },
+  { title: "Improved picking accuracy", body: "Vision-guided systems and precise positioning reduce damage and mis-picks in case and pallet handling." },
+  { title: "Enhanced worker safety", body: "Robots handle repetitive lifting, reaching, and heavy loads while workers focus on higher-value tasks." },
+  { title: "24/7 operational capability", body: "Automated cells can run continuously with minimal supervision during off-hours and peak periods." },
+  { title: "Flexible deployment options", body: "From collaborative robots working alongside staff to fully automated cells for lights-out operation." },
+  { title: "Scalable automation", body: "Start with single-cell deployments and expand to multi-robot systems as volume and ROI justify growth." },
+  { title: "Reduced labor dependency", body: "Minimize staffing challenges and overtime costs while maintaining consistent output levels." },
+  { title: "Quick changeover capability", body: "Advanced systems adapt to different SKUs, pack patterns, and pallet configurations with minimal programming." },
 ];
 
 const steps = [
-  { step: 1, title: "Product identification", body: "Vision systems scan barcodes, measure dimensions, and identify optimal grip points." },
-  { step: 2, title: "Path planning", body: "Robot calculates optimal pick trajectory and approach angle based on product characteristics." },
-  { step: 3, title: "Precision handling", body: "End-effector grips product using vacuum, mechanical fingers, or adaptive grippers." },
-  { step: 4, title: "Placement execution", body: "Robot places item precisely on conveyor, pallet, or in tote with verification scanning." },
+  { step: 1, title: "Product presentation", body: "Conveyors or operators present cases/items to the robot work envelope for automated handling." },
+  { step: 2, title: "Vision & positioning", body: "3D cameras and sensors identify products, calculate optimal grip points, and plan movement paths." },
+  { step: 3, title: "Automated handling", body: "Robots pick, place, stack, or palletize according to programmed patterns and weight distribution rules." },
+  { step: 4, title: "Quality & handoff", body: "Systems verify placement accuracy, apply labels if needed, and transfer completed pallets downstream." },
 ];
 
 const options = [
   {
     name: "Robot Types",
     items: [
-      { title: "Articulated Arm Robots" },
-      { title: "SCARA Robots" },
-      { title: "Delta Robots" },
+      { title: "Articulated Arm Robots (6-axis)" },
       { title: "Collaborative Robots (Cobots)" },
+      { title: "Gantry/Cartesian Systems" },
+      { title: "SCARA Robots (4-axis)" },
     ],
   },
   {
     name: "End Effectors",
     items: [
       { title: "Vacuum Grippers" },
-      { title: "Mechanical Fingers" },
-      { title: "Adaptive Grippers" },
+      { title: "Mechanical Grippers" },
       { title: "Magnetic Grippers" },
+      { title: "Custom Tool-Change Systems" },
     ],
   },
   {
-    name: "Vision Systems",
+    name: "Vision & Sensing",
     items: [
-      { title: "2D Vision Guidance" },
       { title: "3D Vision Systems" },
-      { title: "Barcode Scanning" },
-      { title: "Dimension Measurement" },
+      { title: "Barcode/Label Reading" },
+      { title: "Force/Torque Sensing" },
+      { title: "Collision Detection" },
     ],
   },
   {
-    name: "Applications",
+    name: "Integration Features",
     items: [
-      { title: "Case Picking" },
-      { title: "Palletizing/Depalletizing" },
-      { title: "Piece Picking" },
-      { title: "Quality Inspection" },
+      { title: "Conveyor Interface" },
+      { title: "Pallet Dispensers/Stackers" },
+      { title: "Label Print-and-Apply" },
+      { title: "WMS/WCS Integration" },
     ],
   },
 ];
 
-const gallery = demoSolutionImages.robotics;
+const gallery = demoSolutionImages.robotics || [
+  { title: "Vision-guided picking", src: "/images/solutions/robotics/vision-picking.jpg" },
+  { title: "Palletizing cell", src: "/images/solutions/robotics/palletizing.jpg" },
+  { title: "Collaborative robot", src: "/images/solutions/robotics/collaborative.jpg" },
+  { title: "Case picking system", src: "/images/solutions/robotics/case-picking.jpg" },
+];
 
 const useCases = [
-  "E-commerce: automated piece picking for order fulfillment and returns processing",
-  "Manufacturing: palletizing finished goods and feeding production lines",
-  "Food & Beverage: case picking with sanitary design for food safety compliance",
-  "Automotive: parts handling with precise placement for assembly operations",
-  "Pharmaceuticals: sterile picking and packaging with validation tracking",
+  "Case picking: automated selection from flow racks or shelving",
+  "Palletizing: mixed-case and single-SKU pallet building",
+  "Depalletizing: breaking down inbound pallets for processing",
+  "Pack-out: placing products into shipping boxes or totes",
+  "Machine tending: loading/unloading packaging or processing equipment",
+  "Quality inspection: automated checking and sorting of products",
+  "Kitting/assembly: combining components for manufacturing or fulfillment",
+  "Bag handling: flexible packaging operations for varying product sizes",
 ];
 
 export default function Page() {
   return (
     <SolutionPage
-      title="Robotics & Automation"
-      description="Vision-guided picking and palletizing robots that deliver consistent accuracy, reduce labor costs, and operate continuously—integrating seamlessly with conveyors, AMRs, and warehouse management systems."
+      title="Robotics"
+      description="Intelligent robotic systems for picking, palletizing, and material handling—combining precision, flexibility, and safety to optimize labor-intensive operations while maintaining consistent throughput."
       videos={[
-        { url: "https://www.youtube.com/embed/3RBHEtJigVo", title: "Robotic Case Picking System" },
-        { url: "https://www.youtube.com/embed/gWB4h4QyzVo", title: "Automated Palletizing Cell" },
+        { url: "https://www.youtube.com/embed/dQw4w9WgXcQ", title: "Robotic Palletizing Overview" },
+        { url: "https://www.youtube.com/embed/dQw4w9WgXcQ", title: "Vision-Guided Picking" },
       ]}
       benefits={benefits}
       steps={steps}
@@ -87,33 +95,16 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       brochureCta={{
-        blurb: "Exploring robotic automation for your facility? Download our robotics implementation guide with ROI calculations and case studies.",
-        buttonText: "Request guide",
+        blurb: "Interested in robotic automation for your operation? Download our robotics application guide.",
+        buttonText: "Request brochure",
         href: "/contact",
       }}
       cta={{
-        title: "Ready to automate your picking and palletizing?",
-        body: "We'll analyze your SKU mix, throughput requirements, and layout constraints to design robotic solutions that deliver measurable ROI.",
+        title: "Ready to explore robotic automation for your facility?",
+        body: "We'll analyze your product mix, throughput requirements, and labor challenges to design the optimal robotic solution.",
         buttonText: "Talk with an engineer",
         href: "/contact",
       }}
     />
-  );
-}
-// app/solutions/robotics/page.tsx
-import SolutionPage from "@/components/SolutionPage";
-
-export const metadata = { title: "Robotics | Intralog" };
-
-export default function Page() {
-  return (
-    <main className="section">
-      <div className="container">
-        <h1 className="text-3xl font-semibold mb-2">Robotics</h1>
-        <div className="card">
-          <p className="text-slate-700">Content coming soon. We'll publish examples, photos, and workflows here.</p>
-        </div>
-      </div>
-    </main>
   );
 }
