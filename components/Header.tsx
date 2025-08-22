@@ -2,12 +2,34 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  // ---- NAV DATA (unchanged from your version) ----
+  // Which top-level item is open (desktop). null = none
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
+  // timer for delayed close
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // tweak this to make the menu linger longer/shorter
+  const CLOSE_DELAY_MS = 250; // try 250–400 for a forgiving feel
+
+  const openNow = (i: number) => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setOpenIdx(i);
+  };
+
+  const scheduleClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpenIdx(null), CLOSE_DELAY_MS);
+  };
+
+  // ---- NAV DATA  ----
   const navItems = [
     {
       title: "Solutions",
@@ -172,50 +194,68 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <div key={item.title} className="relative group">
-              <Link
-                href={item.href}
-                className="py-2 text-slate-700 hover:text-slate-900 font-medium"
-              >
-                {item.title}
-              </Link>
-
-              {/* Dropdown (mega menu) */}
+          {navItems.map((item, i) => {
+            const isOpen = openIdx === i;
+            return (
               <div
-                className="
-                  invisible opacity-0 translate-y-2 pointer-events-none
-                  group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
-                  focus-within:visible focus-within:opacity-100 focus-within:translate-y-0
-                  absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[720px] max-w-[90vw]
-                  rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-lg shadow-xl
-                  transition-all duration-200
-                "
+                key={item.title}
+                className="relative"
+                onMouseEnter={() => openNow(i)}
+                onMouseLeave={scheduleClose}
+                onFocus={() => openNow(i)}
+                onBlur={scheduleClose}
               >
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6">
-                  {item.columns?.map((col) => (
-                    <div key={col.heading}>
-                      <h4 className="mb-2 text-sm font-semibold text-slate-900">
-                        {col.heading}
-                      </h4>
-                      <ul className="space-y-1.5">
-                        {col.links.map((link) => (
-                          <li key={link.href}>
-                            <Link
-                              href={link.href}
-                              className="block rounded-md px-2 py-1.5 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-                            >
-                              {link.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                <Link
+                  href={item.href}
+                  className="py-2 text-slate-700 hover:text-slate-900 font-medium"
+                >
+                  {item.title}
+                </Link>
+
+                {/* Dropdown (mega menu) */}
+                {item.columns && (
+                  <div
+                    className={[
+                      "absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[720px] max-w-[90vw]",
+                      "rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-lg shadow-xl",
+                      "transition-all duration-150",
+                      isOpen
+                        ? "opacity-100 translate-y-0 visible pointer-events-auto"
+                        : "opacity-0 translate-y-2 invisible pointer-events-none",
+                    ].join(" ")}
+                    // keep open when hovering inside the panel
+                    onMouseEnter={() => openNow(i)}
+                    onMouseLeave={scheduleClose}
+                  >
+                    {/* optional: tiny hover bridge to prevent flicker while crossing the gap */}
+                    <div className="absolute -top-2 left-0 right-0 h-2" />
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6">
+                      {item.columns.map((col) => (
+                        <div key={col.heading}>
+                          <h4 className="mb-2 text-sm font-semibold text-slate-900">
+                            {col.heading}
+                          </h4>
+                          <ul className="space-y-1.5">
+                            {col.links.map((link) => (
+                              <li key={link.href}>
+                                <Link
+                                  href={link.href}
+                                  className="block rounded-md px-2 py-1.5 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                                >
+                                  {link.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           {/* Contact Button */}
           <Link
