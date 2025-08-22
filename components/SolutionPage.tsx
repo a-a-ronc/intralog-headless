@@ -35,7 +35,7 @@ export default function SolutionPage({
 }: {
   title: string;
   description: string;
-  videoUrl?: string;
+  videos?: { url: string; title: string }[],
   benefits: Benefit[];
   steps: Step[];
   gallery?: GalleryImage[];
