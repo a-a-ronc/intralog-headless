@@ -57,7 +57,7 @@ export default function SolutionPage({
       </section>
 
       {/* VIDEO */}
-      {videos && videos.length > 0 && (
+      {(videos?.length ?? 0) > 0 && (
         <section className="section">
           <div className="container">
             <div className={`grid gap-6 max-w-[1200px] mx-auto ${videos.length > 1 ? "md:grid-cols-2" : ""}`}>
@@ -79,41 +79,45 @@ export default function SolutionPage({
       )}
 
       {/* BENEFITS */}
-      <section className="section border-y border-slate-100 bg-slate-50">
-        <div className="container">
-          <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">
-            Why {title}
-          </h2>
-          <div className="grid">
-            {benefits.map((b, index) => (
-              <div key={`benefit-${index}-${b.title}`} className="card flex flex-col gap-2">
-                <h3 className="text-lg font-semibold">{b.title}</h3>
-                <p className="text-slate-700">{b.body}</p>
-              </div>
-            ))}
+      {(benefits?.length ?? 0) > 0 && (
+        <section className="section border-y border-slate-100 bg-slate-50">
+          <div className="container">
+            <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">
+              Why {title}
+            </h2>
+            <div className="grid">
+              {benefits.map((b, index) => (
+                <div key={`benefit-${index}-${b.title}`} className="card flex flex-col gap-2">
+                  <h3 className="text-lg font-semibold">{b.title}</h3>
+                  <p className="text-slate-700">{b.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* HOW IT WORKS */}
-      <section className="section">
-        <div className="container">
-          <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">How it works</h2>
-        {/* 4 columns on wide screens */}
-          <div className="grid" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}>
-            {steps.map((s, index) => (
-              <div key={`step-${index}-${s.step}`} className="card text-left">
-                <div className="small text-slate-500 font-semibold">Step {s.step}</div>
-                <h3 className="font-semibold">{s.title}</h3>
-                <p className="text-slate-700">{s.body}</p>
-              </div>
-            ))}
+      {(steps?.length ?? 0) > 0 && (
+        <section className="section">
+          <div className="container">
+            <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">How it works</h2>
+          {/* 4 columns on wide screens */}
+            <div className="grid" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}>
+              {steps.map((s, index) => (
+                <div key={`step-${index}-${s.step}`} className="card text-left">
+                  <div className="small text-slate-500 font-semibold">Step {s.step}</div>
+                  <h3 className="font-semibold">{s.title}</h3>
+                  <p className="text-slate-700">{s.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* OPTIONS & CUSTOMIZATION */}
-      {options.length > 0 && (
+      {(options?.length ?? 0) > 0 && (
         <section className="section border-t border-slate-100 bg-white">
           <div className="container">
             <h2 className="text-2xl font-semibold mb-2 underline underline-offset-4 decoration-2">
@@ -164,7 +168,7 @@ export default function SolutionPage({
       )}
 
       {/* IMAGE GALLERY */}
-      {gallery.length > 0 && (
+      {(gallery?.length ?? 0) > 0 && (
         <section className="section pt-0">
           <div className="container">
             <div className="grid">
@@ -188,7 +192,7 @@ export default function SolutionPage({
       )}
 
       {/* USE CASES */}
-      {useCases.length > 0 && (
+      {(useCases?.length ?? 0) > 0 && (
         <section className="section border-t border-slate-100 bg-slate-50">
           <div className="container">
             <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">Great fit for</h2>
@@ -197,6 +201,18 @@ export default function SolutionPage({
                 <li key={`usecase-${index}`} className="text-slate-700">{u}</li>
               ))}
             </ul>
+          </div>
+        </section>
+      )}
+
+      {/* EMPTY STATE */}
+      {(!benefits?.length && !steps?.length && !options?.length && !gallery?.length && !useCases?.length) && (
+        <section className="section">
+          <div className="container">
+            <div className="card">
+              <h3 className="text-lg font-semibold">Content coming soon</h3>
+              <p className="text-slate-600">We're assembling project photos, videos, and specs for this solution. Check back shortly.</p>
+            </div>
           </div>
         </section>
       )}

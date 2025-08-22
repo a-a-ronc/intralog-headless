@@ -1,0 +1,6 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <rect width="1200" height="800" fill="#e5e7eb"/>
+  <text x="600" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#334155">AMR Sortation Pilot</text>
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#64748b">Flexible, track-free sortation system</text>
+</svg>
