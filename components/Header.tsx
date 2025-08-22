@@ -183,7 +183,7 @@ export default function Header() {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo.svg"
+            src="https://intralog.io/wp-content/uploads/2023/02/logo_rbg_primary_color.png"
             alt="Intralog"
             width={140}
             height={32}
