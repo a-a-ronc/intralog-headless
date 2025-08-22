@@ -280,6 +280,42 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="section" style={{ background: 'var(--light)' }}>
+        <div className="container">
+          <h2 style={{ 
+            marginTop: 0, 
+            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', 
+            textAlign: 'center',
+            marginBottom: '2rem'
+          }}>
+            Quick Links (Dev Sanity Check)
+          </h2>
+          <div className="grid" style={{ 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 'clamp(1rem, 3vw, 1.5rem)'
+          }}>
+            {[
+              ["/solutions/pallet-shuttles", "Pallet Shuttles"],
+              ["/solutions/vlm", "Vertical Lift Modules"],
+              ["/solutions/conveyor", "Conveyor & Sortation"],
+              ["/solutions/amr-agv", "AMRs & AGVs"],
+              ["/solutions/robotics", "Robotics"],
+              ["/solutions/buffering", "Buffering/Sequencing"],
+              ["/solutions/storage-retrieval", "Storage & Retrieval"],
+              ["/solutions/picking-packing", "Picking & Packing"],
+              ["/solutions/wcs-wes", "WCS/WES"],
+              ["/resources/videos", "Videos"],
+              ["/case-studies", "Showcase"],
+            ].map(([href, label]) => (
+              <Link key={href as string} href={href as string} className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div style={{ fontWeight: '600', marginBottom: '0.5rem' }}>{label}</div>
+                <div className="small" style={{ color: '#64748b' }}>{href}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section" style={{ background: 'var(--brand-blue)', color: '#fff' }}>
         <div className="container" style={{ 
           display: 'flex', 
