@@ -1,0 +1,321 @@
+0) Assumptions / Don’t change
+
+We’re on Next.js App Router.
+
+components/SolutionPage.tsx exists and already supports videos?: { url: string; title: string }[].
+
+The navbar (mega menu) is at components/Header.tsx with the hover‑delay logic already added.
+
+1) Add a demo data helper
+
+Create lib/demo.ts with safe, brand‑agnostic placeholders (logos, showcase items, images):
+
+// lib/demo.ts
+export const demoClients = [
+  { name: "New Balance", src: "/clients/newbalance.svg" },
+  { name: "Sportsman's Warehouse", src: "/clients/sportsmans.svg" },
+  { name: "Little Giant", src: "/clients/little-giant.svg" },
+  { name: "Lion Energy", src: "/clients/lionenergy.svg" },
+  { name: "Built Brands", src: "/clients/builtbrands.png" },
+];
+
+export const demoShowcase = [
+  {
+    id: "demo-1",
+    slug: "dense-storage-upfit",
+    title: "Dense Storage Upfit",
+    featuredImage: "/images/showcase/demo-1.jpg",
+    excerpt: "Consolidated SKUs and increased pick density with a compact layout.",
+  },
+  {
+    id: "demo-2",
+    slug: "amr-sortation-pilot",
+    title: "AMR Sortation Pilot",
+    featuredImage: "/images/showcase/demo-2.jpg",
+    excerpt: "Flexible, track‑free sortation to support seasonal peaks.",
+  },
+  {
+    id: "demo-3",
+    slug: "cold-storage-reflow",
+    title: "Cold Storage Reflow",
+    featuredImage: "/images/showcase/demo-3.jpg",
+    excerpt: "Temperature‑controlled picking flow with ergonomic stations.",
+  },
+];
+
+export const demoSolutionImages = {
+  palletShuttles: [
+    { title: "Operator staging shuttle", src: "/images/solutions/pallet-shuttles/operator-staging-shuttle.avif" },
+    { title: "Position pallets", src: "/images/solutions/pallet-shuttles/position-pallets.avif" },
+    { title: "Auto position", src: "/images/solutions/pallet-shuttles/auto-position.avif" },
+    { title: "Shuttle in operation", src: "/images/solutions/pallet-shuttles/shuttle-in-operation.avif" },
+  ],
+  vlm: [
+    { title: "FlexiBox: fast movers", src: "/images/solutions/vlm/flexibox-1.jpg" },
+    { title: "VLM in cold storage", src: "/images/solutions/vlm/cold-vlm.jpg" },
+    { title: "Ergonomic access", src: "/images/solutions/vlm/ergo-access.jpg" },
+  ],
+  conveyor: [
+    { title: "High‑speed sortation", src: "/images/solutions/conveyor/sortation.jpg" },
+    { title: "Multi‑level conveyor", src: "/images/solutions/conveyor/multi-level.jpg" },
+    { title: "Automated induction", src: "/images/solutions/conveyor/induction.jpg" },
+    { title: "Pack station integration", src: "/images/solutions/conveyor/pack-station.jpg" },
+  ],
+  amr: [
+    { title: "ACR Goods‑to‑Person", src: "/images/solutions/amr/acr-gtp.jpg" },
+    { title: "AMR Robotic Sortation", src: "/images/solutions/amr/amr-sort.jpg" },
+    { title: "Forklift AMR—Pallet Moves", src: "/images/solutions/amr/fork-amr.jpg" },
+  ],
+  robotics: [
+    { title: "Case picking robot", src: "/images/solutions/robotics/case-picking.jpg" },
+    { title: "Palletizing cell", src: "/images/solutions/robotics/palletizing.jpg" },
+    { title: "Vision‑guided picking", src: "/images/solutions/robotics/vision-picking.jpg" },
+    { title: "Collaborative workspace", src: "/images/solutions/robotics/collaborative.jpg" },
+  ],
+};
+
+// Utility: return src if file exists, else a colored placeholder.
+export function placeholder(src: string, altText: string) {
+  // If you want, later we can expand to fs.existsSync logic with dynamic import.
+  // For now always return src; fallback is handled by actual placeholder files we create in /public below.
+  return { src, alt: altText };
+}
+
+2) Make CMS pages show even when WP is down
+
+Update app/case-studies/page.tsx to fallback to demoShowcase when wpFetch fails or returns empty.
+
+Edit this file: app/case-studies/page.tsx
+
+Import demoShowcase from lib/demo
+
+When items.length === 0, render demo cards (create a minimal inline card if CaseStudyCard needs WordPress fields)
+
+// at top:
+import { demoShowcase, demoClients } from "@/lib/demo";
+import Image from "next/image";
+import Link from "next/link";
+
+// after pulling data via wpFetch...
+const items = data?.caseStudies?.nodes || [];
+const list = items.length ? items : demoShowcase;
+
+// in the CLIENT LOGO RAIL, replace hardcoded clients with demoClients:
+<div className="logo-rail">
+  {demoClients.map((c) => (
+    <Image key={c.name} src={c.src} alt={`${c.name} logo`} height={40} width={120} />
+  ))}
+</div>
+
+// in the GRID, if CaseStudyCard expects WP shape, add a guard render:
+<div className="grid">
+  {list.map((cs: any) =>
+    "id" in cs && cs.featuredImage ? (
+      <CaseStudyCard key={cs.id} cs={cs} />
+    ) : (
+      <Link key={cs.slug} href={`/case-studies/${cs.slug}`} className="card block">
+        <Image src={cs.featuredImage} alt={cs.title} width={800} height={450} className="rounded-xl" />
+        <h3 className="mt-3 text-lg font-semibold">{cs.title}</h3>
+        <p className="text-slate-600">{cs.excerpt}</p>
+      </Link>
+    )
+  )}
+</div>
+
+3) Ensure every Solutions page has demo content
+
+Confirm these files exist; if not, create them using the structures we already used:
+
+app/solutions/pallet-shuttles/page.tsx
+
+app/solutions/vlm/page.tsx
+
+app/solutions/conveyor/page.tsx
+
+app/solutions/amr-agv/page.tsx
+
+app/solutions/robotics/page.tsx
+
+All five should import SolutionPage and define benefits, steps, options, gallery, useCases, videos arrays.
+If any are missing, generate them now with believable placeholder strings and use the video URLs we already added (YouTube embeds).
+For each page, if the gallery uses images from lib/demo.ts, wire them:
+
+import { demoSolutionImages } from "@/lib/demo";
+// then use demoSolutionImages.vlm, etc. as default gallery if no real files yet
+const gallery = demoSolutionImages.vlm;
+
+4) Add placeholder assets so Next/Image never breaks
+
+Create real files (simple SVG/JPG placeholders) under public/ to match every path used above. If a real brand logo or photo doesn’t exist, write a simple on‑brand placeholder.
+
+Create these files with content:
+
+Clients (SVG, simple gray wordmarks):
+
+/public/clients/newbalance.svg
+
+/public/clients/sportsmans.svg
+
+/public/clients/little-giant.svg
+
+/public/clients/lionenergy.svg
+
+/public/clients/builtbrands.png (PNG placeholder, light gray)
+
+Generic 1200×800 JPEG placeholders (light gray bg, centered label text)
+
+/public/images/showcase/demo-1.jpg
+
+/public/images/showcase/demo-2.jpg
+
+/public/images/showcase/demo-3.jpg
+
+/public/images/solutions/pallet-shuttles/*.avif (you can create .jpg versions if AVIF tooling is not available)
+
+/public/images/solutions/vlm/*.jpg
+
+/public/images/solutions/conveyor/*.jpg
+
+/public/images/solutions/amr/*.jpg
+
+/public/images/solutions/robotics/*.jpg
+
+For each missing image, generate a minimal SVG or JPG with Tailwind‑like palette (#e5e7eb background, #334155 text). Example SVG content you can reuse (just change the label):
+
+Action: generate the above files automatically with simple content so Next/Image always finds something on disk.
+
+5) Harden components/SolutionPage.tsx for empty props
+
+Update components/SolutionPage.tsx to safely render when arrays are empty:
+
+// benefits
+{(benefits?.length ?? 0) > 0 && (
+  <>
+    <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">Why {title}</h2>
+    <div className="grid">
+      {benefits.map((b) => (
+        <div key={b.title} className="card flex flex-col gap-2">
+          <h3 className="text-lg font-semibold">{b.title}</h3>
+          <p className="text-slate-700">{b.body}</p>
+        </div>
+      ))}
+    </div>
+  </>
+)}
+
+
+Repeat the same “length checks” for steps, options, gallery, useCases, and videos.
+Also add a tiny default if everything is empty:
+
+{(!benefits?.length && !steps?.length && !options?.length && !gallery?.length && !useCases?.length) && (
+  <section className="section">
+    <div className="container">
+      <div className="card">
+        <h3 className="text-lg font-semibold">Content coming soon</h3>
+        <p className="text-slate-600">We’re assembling project photos, videos, and specs for this solution. Check back shortly.</p>
+      </div>
+    </div>
+  </section>
+)}
+
+6) Make the mega‑menu usable without content
+
+If any menu link 404s, create minimal stub pages with a header and “Content coming soon” card.
+Create tiny files like:
+
+app/solutions/picking-packing/page.tsx, app/solutions/buffering/page.tsx, app/industries/retail-ecommerce/page.tsx, etc.:
+
+export const metadata = { title: "Retail & E‑Commerce | Intralog" };
+export default function Page() {
+  return (
+    <main className="section">
+      <div className="container">
+        <h1 className="text-3xl font-semibold mb-2">Retail & E‑Commerce</h1>
+        <div className="card">
+          <p className="text-slate-700">Content coming soon. We’ll publish examples, photos, and workflows here.</p>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+7) Seed a simple /resources/videos index
+
+Create app/resources/videos/page.tsx that lists all videos you wired into Solutions pages so you have a single place to QA embeds:
+
+export const metadata = { title: "Videos | Intralog" };
+
+const videos = [
+  { title: "Pallet Shuttle Overview", url: "https://www.youtube.com/embed/BF7HCTcsN2s" },
+  { title: "Modula FlexiBox Overview", url: "https://www.youtube.com/embed/H5GIY7PTyR0" },
+  { title: "Conveyor — AutoRoll+ MDR", url: "https://www.youtube.com/embed/jf3IbA9pigs" },
+  { title: "Conveyor — Belt", url: "https://www.youtube.com/embed/zyoootwqbqA" },
+  { title: "Conveyor — Gravity", url: "https://www.youtube.com/embed/4GX7exZGpmQ" },
+  { title: "Conveyor — NBLR", url: "https://www.youtube.com/embed/E5BwPlU46QQ" },
+  { title: "Conveyor — V‑Belt", url: "https://www.youtube.com/embed/iOdUktCFxiY" },
+  { title: "AMR — SEER", url: "https://www.youtube.com/embed/zlMDJpZYtmY" },
+  { title: "AMR Sortation — Tompkins", url: "https://www.youtube.com/embed/VhG82W2qQwI" },
+  { title: "ACR — HAI Robotics", url: "https://www.youtube.com/embed/7x0Zq7y0CkQ" },
+];
+
+export default function Page() {
+  return (
+    <main className="section">
+      <div className="container">
+        <h1 className="text-3xl font-semibold mb-4">Video Library</h1>
+        <div className="grid md:grid-cols-2 gap-6">
+          {videos.map((v) => (
+            <div key={v.url} className="card">
+              <div className="relative rounded-xl overflow-hidden" style={{ paddingTop: "56.25%" }}>
+                <iframe
+                  src={v.url}
+                  title={v.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full border-0"
+                />
+              </div>
+              <div className="mt-2 font-medium">{v.title}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}
+
+8) Add a quick “dev sanity” home link
+
+On the homepage app/page.tsx, add a simple card with quick links to each Solutions page so you can verify in one click.
+
+// somewhere in your home page body:
+<section className="section">
+  <div className="container">
+    <div className="grid">
+      {[
+        ["/solutions/pallet-shuttles", "Pallet Shuttles"],
+        ["/solutions/vlm", "Vertical Lift Modules"],
+        ["/solutions/conveyor", "Conveyor & Sortation"],
+        ["/solutions/amr-agv", "AMRs & AGVs"],
+        ["/solutions/robotics", "Robotics"],
+        ["/resources/videos", "Videos"],
+        ["/case-studies", "Showcase"],
+      ].map(([href, label]) => (
+        <a key={href as string} href={href as string} className="card">
+          <div className="font-semibold">{label}</div>
+          <div className="small text-slate-600">{href}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+9) Run & verify
+
+Start dev server; ensure all pages render with placeholders even without CMS assets.
+
+Confirm the mega‑menu keeps open during hover transitions.
+
+Confirm images load (placeholders present).
+
+Confirm videos embed.

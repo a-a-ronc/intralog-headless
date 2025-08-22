@@ -1,0 +1,70 @@
+// lib/demo.ts
+export const demoClients = [
+  { name: "New Balance", src: "/clients/newbalance.svg" },
+  { name: "Sportsman's Warehouse", src: "/clients/sportsmans.svg" },
+  { name: "Little Giant", src: "/clients/little-giant.svg" },
+  { name: "Lion Energy", src: "/clients/lionenergy.svg" },
+  { name: "Built Brands", src: "/clients/builtbrands.png" },
+];
+
+export const demoShowcase = [
+  {
+    id: "demo-1",
+    slug: "dense-storage-upfit",
+    title: "Dense Storage Upfit",
+    featuredImage: "/images/showcase/demo-1.jpg",
+    excerpt: "Consolidated SKUs and increased pick density with a compact layout.",
+  },
+  {
+    id: "demo-2",
+    slug: "amr-sortation-pilot",
+    title: "AMR Sortation Pilot",
+    featuredImage: "/images/showcase/demo-2.jpg",
+    excerpt: "Flexible, track‑free sortation to support seasonal peaks.",
+  },
+  {
+    id: "demo-3",
+    slug: "cold-storage-reflow",
+    title: "Cold Storage Reflow",
+    featuredImage: "/images/showcase/demo-3.jpg",
+    excerpt: "Temperature‑controlled picking flow with ergonomic stations.",
+  },
+];
+
+export const demoSolutionImages = {
+  palletShuttles: [
+    { title: "Operator staging shuttle", src: "/images/solutions/pallet-shuttles/operator-staging-shuttle.avif" },
+    { title: "Position pallets", src: "/images/solutions/pallet-shuttles/position-pallets.avif" },
+    { title: "Auto position", src: "/images/solutions/pallet-shuttles/auto-position.avif" },
+    { title: "Shuttle in operation", src: "/images/solutions/pallet-shuttles/shuttle-in-operation.avif" },
+  ],
+  vlm: [
+    { title: "FlexiBox: fast movers", src: "/images/solutions/vlm/flexibox-1.jpg" },
+    { title: "VLM in cold storage", src: "/images/solutions/vlm/cold-vlm.jpg" },
+    { title: "Ergonomic access", src: "/images/solutions/vlm/ergo-access.jpg" },
+  ],
+  conveyor: [
+    { title: "High‑speed sortation", src: "/images/solutions/conveyor/sortation.jpg" },
+    { title: "Multi‑level conveyor", src: "/images/solutions/conveyor/multi-level.jpg" },
+    { title: "Automated induction", src: "/images/solutions/conveyor/induction.jpg" },
+    { title: "Pack station integration", src: "/images/solutions/conveyor/pack-station.jpg" },
+  ],
+  amr: [
+    { title: "ACR Goods‑to‑Person", src: "/images/solutions/amr/acr-gtp.jpg" },
+    { title: "AMR Robotic Sortation", src: "/images/solutions/amr/amr-sort.jpg" },
+    { title: "Forklift AMR—Pallet Moves", src: "/images/solutions/amr/fork-amr.jpg" },
+  ],
+  robotics: [
+    { title: "Case picking robot", src: "/images/solutions/robotics/case-picking.jpg" },
+    { title: "Palletizing cell", src: "/images/solutions/robotics/palletizing.jpg" },
+    { title: "Vision‑guided picking", src: "/images/solutions/robotics/vision-picking.jpg" },
+    { title: "Collaborative workspace", src: "/images/solutions/robotics/collaborative.jpg" },
+  ],
+};
+
+// Utility: return src if file exists, else a colored placeholder.
+export function placeholder(src: string, altText: string) {
+  // If you want, later we can expand to fs.existsSync logic with dynamic import.
+  // For now always return src; fallback is handled by actual placeholder files we create in /public below.
+  return { src, alt: altText };
+}
