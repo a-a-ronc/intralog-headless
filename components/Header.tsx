@@ -183,7 +183,7 @@ export default function Header() {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo.svg"
+            src="/images/logo.png"
             alt="Intralog"
             width={140}
             height={32}
