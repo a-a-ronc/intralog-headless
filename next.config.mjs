@@ -5,6 +5,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'upload.wikimedia.org' },   // Wikimedia SVGs
       { protocol: 'https', hostname: 'companieslogo.com' },      // example mirrors
+      { protocol: 'https', hostname: 'intralog.io' },           // Intralog logo and assets
       // { protocol: 'https', hostname: process.env.WP_MEDIA_HOST }, // your WP media (static at build)
     ],
   },
