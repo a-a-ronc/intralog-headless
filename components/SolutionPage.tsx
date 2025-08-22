@@ -85,8 +85,8 @@ export default function SolutionPage({
             Why {title}
           </h2>
           <div className="grid">
-            {benefits.map((b) => (
-              <div key={b.title} className="card flex flex-col gap-2">
+            {benefits.map((b, index) => (
+              <div key={`benefit-${index}-${b.title}`} className="card flex flex-col gap-2">
                 <h3 className="text-lg font-semibold">{b.title}</h3>
                 <p className="text-slate-700">{b.body}</p>
               </div>
@@ -101,8 +101,8 @@ export default function SolutionPage({
           <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">How it works</h2>
         {/* 4 columns on wide screens */}
           <div className="grid" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}>
-            {steps.map((s) => (
-              <div key={s.step} className="card text-left">
+            {steps.map((s, index) => (
+              <div key={`step-${index}-${s.step}`} className="card text-left">
                 <div className="small text-slate-500 font-semibold">Step {s.step}</div>
                 <h3 className="font-semibold">{s.title}</h3>
                 <p className="text-slate-700">{s.body}</p>
@@ -126,12 +126,12 @@ export default function SolutionPage({
 
             {/* categories as cards */}
             <div className="grid">
-              {options.map((cat) => (
-                <div key={cat.name} className="card">
+              {options.map((cat, catIndex) => (
+                <div key={`category-${catIndex}-${cat.name}`} className="card">
                   <h3 className="text-lg font-semibold mb-2">{cat.name}</h3>
                   <ul className="grid gap-2 sm:grid-cols-2">
-                    {cat.items.map((it) => (
-                      <li key={it.title} className="flex items-start gap-3">
+                    {cat.items.map((it, itemIndex) => (
+                      <li key={`item-${catIndex}-${itemIndex}-${it.title}`} className="flex items-start gap-3">
                         {it.icon && (
                           <Image
                             src={it.icon}
@@ -168,8 +168,8 @@ export default function SolutionPage({
         <section className="section pt-0">
           <div className="container">
             <div className="grid">
-              {gallery.map((g) => (
-                <div key={g.title} className="card text-center">
+              {gallery.map((g, index) => (
+                <div key={`gallery-${index}-${g.title}`} className="card text-center">
                   <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">
                     {g.title}
                   </h2>
@@ -193,8 +193,8 @@ export default function SolutionPage({
           <div className="container">
             <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">Great fit for</h2>
             <ul className="grid list-disc pl-5">
-              {useCases.map((u) => (
-                <li key={u} className="text-slate-700">{u}</li>
+              {useCases.map((u, index) => (
+                <li key={`usecase-${index}`} className="text-slate-700">{u}</li>
               ))}
             </ul>
           </div>

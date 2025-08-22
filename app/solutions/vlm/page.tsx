@@ -4,12 +4,12 @@ import SolutionPage from "@/components/SolutionPage";
 export const metadata = { title: "Vertical Lift Modules (VLM) | Intralog" };
 
 const benefits = [
-  { title: "Save up to ~90% floor space", body: "Use vertical cube with dense tray storage; recover aisles and reduce footprint." }, // Modula VLM overview
+  { title: "Save up to ~90% floor space", body: "Use vertical cube with dense tray storage; recover aisles and reduce footprint." },
   { title: "Fast goods‑to‑person picking", body: "Trays present at an ergonomic opening; high lines/hour when paired with software & aids." },
-  { title: "FlexiBox for fast movers", body: "Up to ~180 bins/hour with shuttle + telescopic fork retrieving multiple containers per cycle." }, // FlexiBox
+  { title: "FlexiBox for fast movers", body: "Up to ~180 bins/hour with shuttle + telescopic fork retrieving multiple containers per cycle." },
   { title: "Accuracy & traceability", body: "Copilot + Modula WMS, barcode/labeling, and pick‑to‑light options help cut errors." },
   { title: "Cold‑storage ready", body: "Climate‑control options protect temperature‑sensitive goods and minimize conditioned volume." },
-  { title: "Ergonomics & safety", body: "Goods‑to‑person reduces travel and awkward reaches for better comfort and fewer injuries." },
+  { title: "Enhanced ergonomics & safety", body: "Goods‑to‑person reduces travel and awkward reaches for better comfort and fewer injuries." },
   { title: "High tray capacities", body: "Lift line supports quick cycles and significant tray payloads for heavy parts." },
   { title: "Secure, enclosed storage", body: "Access control and enclosed trays protect inventory quality." },
 ];
