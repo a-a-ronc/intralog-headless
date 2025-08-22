@@ -4,19 +4,11 @@ import { wpFetch } from '@/lib/wp'
 import { CASE_STUDIES_QUERY } from '@/lib/queries'
 import CaseStudyCard from '@/components/CaseStudyCard'
 import ClientLogo from '@/components/Clientlogo' //added for little giant logo
+import { demoShowcase, demoClients } from '@/lib/demo'
 
 export const metadata = { title: 'Project Showcase | Intralog' }
 
-// A list of key clients whose projects are highlighted on this page.  
-// Each item should correspond to an SVG or PNG in your `/public/clients` folder.  
-// Feel free to add or remove clients as needed.  
-const clients = [
-  { name: 'New Balance', src: '/clients/newbalance.svg' },
-  { name: "Sportsman's Warehouse", src: '/clients/sportsmans.svg' },
-  { name: 'Little Giant', src: '/clients/littlegiant' },
-  { name: 'Lion Energy', src: '/clients/lionenergy.svg' },
-  { name: 'Built Brands', src: '/clients/builtbrands.png' },
-]
+// Using demo clients from lib/demo.ts as fallback data
 
 /*
  * The project showcase page lists recent warehouse projects with a modern, client‑focused
@@ -32,6 +24,9 @@ export default async function ShowcasePage() {
   } catch {
     // gracefully handle unreachable CMS by leaving items empty
   }
+
+  // Use demo content when WordPress is down or returns empty
+  const list = items.length ? items : demoShowcase
 
   return (
     <div>
@@ -76,7 +71,7 @@ export default async function ShowcasePage() {
             Clients &amp; Partners
           </h2>
           <div className="logo-rail">
-            {clients.map((client) => (
+            {demoClients.map((client) => (
               <Image
                 key={client.name}
                 src={client.src}
@@ -116,9 +111,54 @@ export default async function ShowcasePage() {
             </p>
           </div>
           <div className="grid">
-            {items.map((cs) => (
-              <CaseStudyCard key={cs.id} cs={cs} />
-            ))}
+            {list.map((cs: any) =>
+              "id" in cs && cs.featuredImage?.node ? (
+                <CaseStudyCard key={cs.id} cs={cs} />
+              ) : (
+                <Link key={cs.slug} href={`/case-studies/${cs.slug}`} className="card hover:shadow-lg transition-shadow" style={{ display: 'block', textDecoration: 'none' }}>
+                  <div
+                    className="relative"
+                    style={{
+                      paddingBottom: '56.25%', // 16:9 aspect ratio
+                      borderRadius: '12px',
+                      overflow: 'hidden',
+                      marginBottom: '0.75rem',
+                    }}
+                  >
+                    <Image 
+                      src={cs.featuredImage.node.sourceUrl} 
+                      alt={cs.featuredImage.node.altText || cs.title} 
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                  <h3
+                    style={{
+                      margin: '0 0 .5rem',
+                      fontSize: '1.125rem',
+                      fontWeight: 600,
+                      lineHeight: 1.25,
+                      color: '#1e293b',
+                    }}
+                  >
+                    {cs.title}
+                  </h3>
+                  <div
+                    className="small"
+                    style={{ color: '#475569' }}
+                  >
+                    {cs.excerpt}
+                  </div>
+                  <div
+                    className="small"
+                    style={{ marginTop: '.75rem', color: '#0B2D52', fontWeight: 600 }}
+                  >
+                    View project →
+                  </div>
+                </Link>
+              )
+            )}
           </div>
         </div>
       </section>

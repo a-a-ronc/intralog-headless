@@ -1,5 +1,6 @@
 // app/solutions/conveyor/page.tsx
 import SolutionPage from "@/components/SolutionPage";
+import { demoSolutionImages } from "@/lib/demo"; // Import demoSolutionImages
 
 export const metadata = { title: "Conveyor & Sortation Systems | Intralog" };
 
@@ -74,12 +75,7 @@ const options = [
   },
 ];
 
-const gallery = [
-  { title: "High‑speed sortation", src: "/images/solutions/conveyor/shoe-sorter.jpg" },
-  { title: "Multi‑level conveyor", src: "/images/solutions/conveyor/polytier.JPG" },
-  { title: "Automated induction", src: "/images/solutions/conveyor/automation-induction.png" },
-  { title: "Pack station integration", src: "/images/solutions/conveyor/pack-station-integration.JPG" },
-];
+const gallery = demoSolutionImages.conveyor; // Use demo images for gallery
 
 const useCases = [
   "E‑commerce fulfillment: order routing, carrier sort, and pack lane feeds",

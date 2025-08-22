@@ -1,5 +1,7 @@
 // app/solutions/pallet-shuttles/page.tsx
-import Image from "next/image"
+import Image from "next/image";
+import SolutionPage from "@/components/SolutionPage";
+import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Pallet Shuttles | Intralog" }
 

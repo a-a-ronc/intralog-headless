@@ -1,5 +1,6 @@
 // app/solutions/amr-agv/page.tsx
 import SolutionPage from "@/components/SolutionPage";
+import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "AMRs & AGVs | Intralog" };
 
@@ -92,11 +93,7 @@ const options = [
   },
 ];
 
-const gallery = [
-  { title: "ACR Goods‑to‑Person", src: "/images/solutions/amr/acr.jpg" },
-  { title: "AMR Robotic Sortation", src: "/images/solutions/amr/t-sort.jpg" },
-  { title: "Forklift AMR—Pallet Moves", src: "/images/solutions/amr/forklift-amr.webp" },
-];
+const gallery = demoSolutionImages.amr;
 
 const useCases = [
   "E‑commerce & Retail: piece picking, order consolidation, and returns",

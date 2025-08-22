@@ -1,5 +1,6 @@
 // app/solutions/vlm/page.tsx
 import SolutionPage from "@/components/SolutionPage";
+import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Vertical Lift Modules (VLM) | Intralog" };
 
@@ -76,12 +77,7 @@ const options = [
   },
 ];
 
-const gallery = [
-  { title: "FlexiBox: fast movers", src: "/images/solutions/vlm/bin-handling.jpg" },
-  { title: "VLM in cold storage", src: "/images/solutions/vlm/climate-control.png" },
-  { title: "Robot Interface", src: "/images/solutions/vlm/robot-interface.jpg" },
-  { title: "Full Auto Case Pick", src: "/images/solutions/vlm/auto-case-pick.jpg" },
-];
+const gallery = demoSolutionImages.vlm;
 
 const useCases = [
   "Cold storage: dense, organized inventory with tight environmental control",
