@@ -1,34 +1,68 @@
+// app/services/engineering-and-design/simulation-and-emulation/page.tsx
 import SolutionPage from "@/components/SolutionPage";
+import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Simulation & Emulation | Intralog" };
+
+const benefits = [
+  { title: "De-risk before build", body: "Validate throughput, queues, and staffing across peaks and exceptions." },
+  { title: "Find bottlenecks fast", body: "Scenario tests reveal where to add accumulation or tune logic." },
+  { title: "Controls-ready", body: "Emulation for PLC/WCS IO and sequence testing shortens on-site debug." },
+  { title: "Evidence for stakeholders", body: "KPIs, heatmaps, and videos communicate design choices clearly." },
+];
+
+const steps = [
+  { step: 1, title: "Model build & calibration", body: "Geometry, rates, profiles, and control rules matched to concept." },
+  { step: 2, title: "Scenarios & sensitivity", body: "Peaks, mix shifts, outages; what-ifs around staffing and pitch." },
+  { step: 3, title: "Controls emulation", body: "Digital IO, sensors, encoders, and timing to test sequences and faults." },
+  { step: 4, title: "Report & iterate", body: "Throughput charts, queue plots, and recommendations for changes." },
+];
+
+const options = [
+  {
+    name: "What We Simulate",
+    items: [
+      { title: "Conveyors, merges/gapping, and sorters" },
+      { title: "G2P/VLMs, shuttles/miniload, AMRs" },
+      { title: "Pack, P&A, DWS, and palletizing" },
+      { title: "Dock operations & staging" },
+    ],
+  },
+  {
+    name: "Outputs",
+    items: [
+      { title: "Throughput, dwell, queue lengths" },
+      { title: "Resource utilization & staffing curves" },
+      { title: "Scenario videos & heatmaps" },
+      { title: "Change recommendations" },
+    ],
+  },
+];
+
+const gallery = demoSolutionImages.servicesSim ?? [
+  { src: "/images/services/sim/queues.jpg", alt: "Queue visualization" },
+  { src: "/images/services/sim/heatmap.jpg", alt: "Heatmap of congestion" },
+  { src: "/images/services/sim/emulation.jpg", alt: "Controls emulation" },
+];
+
+const useCases = [
+  "Sorter selection & chute count validation",
+  "G2P station count and batching logic",
+  "Palletizer throughput & infeed accumulation",
+];
 
 export default function Page() {
   return (
     <SolutionPage
       title="Simulation & Emulation"
-      description="Replace with a sharp, outcomes-focused description that speaks to ROI, throughput, accuracy, or labor reduction."
-      benefits={[
-        { title: "Proven Results", body: "Short proof point or stat that builds confidence." },
-        { title: "Low Risk, High ROI", body: "Address common objections with specific benefits." },
-        { title: "Fast Time-to-Value", body: "Typical timeline or quick win that reduces decision friction." }
-      ]}
-      steps={[
-        { step: 1, title: "Assessment", body: "Replace with real process step." },
-        { step: 2, title: "Design", body: "Replace with real process step." },
-        { step: 3, title: "Implementation", body: "Replace with real process step." },
-        { step: 4, title: "Optimization", body: "Replace with real process step." }
-      ]}
-      useCases={[
-        "Replace with specific industry or use case",
-        "Replace with specific workflow or constraint",
-        "Replace with specific operational challenge"
-      ]}
-      cta={{
-        title: "Ready to explore simulation & emulation?",
-        body: "We'll analyze your specific requirements and design a solution that delivers measurable ROI.",
-        buttonText: "Talk with an engineer",
-        href: "/contact"
-      }}
+      description="Validate and tune your design before install—discrete-event simulation for flow decisions and controls emulation for faster startup."
+      benefits={benefits}
+      steps={steps}
+      options={options}
+      gallery={gallery}
+      useCases={useCases}
+      brochureCta={{ blurb: "Request a sample sim report and KPI pack.", buttonText: "See a sample", href: "/contact" }}
+      cta={{ title: "Test it before you build it", body: "We’ll simulate your concept, run scenarios, and deliver changes that protect throughput and schedule.", buttonText: "Talk with an engineer", href: "/contact" }}
     />
   );
 }
