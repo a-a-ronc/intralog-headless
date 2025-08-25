@@ -51,21 +51,21 @@ export default function Header() {
         {
           heading: "By Function",
           links: [
-            { href: "/solutions/store-more-less-space", label: "Store More in Less Space" },
-            { href: "/solutions/move-product-efficiently", label: "Move Product Efficiently" },
-            { href: "/solutions/pick-pack-faster", label: "Pick & Pack Faster" },
-            { href: "/solutions/fulfill-orders-accurately", label: "Fulfill Orders Accurately" },
+            { href: "/solutions/by-function/store-more-in-less-space", label: "Store More in Less Space" },
+            { href: "/solutions/by-function/move-product-efficiently", label: "Move Product Efficiently" },
+            { href: "/solutions/by-function/pick-and-pack-faster", label: "Pick & Pack Faster" },
+            { href: "/solutions/by-function/fulfill-orders-accurately", label: "Fulfill Orders Accurately" },
           ],
         },
         {
           heading: "By Technology",
           links: [
-            { href: "/solutions/conveyor-sortation", label: "Conveyor & Sortation" },
-            { href: "/solutions/goods-to-person-vlms", label: "Goods-to-Person / VLMs" },
-            { href: "/solutions/pallet-shuttle-systems", label: "Pallet Shuttle Systems" },
-            { href: "/solutions/print-apply", label: "Print & Apply" },
-            { href: "/solutions/palletizing-depalletizing", label: "Palletizing / De-Palletizing" },
-            { href: "/solutions/conventional-storage-systems", label: "Conventional Storage Systems" },
+            { href: "/solutions/by-technology/conveyor-and-sortation", label: "Conveyor & Sortation" },
+            { href: "/solutions/by-technology/goods-to-person-vlms", label: "Goods-to-Person / VLMs" },
+            { href: "/solutions/by-technology/pallet-shuttle-systems", label: "Pallet Shuttle Systems" },
+            { href: "/solutions/by-technology/print-and-apply", label: "Print & Apply" },
+            { href: "/solutions/by-technology/palletizing-and-de-palletizing", label: "Palletizing / De-Palletizing" },
+            { href: "/solutions/by-technology/conventional-storage-systems", label: "Conventional Storage Systems" },
           ],
         },
         {
