@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "scaffold:site": "node scripts/scaffold.mjs",
-    "retrofit:bytech": "node scripts/retrofit.mjs"
+    "lint": "next lint"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.12",
