@@ -1,44 +1,86 @@
-
+// app/solutions/by-function/store-more-in-less-space/page.tsx
 import SolutionPage from "@/components/SolutionPage";
+import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Store More in Less Space | Intralog" };
 
 const benefits = [
-  { title: "Maximize vertical space", body: "Utilize ceiling height with VLMs, pallet shuttles, and multi‑tier racking systems up to 40+ feet." },
-  { title: "High‑density configurations", body: "Store 3‑10× more inventory per square foot versus traditional selective racking." },
-  { title: "Flexible storage types", body: "Combine pallets, cases, and small parts in integrated high‑density systems." },
-  { title: "Reduce facility costs", body: "Avoid costly building expansions or additional lease space with smart storage design." },
-  { title: "Optimize picking paths", body: "Goods‑to‑person systems eliminate travel time while maximizing storage density." },
-  { title: "Climate control efficiency", body: "Smaller footprints reduce HVAC costs, especially critical in cold storage applications." },
+  { title: "Higher storage density", body: "Right-size mix of selective, pushback, flow, shuttle, and vertical storage." },
+  { title: "Selectivity where it matters", body: "Fast movers stay accessible; slow movers compress into dense media." },
+  { title: "Permit-ready & safe", body: "Seismic, flues, egress, and AHJ packages reduce project risk." },
+  { title: "Future-proof layout", body: "Reserve interfaces for AS/RS, VLMs, and pallet shuttles later." },
 ];
 
 const steps = [
-  { step: 1, title: "Space & SKU analysis", body: "Analyze current utilization, SKU dimensions, and velocity to identify density opportunities." },
-  { step: 2, title: "System selection", body: "Choose optimal mix of VLMs, pallet shuttles, multi‑tier systems based on inventory profile." },
-  { step: 3, title: "Layout optimization", body: "Design integrated system that maximizes cubic utilization while maintaining access and safety." },
-  { step: 4, title: "Implementation", body: "Install and commission high‑density storage with minimal operational disruption." },
+  { step: 1, title: "Profile & slotting", body: "Analyze pallets/SKU, turns, and cube to set density targets by velocity band." },
+  { step: 2, title: "Layout & code", body: "Aisles, flue space, egress, and ESFR coordination; stamped drawings and permits." },
+  { step: 3, title: "Build & protect", body: "Install rack/shelving, decking, guards, signage/labels, and safety systems." },
+  { step: 4, title: "Optimize & expand", body: "Tune pick faces, add flow lanes or a mezzanine, and plan automation tie-ins." },
 ];
 
+const options = [
+  {
+    name: "Pallet Storage",
+    items: [
+      { title: "Selective & Double-Deep" },
+      { title: "Pushback (2–6 deep, LIFO)" },
+      { title: "Pallet Flow (FIFO, deep lane)" },
+      { title: "Drive-In / Drive-Through" },
+      { title: "Pallet Shuttle Systems (deep-lane, FIFO/LIFO)" },
+      { title: "Cantilever (long loads)" },
+    ],
+  },
+  {
+    name: "Case/Tote & Small Parts",
+    items: [
+      { title: "Carton Flow & Pick Modules" },
+      { title: "Rivet/Boltless & Steel Shelving" },
+      { title: "Vertical Storage (VLMs/miniload) for secure smalls" },
+      { title: "Modular bins, drawers, cabinets" },
+    ],
+  },
+  {
+    name: "Platforms & Access",
+    items: [
+      { title: "Mezzanines, catwalks, work platforms" },
+      { title: "Stairs, handrails, lift/swing gates" },
+      { title: "Decking: bar grating, perforated, solid, wire" },
+    ],
+  },
+];
+
+const gallery =
+  demoSolutionImages.storeMore ?? [
+    { src: "/images/solutions/by-function/store-more/selective.jpg", alt: "Selective pallet rack" },
+    { src: "/images/solutions/by-function/store-more/carton-flow.jpg", alt: "Carton flow pick faces" },
+    { src: "/images/solutions/by-function/store-more/mezzanine.jpg", alt: "Mezzanine and catwalks" },
+  ];
+
 const useCases = [
-  "Cold storage: maximize expensive refrigerated space with shuttle systems",
-  "Urban distribution: overcome high real estate costs with vertical storage",
-  "Manufacturing: store more components and finished goods in limited factory space",
-  "E‑commerce: handle growing SKU counts without facility expansion",
-  "Pharmaceutical: secure, compliant storage for high‑value inventory",
+  "DC retrofit: add pallet flow + pushback for higher turns",
+  "E-com: multi-level pick module over reserve selective",
+  "3PL: flexible bays for client churn and SKU volatility",
 ];
 
 export default function Page() {
   return (
     <SolutionPage
       title="Store More in Less Space"
-      description="Maximize storage density with vertical lift modules, pallet shuttles, and multi‑tier systems that utilize every cubic foot efficiently."
+      description="Engineered storage mixes—selective, pushback, pallet flow, shuttles, mezzanines, and vertical storage—to boost density without sacrificing critical access."
       benefits={benefits}
       steps={steps}
+      options={options}
+      gallery={gallery}
       useCases={useCases}
+      brochureCta={{
+        blurb: "Download the Storage Mix Guide—slotting templates, flue spacing, and rack selection charts.",
+        buttonText: "Get the guide",
+        href: "/contact",
+      }}
       cta={{
-        title: "Ready to maximize your storage density?",
-        body: "We'll analyze your space and inventory to design solutions that dramatically increase storage capacity.",
-        buttonText: "Get density analysis",
+        title: "Design your storage mix",
+        body: "We’ll profile your SKUs and turns, then deliver a permit-ready layout built to expand and automate later.",
+        buttonText: "Talk with an engineer",
         href: "/contact",
       }}
     />

@@ -1,44 +1,83 @@
-
+// app/solutions/by-function/pick-and-pack-faster/page.tsx
 import SolutionPage from "@/components/SolutionPage";
+import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Pick & Pack Faster | Intralog" };
 
 const benefits = [
-  { title: "Eliminate travel time", body: "Goods‑to‑person systems bring inventory to stationary pickers, boosting pick rates 3‑5×." },
-  { title: "Guided picking accuracy", body: "Laser pointers, LED displays, and pick‑to‑light reduce errors and training time." },
-  { title: "Batch & wave optimization", body: "Smart batching and zone picking minimize touches and maximize throughput." },
-  { title: "Ergonomic improvements", body: "Present items at optimal height and angle to reduce fatigue and increase speed." },
-  { title: "Real‑time visibility", body: "Track pick rates, accuracy, and bottlenecks with integrated WMS reporting." },
-  { title: "Scalable automation", body: "Add robotics and conveyor integration as volumes grow." },
+  { title: "Higher lines per hour", body: "Batch/cluster picking, PTL/PTL, and goods-to-person reduce walk time." },
+  { title: "Accuracy first", body: "Scan prompts, weigh/verify, and exception lanes protect quality and chargebacks." },
+  { title: "Scales with peak", body: "Add stations or AMRs seasonally without replatforming the core flow." },
+  { title: "Ergonomics", body: "Right pick media and station design reduce strain and improve speed." },
 ];
 
 const steps = [
-  { step: 1, title: "Order optimization", body: "WMS creates optimized pick paths and batches to minimize travel and touches." },
-  { step: 2, title: "Goods‑to‑person delivery", body: "VLMs, AMRs, or conveyors bring items directly to pick stations." },
-  { step: 3, title: "Guided picking", body: "Visual aids and technology guide pickers to exact locations and quantities." },
-  { step: 4, title: "Pack & ship", body: "Streamlined packing processes with right‑sized packaging and automated labeling." },
+  { step: 1, title: "Slot & stage work", body: "Velocity-based slotting and batch building ready orders for efficient routes." },
+  { step: 2, title: "Pick & consolidate", body: "Cluster pick to carts/AMRs; put-walls or consolidation tables with PTL." },
+  { step: 3, title: "Pack & label", body: "Weigh/verify and print/apply at pack; route to sorter or docks." },
+  { step: 4, title: "Audit & improve", body: "KPI dashboards (UPH, accuracy, dwell) drive continuous improvement." },
 ];
 
+const options = [
+  {
+    name: "Picking Methods",
+    items: [
+      { title: "Batch / Cluster / Zone Picking" },
+      { title: "Pick-to-Light & HMI prompts" },
+      { title: "Goods-to-Person (VLMs, shuttle/miniload, ACR robots)" },
+      { title: "Cart-based and AMR-assisted routes" },
+    ],
+  },
+  {
+    name: "Pack & QA",
+    items: [
+      { title: "Weigh/verify with scales and vision as needed" },
+      { title: "DWS + Print & Apply with grading" },
+      { title: "Exception lanes and rework flows" },
+    ],
+  },
+  {
+    name: "Media & Stations",
+    items: [
+      { title: "Carton flow faces, shelving, modular bins" },
+      { title: "Ergonomic benches, put-walls, and lighting" },
+      { title: "Label printers, scanners, PTL/Pick displays" },
+    ],
+  },
+];
+
+const gallery =
+  demoSolutionImages.pickPack ?? [
+    { src: "/images/solutions/by-function/pick-pack/put-wall.jpg", alt: "Put-wall consolidation" },
+    { src: "/images/solutions/by-function/pick-pack/g2p.jpg", alt: "Goods-to-person station" },
+    { src: "/images/solutions/by-function/pick-pack/pack.jpg", alt: "Pack with weigh/verify" },
+  ];
+
 const useCases = [
-  "E‑commerce fulfillment: high‑velocity order picking with same‑day requirements",
-  "Retail distribution: store replenishment and direct‑to‑consumer orders",
-  "Third‑party logistics: multi‑client picking with accuracy requirements",
-  "Healthcare distribution: time‑critical pharmaceutical and medical supply orders",
-  "Manufacturing kitting: assembly line feeding and production support",
+  "E-com smalls: batch pick + put-wall + label verify",
+  "Retail: zone pick to route cartons with QA at pack",
+  "MRO: slow movers via VLMs/G2P with secure access",
 ];
 
 export default function Page() {
   return (
     <SolutionPage
       title="Pick & Pack Faster"
-      description="Accelerate fulfillment with goods‑to‑person automation, guided picking technology, and optimized workflows that boost productivity and accuracy."
+      description="Slotting, pick media, PTL/put-walls, and goods-to-person—plus pack QA and labeling—to increase lines per hour while protecting accuracy."
       benefits={benefits}
       steps={steps}
+      options={options}
+      gallery={gallery}
       useCases={useCases}
+      brochureCta={{
+        blurb: "Request the Picking Playbook—method selection, station design, and staffing calculators.",
+        buttonText: "Request playbook",
+        href: "/contact",
+      }}
       cta={{
-        title: "Ready to accelerate your fulfillment?",
-        body: "We'll analyze your current pick rates and design automation solutions to dramatically improve speed and accuracy.",
-        buttonText: "Get productivity analysis",
+        title: "Accelerate pick & pack",
+        body: "We’ll choose the right picking method, size stations, and integrate QA/labeling to meet your SLAs.",
+        buttonText: "Talk with an engineer",
         href: "/contact",
       }}
     />
