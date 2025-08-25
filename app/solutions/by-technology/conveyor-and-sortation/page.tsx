@@ -4,98 +4,127 @@ import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Conveyor & Sortation | Intralog" };
 
+/** Top value props */
 const benefits = [
-  { title: "High‑throughput movement", body: "Automate transport and sortation to process thousands of items per hour from induction to shipping." },
-  { title: "Flexible routing & diverting", body: "Merge, divert, and buffer with pop‑up transfers, right‑angle transfers, steerable wheels, and controlled merges." },
+  { title: "High-throughput movement", body: "Automate transport/sortation from induction to shipping; scale to thousands of items per hour." },
+  { title: "Flexible routing & diverting", body: "Merges, diverts, buffers, and controlled releases keep downstream fed without starving or blocking." },
   { title: "Labor & travel reduction", body: "Cut walk time and manual cart moves by connecting work areas with automated flow." },
-  { title: "Scalable & modular", body: "Add zones, tiers, and sort points as volumes grow without re‑architecting the whole line." },
-  { title: "Integration‑ready controls", body: "Tie into WMS/WCS, scanners, dimensioning, scales, and print/apply for real‑time tracking and decisions." },
-  { title: "Gentle, consistent handling", body: "Controlled acceleration, accumulation, and zero‑pressure logic help minimize damage and errors." },
-  { title: "Energy‑aware operation", body: "Zone‑driven conveyors (e.g., MDR) run only where product is present, reducing power draw." },
-  { title: "Pallet handling compatibility", body: "Pallet conveyor interfaces cleanly with pallet shuttles / LoadMatic for automated infeed, outfeed, and staging." },
+  { title: "Scalable & modular", body: "Add zones, tiers, and sort points as volumes grow—without re-architecting the entire line." },
+  { title: "Integration-ready controls", body: "Tie into WMS/WCS, DWS, scanners, and print/apply for live decisions and traceability." },
+  { title: "Gentle, consistent handling", body: "Controlled acceleration and ZPA logic minimize damage and mis-sorts." },
+  { title: "Energy-aware operation", body: "MDR/24V zones run only where product is present to reduce power draw." },
+  { title: "Pallet compatibility", body: "Clean interfaces to pallet conveyor and deep-lane shuttle systems." },
 ];
 
+/** Process overview */
 const steps = [
-  { step: 1, title: "Induct & identify", body: "Items or pallets enter the line and are identified via barcode/RFID, dimensioning, or lookups from WMS/WCS." },
-  { step: 2, title: "Convey & accumulate", body: "Zero‑pressure accumulation and speed‑matched transfers move flow between work zones." },
-  { step: 3, title: "Decision & divert", body: "Controls execute routing to doors, lanes, buffers, or value‑add stations via the chosen sortation method." },
-  { step: 4, title: "Destination hand‑off", body: "Product arrives to pack, palletize, shipping, pallet shuttle, or storage—ready for the next step." },
+  { step: 1, title: "Induct & identify", body: "Cartons, totes, or pallets enter; ID via barcode/RFID, DWS, or WMS/WCS lookups." },
+  { step: 2, title: "Convey & accumulate", body: "ZPA accumulation, merges, and speed-matched transfers balance line flow." },
+  { step: 3, title: "Decision & divert", body: "Controls route to doors, lanes, buffers, value-add, or pack via selected sortation." },
+  { step: 4, title: "Destination hand-off", body: "Product arrives to pack, palletize, shipping, pallet shuttle, or storage." },
 ];
 
+/** Your complete offering, grouped for UI */
 const options = [
   {
-    name: "Conveyor Types",
+    name: "Unit-Handling Conveyors (Cartons/Totes)",
     items: [
-      { title: "MDR / Zero‑pressure Roller" },
-      { title: "Belt & Belt‑on‑Roller" },
-      { title: "Chain & Chain‑Driven Live Roller (CDLR)" },
-      { title: "Mat‑top / Modular Plastic Belt" },
-      { title: "Pallet Conveyor (rollers, CDLR, chain)" },
-      { title: "Incline/Decline & Spirals" },
+      { title: "Gravity Roller & Skatewheel" },
+      { title: "Belt (Slider Bed), Belt-over-Roller" },
+      { title: "Live Roller: BDLR (belt-driven), CDLR (chain-driven)" },
+      { title: "MDR/24V: Zero-Pressure & Minimum-Pressure Accumulation" },
+      { title: "Lineshaft Roller" },
+      { title: "Modular Plastic Belt (Mat-top), Table-top Chain" },
+      { title: "Curves, Merges, Combiners, Diverters (30°/45°/90°), Switchbacks" },
+      { title: "Cleated/Flighted Belt (Inclines/Declines), Troughed Belt" },
+      { title: "Flexible/Expandable (Gravity or Powered) for Temp Lines" },
+      { title: "Telescopic/Boom Loaders for Docks" },
+      { title: "Chutes: Spiral, Skatewheel, Sliding, Parcel Slides" },
     ],
   },
   {
-    name: "Sortation Methods",
+    name: "Pallet Handling",
     items: [
-      { title: "Sliding‑Shoe Sorter" },
-      { title: "Cross‑Belt / Tilt‑Tray" },
-      { title: "Narrow‑Belt Sorter (NBS) / Belt‑with‑Pop‑up Wheels" },
-      { title: "Steerable Wheel / Swivel Wheel" },
-      { title: "Pushers & Right‑Angle Transfers" },
+      { title: "CDLR Pallet Conveyor (Single/Dual Lane)" },
+      { title: "2-Strand & 3-Strand Chain Conveyor" },
+      { title: "Chain Transfers (Pop-up), Right-Angle Transfers, Turntables" },
+      { title: "Pallet Stackers/Destackers, Dispensers, Lifts" },
+      { title: "Interfaces to Pallet Shuttles (Deep-Lane Infeed/Outfeed)" },
+      { title: "Pallet Scales, Centering Stations, Profile Checks" },
     ],
   },
   {
-    name: "Control & Tracking",
+    name: "Vertical Movement",
     items: [
-      { title: "WMS / WCS Integration" },
-      { title: "Barcode & RFID Scanners" },
-      { title: "Photo‑eyes & Zone Control" },
-      { title: "Dimensioning & Weighing (DWS)" },
-      { title: "Print/Apply & Verify" },
+      { title: "VRCs / Vertical Lifts (C- & Z-pattern), Continuous Vertical Conveyors" },
+      { title: "Spirals (Belt or Modular)" },
+      { title: "Lift & Rotate Units, Vertical Indexers" },
     ],
   },
   {
-    name: "Pallet Handling & Interfaces",
+    name: "Sortation Systems (Unit Sorters)",
     items: [
-      { title: "Pallet Infeed/Outfeed to Shuttle / LoadMatic" },
-      { title: "Pallet Turntables & Indexers" },
-      { title: "Pallet Transfers (Chain ↔ CDLR)" },
-      { title: "Pallet Stackers / Destackers" },
-      { title: "End‑of‑Line Palletizing Handoffs" },
+      { title: "Sliding-Shoe Sorter (High Speed, Many Diverts)" },
+      { title: "Cross-Belt Sorter (Loop or Linear)" },
+      { title: "Tilt-Tray Sorter" },
+      { title: "Narrow-Belt Sorter (NBS) with Pop-up/Angling Wheels" },
+      { title: "Steerable/Swivel Wheel Diverts" },
+      { title: "Pushers & 90° Transfers" },
+      { title: "AMR / Mobile-Robot Sortation (e.g., totes to chutes)" },
     ],
   },
   {
-    name: "Safety & Access",
+    name: "Flow Control & Induction",
     items: [
-      { title: "Light Curtains & E‑Stops" },
-      { title: "Guarding & Handrails" },
-      { title: "Access Gates & Interlocks" },
-      { title: "Lockout/Tagout Provisions" },
+      { title: "Singulators (3-belt, Shoe, Angled Roller)" },
+      { title: "Dynamic Gappers, Brake Meters, Metering Belts" },
+      { title: "Merge Controllers (1:2, 2:1, 3:1), Combiner Logic" },
+      { title: "Accumulation Logic: Zone Lengths, Release Rules, Slug/Blocked Modes" },
     ],
   },
+  {
+    name: "Tracking, ID, & Print/Apply",
+    items: [
+      { title: "Barcode/RFID Scanners, Scales, Dimensioners (DWS)" },
+      { title: "Print-and-Apply (with Verify/Void), Inline Labeling" },
+      { title: "Photoeyes, Encoder Tracking, Zone Controllers" },
+      { title: "WMS/WCS Integration, PLC/HMI, Exception Handling" },
+    ],
+  },
+    {
+      name: "Safety & Access",
+      items: [
+        { title: "Light Curtains & E‑Stops" },
+        { title: "Guarding & Handrails" },
+        { title: "Access Gates & Interlocks" },
+        { title: "Lockout/Tagout Provisions" },
+      ],
+    },
 ];
 
+/** Demo/gallery images (ensure these exist under /public) */
 const gallery = demoSolutionImages.conveyor;
 
+/** Representative use cases */
 const useCases = [
-  "E‑commerce fulfillment: order routing, carrier sort, and pack lane feeds",
-  "Distribution centers: zone‑to‑zone transport, pre‑sort to doors, and shipping lanes",
-  "Manufacturing: WIP conveyance, kitting lines, and finished‑goods handling",
+  "E-commerce: order routing, carrier sort, pack lane feeds",
+  "3PL/DC: zone-to-zone transport, pre-sort to doors, shipping lanes",
+  "Manufacturing: WIP conveyance, kitting lines, finished-goods handling",
   "Postal & parcel: destination sorting by service level and route",
-  "Retail & returns: putaway, restock flow, and reverse logistics",
+  "Retail & returns: putaway, restock flow, reverse logistics",
 ];
 
 export default function Page() {
   return (
     <SolutionPage
       title="Conveyor & Sortation Systems"
-      description="Automated material flow from induction to shipping—combining modular conveyors, intelligent sortation, and pallet interfaces that scale with your throughput."
+      description="Automated material flow from induction to shipping—combining modular conveyors, intelligent sorters, pallet interfaces, vertical lifts, and integrated ID/labeling."
       videos={[
         { url: "https://www.youtube.com/embed/jf3IbA9pigs", title: "AutoRoll+™ MDR Conveyor" },
         { url: "https://www.youtube.com/embed/zyoootwqbqA", title: "Belt Conveyor" },
         { url: "https://www.youtube.com/embed/4GX7exZGpmQ", title: "Gravity Conveyor" },
         { url: "https://www.youtube.com/embed/E5BwPlU46QQ", title: "Narrow Belt Live Roller (NBLR) Conveyor" },
-        { url: "https://www.youtube.com/embed/iOdUktCFxiY", title: "V‑Belt Conveyor" },
+        { url: "https://www.youtube.com/embed/iOdUktCFxiY", title: "V-Belt Conveyor" },
       ]}
       benefits={benefits}
       steps={steps}
@@ -103,13 +132,13 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       brochureCta={{
-        blurb: "Want detailed conveyor specifications and layout options? Share your email to get our systems guide.",
-        buttonText: "Request brochure",
+        blurb: "Want detailed specifications, layouts, and selection guidance? Share your email to get our Conveyor & Sortation Playbook.",
+        buttonText: "Request playbook",
         href: "/contact",
       }}
       cta={{
-        title: "Ready to design a conveyor & sortation system?",
-        body: "We’ll map your flows, size throughput, and specify the right conveyor types, sortation method, and pallet interfaces for your targets.",
+        title: "Build the right conveyor & sortation mix",
+        body: "We’ll size throughput, pick the sorter, and tune merges/accumulation to your order profile—and interface with pallet shuttles where it pays.",
         buttonText: "Talk with an engineer",
         href: "/contact",
       }}
