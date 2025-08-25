@@ -32,39 +32,67 @@ export default function Header() {
   // ---- NAV DATA  ----
   const navItems = [
     {
+      title: "Design-Build",
+      href: "/design-build",
+      columns: [
+        {
+          heading: "Our Approach",
+          links: [
+            { href: "/design-build/our-process", label: "Our Process" },
+            { href: "/design-build/why-design-build", label: "Why Design-Build" },
+          ],
+        },
+      ],
+    },
+    {
       title: "Solutions",
       href: "/solutions",
       columns: [
         {
-          heading: "By Technology",
+          heading: "By Function",
           links: [
-            { href: "/solutions/pallet-shuttles", label: "Pallet Shuttles" },
-            { href: "/solutions/vlm", label: "Vertical Lift Modules (VLM)" },
-            { href: "/solutions/conveyor", label: "Conveyor & Sortation Systems" },
-            { href: "/solutions/amr-agv", label: "AMRs/AGVs" },
-            { href: "/solutions/wcs-wes", label: "Warehouse Control & Execution Software" },
-            { href: "/solutions/robotics", label: "Robotics (Picking, Palletizing)" },
+            { href: "/solutions/store-more-less-space", label: "Store More in Less Space" },
+            { href: "/solutions/move-product-efficiently", label: "Move Product Efficiently" },
+            { href: "/solutions/pick-pack-faster", label: "Pick & Pack Faster" },
+            { href: "/solutions/fulfill-orders-accurately", label: "Fulfill Orders Accurately" },
           ],
         },
         {
-          heading: "By Function",
+          heading: "By Technology",
           links: [
-            { href: "/solutions/storage-retrieval", label: "Storage & Retrieval" },
-            { href: "/solutions/picking-packing", label: "Picking & Packing" },
-            { href: "/solutions/buffering", label: "Buffering/Sequencing" },
-            { href: "/solutions/palletizing", label: "Palletizing" },
-            { href: "/solutions/sortation", label: "Sortation" },
+            { href: "/solutions/conveyor-sortation", label: "Conveyor & Sortation" },
+            { href: "/solutions/goods-to-person-vlms", label: "Goods-to-Person / VLMs" },
+            { href: "/solutions/pallet-shuttle-systems", label: "Pallet Shuttle Systems" },
+            { href: "/solutions/print-apply", label: "Print & Apply" },
+            { href: "/solutions/palletizing-depalletizing", label: "Palletizing / De-Palletizing" },
+            { href: "/solutions/conventional-storage-systems", label: "Conventional Storage Systems" },
           ],
         },
         {
           heading: "By Industry",
           links: [
-            { href: "/industries/retail-ecommerce", label: "Retail & E-Commerce" },
+            { href: "/industries/aerospace-defense", label: "Aerospace & Defense" },
+            { href: "/industries/cold-storage-warehousing", label: "Cold Storage Warehousing" },
             { href: "/industries/food-beverage", label: "Food & Beverage" },
+            { href: "/industries/industrial-distribution", label: "Industrial Distribution" },
             { href: "/industries/manufacturing", label: "Manufacturing" },
-            { href: "/industries/healthcare-pharma", label: "Healthcare/Pharma" },
-            { href: "/industries/3pl", label: "Third-Party Logistics (3PL)" },
-            { href: "/industries/sporting-goods", label: "Sporting Goods/Outdoors" },
+            { href: "/industries/retail-ecommerce", label: "Retail & E-commerce" },
+            { href: "/industries/third-party-logistics", label: "Third Party Logistics (3PL)" },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Software",
+      href: "/software",
+      columns: [
+        {
+          heading: "Our Software Solutions",
+          links: [
+            { href: "/software/warehousr", label: "Warehousr (Open Source)" },
+            { href: "/software/densitypro", label: "DensityPro" },
+            { href: "/software/lully", label: "Lully (Partner Software)" },
+            { href: "/software/painlesspermit", label: "PainlessPermit (Beta)" },
           ],
         },
       ],
@@ -74,64 +102,20 @@ export default function Header() {
       href: "/services",
       columns: [
         {
-          heading: "Consulting & Planning",
+          heading: "Engineering & Design",
           links: [
-            { href: "/services/supply-chain-analysis", label: "Supply-chain & Network Analysis" },
-            { href: "/services/sku-profiling", label: "SKU Profiling/ABC Analysis" },
-            { href: "/services/concept-selection", label: "Concept Selection" },
-            { href: "/services/vendor-comparison", label: "Vendor Comparison" },
+            { href: "/services/industrial-real-estate-evaluation", label: "Industrial Real Estate Evaluation" },
+            { href: "/services/data-analysis-system-design", label: "Data Analysis & System Design" },
+            { href: "/services/simulation-emulation", label: "Simulation & Emulation" },
           ],
         },
         {
-          heading: "Design & Engineering",
+          heading: "Implementation",
           links: [
-            { href: "/services/facility-sizing", label: "Facility Sizing & Throughput Modeling" },
-            { href: "/services/simulation", label: "Simulation & Digital Twins" },
-            { href: "/services/layout-slotting", label: "Layout & Slotting" },
-            { href: "/services/specification", label: "Specification Drafting" },
-          ],
-        },
-        {
-          heading: "Implementation & Support",
-          links: [
-            { href: "/services/value-engineering", label: "Value Engineering & Procurement" },
-            { href: "/services/installation", label: "Installation & Commissioning" },
-            { href: "/services/controls-integration", label: "Controls Integration" },
-            { href: "/services/training-support", label: "Training & Support" },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Industries",
-      href: "/industries",
-      columns: [
-        {
-          heading: "Market Focus",
-          links: [
-            { href: "/industries/mid-market-warehouses", label: "Mid-market Warehouses" },
-            { href: "/industries/sporting-goods", label: "Sporting Goods" },
-            { href: "/industries/outdoor-adventure", label: "Outdoor & Adventure" },
-            { href: "/industries/apparel", label: "Apparel" },
-            { href: "/industries/food-beverage", label: "Food & Beverage" },
-            { href: "/industries/energy-consumer", label: "Energy/Consumer Brands" },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Showcase",
-      href: "/case-studies",
-      columns: [
-        {
-          heading: "Project Gallery",
-          links: [
-            { href: "/case-studies", label: "All Projects" },
-            { href: "/case-studies?client=new-balance", label: "New Balance" },
-            { href: "/case-studies?client=sportsmans", label: "Sportsman's Warehouse" },
-            { href: "/case-studies?client=little-giant", label: "Little Giant" },
-            { href: "/case-studies?client=lion-energy", label: "Lion Energy" },
-            { href: "/case-studies?client=built-brands", label: "Built Brands" },
+            { href: "/services/project-management", label: "Project Management" },
+            { href: "/services/code-compliance-permits", label: "Code Compliance & Permits" },
+            { href: "/services/installation", label: "Installation" },
+            { href: "/services/commissioning-training", label: "Commissioning & Training" },
           ],
         },
       ],
@@ -143,33 +127,9 @@ export default function Header() {
         {
           heading: "Content Library",
           links: [
+            { href: "/resources/project-spotlights", label: "Project Spotlights" },
             { href: "/resources/blog", label: "Blog" },
             { href: "/resources/videos", label: "Videos" },
-            { href: "/resources/project-highlights", label: "Project Highlights" },
-            { href: "/resources/events", label: "News & Events" },
-          ],
-        },
-        {
-          heading: "Topics",
-          links: [
-            { href: "/resources?topic=consulting", label: "Consulting" },
-            { href: "/resources?topic=automation", label: "Automation" },
-            { href: "/resources?topic=software", label: "Software" },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Company",
-      href: "/about",
-      columns: [
-        {
-          heading: "About Intralog",
-          links: [
-            { href: "/about", label: "About Us" },
-            { href: "/about/why-choose-us", label: "Why Choose Us" },
-            { href: "/partners", label: "Partners" },
-            { href: "/careers", label: "Careers" },
           ],
         },
       ],
