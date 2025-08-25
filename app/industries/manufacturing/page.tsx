@@ -13,3 +13,18 @@ export default function Page() {
     </main>
   );
 }
+// app/industries/manufacturing/page.tsx
+export const metadata = { title: "Manufacturing | Intralog" };
+
+export default function ManufacturingPage() {
+  return (
+    <main className="section">
+      <div className="container">
+        <h1 className="text-3xl font-semibold mb-2">Manufacturing</h1>
+        <div className="card">
+          <p className="text-slate-700">Content coming soon. We'll publish examples, photos, and workflows here.</p>
+        </div>
+      </div>
+    </main>
+  );
+}
