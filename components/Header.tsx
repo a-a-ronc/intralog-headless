@@ -104,18 +104,18 @@ export default function Header() {
         {
           heading: "Engineering & Design",
           links: [
-            { href: "/services/industrial-real-estate-evaluation", label: "Industrial Real Estate Evaluation" },
-            { href: "/services/data-analysis-system-design", label: "Data Analysis & System Design" },
-            { href: "/services/simulation-emulation", label: "Simulation & Emulation" },
+            { href: "/services/engineering-and-design/industrial-real-estate-evaluation", label: "Industrial Real Estate Evaluation" },
+            { href: "/services/engineering-and-design/data-analysis-and-system-design", label: "Data Analysis & System Design" },
+            { href: "/services/engineering-and-design/simulation-and-emulation", label: "Simulation & Emulation" },
           ],
         },
         {
           heading: "Implementation",
           links: [
-            { href: "/services/project-management", label: "Project Management" },
-            { href: "/services/code-compliance-permits", label: "Code Compliance & Permits" },
-            { href: "/services/installation", label: "Installation" },
-            { href: "/services/commissioning-training", label: "Commissioning & Training" },
+            { href: "/services/implementation/project-management", label: "Project Management" },
+            { href: "/services/implementation/code-compliance-and-permits", label: "Code Compliance & Permits" },
+            { href: "/services/implementation/installation", label: "Installation" },
+            { href: "/services/implementation/commissioning-and-training", label: "Commissioning & Training" },
           ],
         },
       ],
