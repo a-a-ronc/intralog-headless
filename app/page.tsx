@@ -279,15 +279,15 @@ export default async function HomePage() {
             gap: 'clamp(1rem, 3vw, 1.5rem)'
           }}>
             {[
-              ["/solutions/pallet-shuttle-systems", "Pallet Shuttle Systems"],
-              ["/solutions/goods-to-person-vlms", "Goods-to-Person / VLMs"],
-              ["/solutions/conveyor-sortation", "Conveyor & Sortation"],
+              ["/solutions/by-technology/pallet-shuttle-systems", "Pallet Shuttle Systems"],
+              ["/solutions/by-technology/goods-to-person-vlms", "Goods-to-Person / VLMs"],
+              ["/solutions/by-technology/conveyor-and-sortation", "Conveyor & Sortation"],
               ["/solutions/amr-agv", "AMRs & AGVs"],
               ["/solutions/robotics", "Robotics"],
-              ["/solutions/store-more-in-less-space", "Store More in Less Space"],
-              ["/solutions/move-product-efficiently", "Move Product Efficiently"],
-              ["/solutions/pick-pack-faster", "Pick & Pack Faster"],
-              ["/solutions/fulfill-orders-accurately", "Fulfill Orders Accurately"],
+              ["/solutions/by-function/store-more-in-less-space", "Store More in Less Space"],
+              ["/solutions/by-function/move-product-efficiently", "Move Product Efficiently"],
+              ["/solutions/by-function/pick-and-pack-faster", "Pick & Pack Faster"],
+              ["/solutions/by-function/fulfill-orders-accurately", "Fulfill Orders Accurately"],
               ["/solutions/wcs-wes", "WCS/WES"],
               ["/resources/videos", "Videos"],
               ["/case-studies", "Showcase"],

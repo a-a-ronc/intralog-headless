@@ -1,33 +1,45 @@
+
 import SolutionPage from "@/components/SolutionPage";
 
 export const metadata = { title: "Store More in Less Space | Intralog" };
+
+const benefits = [
+  { title: "Maximize vertical space", body: "Utilize ceiling height with VLMs, pallet shuttles, and multi‑tier racking systems up to 40+ feet." },
+  { title: "High‑density configurations", body: "Store 3‑10× more inventory per square foot versus traditional selective racking." },
+  { title: "Flexible storage types", body: "Combine pallets, cases, and small parts in integrated high‑density systems." },
+  { title: "Reduce facility costs", body: "Avoid costly building expansions or additional lease space with smart storage design." },
+  { title: "Optimize picking paths", body: "Goods‑to‑person systems eliminate travel time while maximizing storage density." },
+  { title: "Climate control efficiency", body: "Smaller footprints reduce HVAC costs, especially critical in cold storage applications." },
+];
+
+const steps = [
+  { step: 1, title: "Space & SKU analysis", body: "Analyze current utilization, SKU dimensions, and velocity to identify density opportunities." },
+  { step: 2, title: "System selection", body: "Choose optimal mix of VLMs, pallet shuttles, multi‑tier systems based on inventory profile." },
+  { step: 3, title: "Layout optimization", body: "Design integrated system that maximizes cubic utilization while maintaining access and safety." },
+  { step: 4, title: "Implementation", body: "Install and commission high‑density storage with minimal operational disruption." },
+];
+
+const useCases = [
+  "Cold storage: maximize expensive refrigerated space with shuttle systems",
+  "Urban distribution: overcome high real estate costs with vertical storage",
+  "Manufacturing: store more components and finished goods in limited factory space",
+  "E‑commerce: handle growing SKU counts without facility expansion",
+  "Pharmaceutical: secure, compliant storage for high‑value inventory",
+];
 
 export default function Page() {
   return (
     <SolutionPage
       title="Store More in Less Space"
-      description="Replace with a sharp, outcomes-focused description that speaks to ROI, throughput, accuracy, or labor reduction."
-      benefits={[
-        { title: "Proven Results", body: "Short proof point or stat that builds confidence." },
-        { title: "Low Risk, High ROI", body: "Address common objections with specific benefits." },
-        { title: "Fast Time-to-Value", body: "Typical timeline or quick win that reduces decision friction." }
-      ]}
-      steps={[
-        { step: 1, title: "Assessment", body: "Replace with real process step." },
-        { step: 2, title: "Design", body: "Replace with real process step." },
-        { step: 3, title: "Implementation", body: "Replace with real process step." },
-        { step: 4, title: "Optimization", body: "Replace with real process step." }
-      ]}
-      useCases={[
-        "Replace with specific industry or use case",
-        "Replace with specific workflow or constraint",
-        "Replace with specific operational challenge"
-      ]}
+      description="Maximize storage density with vertical lift modules, pallet shuttles, and multi‑tier systems that utilize every cubic foot efficiently."
+      benefits={benefits}
+      steps={steps}
+      useCases={useCases}
       cta={{
-        title: "Ready to explore store more in less space?",
-        body: "We'll analyze your specific requirements and design a solution that delivers measurable ROI.",
-        buttonText: "Talk with an engineer",
-        href: "/contact"
+        title: "Ready to maximize your storage density?",
+        body: "We'll analyze your space and inventory to design solutions that dramatically increase storage capacity.",
+        buttonText: "Get density analysis",
+        href: "/contact",
       }}
     />
   );

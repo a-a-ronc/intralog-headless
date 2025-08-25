@@ -1,6 +1,6 @@
 export const metadata = { title: "Manufacturing | Intralog" };
 
-export default function ManufacturingPage() {
+export default function Page() {
   return (
     <main className="section">
       <div className="container">
