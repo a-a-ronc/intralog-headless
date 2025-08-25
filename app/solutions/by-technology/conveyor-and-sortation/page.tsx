@@ -1,6 +1,6 @@
 // app/solutions/by-technology/conveyor-and-sortation/page.tsx
 import SolutionPage from "@/components/SolutionPage";
-import { demoSolutionImages } from "@/lib/demo"; // Import demoSolutionImages
+import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Conveyor & Sortation | Intralog" };
 
@@ -75,7 +75,7 @@ const options = [
   },
 ];
 
-const gallery = demoSolutionImages.conveyor; // Use demo images for gallery
+const gallery = demoSolutionImages.conveyor;
 
 const useCases = [
   "E‑commerce fulfillment: order routing, carrier sort, and pack lane feeds",
