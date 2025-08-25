@@ -1,0 +1,99 @@
+import { mkdirSync, writeFileSync, existsSync } from "node:fs";
+import { dirname } from "node:path";
+
+const pages = [
+  // DESIGN-BUILD
+  { path: "app/design-build/our-approach/page.tsx", title: "Our Approach", group: "Design-Build" },
+  { path: "app/design-build/our-process/page.tsx", title: "Our Process", group: "Design-Build" },
+  { path: "app/design-build/why-design-build/page.tsx", title: "Why Design-Build", group: "Design-Build" },
+
+  // SOLUTIONS — BY FUNCTION
+  { path: "app/solutions/by-function/store-more-in-less-space/page.tsx", title: "Store More in Less Space", group: "Solutions · By Function" },
+  { path: "app/solutions/by-function/move-product-efficiently/page.tsx", title: "Move Product Efficiently", group: "Solutions · By Function" },
+  { path: "app/solutions/by-function/pick-and-pack-faster/page.tsx", title: "Pick & Pack Faster", group: "Solutions · By Function" },
+  { path: "app/solutions/by-function/fulfill-orders-accurately/page.tsx", title: "Fulfill Orders Accurately", group: "Solutions · By Function" },
+
+  // SOLUTIONS — BY TECHNOLOGY
+  { path: "app/solutions/by-technology/conveyor-and-sortation/page.tsx", title: "Conveyor & Sortation", group: "Solutions · By Technology" },
+  { path: "app/solutions/by-technology/goods-to-person-vlms/page.tsx", title: "Goods-to-Person / VLMs", group: "Solutions · By Technology" },
+  { path: "app/solutions/by-technology/pallet-shuttle-systems/page.tsx", title: "Pallet Shuttle Systems", group: "Solutions · By Technology" },
+  { path: "app/solutions/by-technology/print-and-apply/page.tsx", title: "Print & Apply", group: "Solutions · By Technology" },
+  { path: "app/solutions/by-technology/palletizing-and-de-palletizing/page.tsx", title: "Palletizing / De-Palletizing", group: "Solutions · By Technology" },
+  { path: "app/solutions/by-technology/conventional-storage-systems/page.tsx", title: "Conventional Storage Systems", group: "Solutions · By Technology" },
+
+  // SOFTWARE
+  { path: "app/software/warehousr/page.tsx", title: "Warehousr (Open Source)", group: "Software" },
+  { path: "app/software/densitypro/page.tsx", title: "DensityPro", group: "Software" },
+  { path: "app/software/lully/page.tsx", title: "Lully (Partner Software)", group: "Software" },
+  { path: "app/software/painlesspermit/page.tsx", title: "PainlessPermit (Beta)", group: "Software" },
+
+  // SERVICES — ENGINEERING & DESIGN
+  { path: "app/services/engineering-and-design/industrial-real-estate-evaluation/page.tsx", title: "Industrial Real Estate Evaluation", group: "Services · Engineering & Design" },
+  { path: "app/services/engineering-and-design/data-analysis-and-system-design/page.tsx", title: "Data Analysis & System Design", group: "Services · Engineering & Design" },
+  { path: "app/services/engineering-and-design/simulation-and-emulation/page.tsx", title: "Simulation & Emulation", group: "Services · Engineering & Design" },
+
+  // SERVICES — IMPLEMENTATION
+  { path: "app/services/implementation/project-management/page.tsx", title: "Project Management", group: "Services · Implementation" },
+  { path: "app/services/implementation/code-compliance-and-permits/page.tsx", title: "Code Compliance & Permits", group: "Services · Implementation" },
+  { path: "app/services/implementation/installation/page.tsx", title: "Installation", group: "Services · Implementation" },
+  { path: "app/services/implementation/commissioning-and-training/page.tsx", title: "Commissioning & Training", group: "Services · Implementation" },
+
+  // RESOURCES
+  { path: "app/resources/project-spotlights/page.tsx", title: "Project Spotlights", group: "Resources · Content Library" },
+  { path: "app/resources/blog/page.tsx", title: "Blog", group: "Resources · Content Library" },
+  { path: "app/resources/videos/page.tsx", title: "Videos", group: "Resources · Content Library" },
+];
+
+const tpl = ({ title, group }) => `import SolutionPage from "@/components/SolutionPage";
+
+export const metadata = { title: "${title} | Intralog" };
+
+export default function Page() {
+  return (
+    <SolutionPage
+      title="${title}"
+      subtitle="Replace with a sharp, outcomes-focused subheader."
+      hero={{
+        overline: "${group}",
+        headline: "${title}",
+        cta: { label: "Let's Talk", href: "/contact" }
+      }}
+      overview={{
+        intro:
+          "This is placeholder content. Summarize the core value proposition in 2–3 sentences. Speak to ROI, throughput, accuracy, or labor reduction.",
+        bullets: [
+          { title: "Proven Results", body: "Short proof point or stat." },
+          { title: "Low Risk, High ROI", body: "Short objection-buster." },
+          { title: "Fast Time-to-Value", body: "Typical timeline or quick win." }
+        ]
+      }}
+      sections={[
+        { title: "How It Works", body: "Swap in real detail for process or technology." },
+        { title: "Best-Fit Use Cases", body: "Industries, order profiles, or constraints where this shines." }
+      ]}
+      faq={[
+        { q: "What are typical project timelines?", a: "Placeholder answer." },
+        { q: "What integrations are supported?", a: "Placeholder answer." }
+      ]}
+    />
+  );
+}
+`;
+
+function ensureDir(p) {
+  const dir = dirname(p);
+  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+}
+
+let created = 0;
+for (const { path, title, group } of pages) {
+  if (existsSync(path)) {
+    console.log("skip", path);
+    continue;
+  }
+  ensureDir(path);
+  writeFileSync(path, tpl({ title, group }), "utf8");
+  console.log("created", path);
+  created++;
+}
+console.log("done. files created:", created);
