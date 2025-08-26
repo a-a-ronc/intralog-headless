@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -149,6 +150,7 @@ export default function Header() {
             height={32}
             className="h-8 w-auto"
             priority
+            style={{ width: 'auto', height: 'auto' }}
           />
         </Link>
 
@@ -167,7 +169,7 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className="py-2 text-slate-700 hover:text-slate-900 font-medium"
+                  className="py-2 text-[rgb(var(--fg))] hover:text-blue-600 font-medium"
                   onClick={(e) => {
                     // Allow navigation to index page
                     e.stopPropagation();
@@ -181,7 +183,7 @@ export default function Header() {
                   <div
                     className={[
                       "absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[720px] max-w-[90vw]",
-                      "rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-lg shadow-xl",
+                      "rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))]/90 backdrop-blur-lg shadow-xl",
                       "transition-all duration-150",
                       isOpen
                         ? "opacity-100 translate-y-0 visible pointer-events-auto"
@@ -197,7 +199,7 @@ export default function Header() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6">
                       {item.columns.map((col) => (
                         <div key={col.heading}>
-                          <h4 className="mb-2 text-sm font-semibold text-slate-900">
+                          <h4 className="mb-2 text-sm font-semibold text-[rgb(var(--fg))]">
                             {col.heading}
                           </h4>
                           <ul className="space-y-1.5">
@@ -205,7 +207,7 @@ export default function Header() {
                               <li key={link.href}>
                                 <Link
                                   href={link.href}
-                                  className="block rounded-md px-2 py-1.5 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                                  className="block rounded-md px-2 py-1.5 text-sm text-[rgb(var(--muted-fg))] hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--fg))]"
                                 >
                                   {link.label}
                                 </Link>
@@ -224,7 +226,7 @@ export default function Header() {
           {/* Contact Button */}
           <Link
             href="/contact"
-            className="rounded-lg bg-slate-900 px-4 py-2 text-white hover:opacity-90"
+            className="rounded-lg bg-[rgb(var(--fg))] px-4 py-2 text-[rgb(var(--bg))] hover:opacity-90"
           >
             Contact
           </Link>
@@ -235,7 +237,7 @@ export default function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle menu"
-          className="md:hidden inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-slate-700"
+          className="md:hidden inline-flex items-center gap-2 rounded-lg border border-[rgb(var(--border))] px-3 py-2 text-[rgb(var(--fg))]"
         >
           <span>Menu</span>
           <svg viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4">
@@ -246,7 +248,7 @@ export default function Header() {
 
       {/* Mobile drawer (simple, no dropdowns) */}
       {open && (
-        <div className="md:hidden border-t border-slate-200">
+        <div className="md:hidden border-t border-[rgb(var(--border))]">
           <div className="container py-3">
             <ul className="space-y-2">
               {navItems.map((item) => (
@@ -254,7 +256,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100"
+                    className="block rounded-lg px-3 py-2 text-[rgb(var(--fg))] hover:bg-[rgb(var(--surface))]"
                   >
                     {item.title}
                   </Link>
@@ -264,7 +266,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="rounded-lg bg-slate-900 px-4 py-2 text-white w-max mt-3 inline-block"
+              className="rounded-lg bg-[rgb(var(--fg))] px-4 py-2 text-[rgb(var(--bg))] w-max mt-3 inline-block"
             >
               Contact
             </Link>
