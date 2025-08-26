@@ -34,24 +34,38 @@ This website serves to:
 ---
 
 ## 📂 Project Structure
-app/
-├─ layout.tsx # Global layout
-├─ page.tsx # Homepage
-├─ solutions/ # Solution categories
-│ ├─ pallet-shuttles/ # Stow Pallet Shuttle highlight
-│ ├─ vlm/ # Modula VLMs + Flexibox
-│ ├─ conveyor/ # Conveyor & Sortation systems
-│ ├─ amr-agv/ # AMRs & AGVs (HAI, SEER, Tompkins)
-│ ├─ robotics/ # Picking & Palletizing robots
-├─ case-studies/ # Showcase gallery
-├─ services/ # Consulting, Design, Implementation
-├─ industries/ # Industry verticals
-├─ resources/ # Blog, videos, events
-├─ about/ # Company info
-├─ partners/ # Client & vendor partners
-public/
-├─ clients/ # Logos (SVG/PNG)
-├─ images/solutions/ # Solution galleries
+```bash
+intralog-headless/
+├─ app/                         # Next.js App Router (server components by default)
+│  ├─ (marketing)/              # Landing/marketing routes
+│  ├─ design-build/             # Design-Build hub (Our Process, Why Design-Build)
+│  ├─ solutions/                # Solution pages (Conveyor, AMR/AGV, Robotics, VLM, etc.)
+│  ├─ api/                      # Route handlers (serverless)
+│  ├─ layout.tsx                # Root layout (theme provider, metadata)
+│  ├─ globals.css               # Global styles (Tailwind)
+│  └─ page.tsx                  # Homepage
+├─ components/                  # Reusable UI
+│  ├─ ui/                       # Buttons, cards, toggles, inputs...
+│  ├─ layout/                   # Header, Footer, Nav
+│  ├─ sections/                 # Page/marketing blocks (hero, feature grids)
+│  └─ charts/                   # Data-viz helpers
+├─ lib/                         # Utilities & client/server helpers
+│  ├─ analytics/                # Tracking and instrumentation
+│  ├─ content/                  # MDX/markdown helpers (if applicable)
+│  ├─ theme.ts                  # Dark-mode persistence, tokens
+│  └─ utils.ts                  # Shared utilities (e.g., `cn`, formatters)
+├─ public/                      # Static assets served as-is
+│  ├─ images/                   # Images, diagrams, illustrations
+│  ├─ logos/                    # Partner/customer logos
+│  └─ favicon.ico
+├─ attached_assets/             # Large PDFs, drawings, collateral
+├─ .gitignore
+├─ next.config.js
+├─ package.json
+├─ postcss.config.js
+├─ tailwind.config.js
+└─ README.md
+```
 
 
 ---
