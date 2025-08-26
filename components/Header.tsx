@@ -168,6 +168,10 @@ export default function Header() {
                 <Link
                   href={item.href}
                   className="py-2 text-slate-700 hover:text-slate-900 font-medium"
+                  onClick={(e) => {
+                    // Allow navigation to index page
+                    e.stopPropagation();
+                  }}
                 >
                   {item.title}
                 </Link>
