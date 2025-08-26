@@ -9,30 +9,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Semantic color tokens for light/dark */}
-        <style id="theme-vars">{`
-          :root{
-            /* page */
-            --bg: 250 250 250;          /* zinc-50 */
-            --fg: 24 24 27;             /* zinc-900 */
-            --muted-fg: 82 82 91;       /* zinc-600 */
-            --border: 228 228 231;      /* zinc-200 */
-
-            /* surfaces */
-            --surface: 244 244 245;     /* zinc-100 */
-            --card: 255 255 255;        /* white */
-          }
-          .dark{
-            --bg: 9 9 11;               /* zinc-950 */
-            --fg: 244 244 245;          /* zinc-100 */
-            --muted-fg: 161 161 170;    /* zinc-400 */
-            --border: 63 63 70;         /* zinc-600 */
-
-            --surface: 17 17 19;        /* near zinc-950/surface */
-            --card: 24 24 27;           /* zinc-900/800 hybrid */
-          }
-        `}</style>
-
         {/* No-flash theme init */}
         <Script id="theme-init" strategy="beforeInteractive">{`
           try {
