@@ -288,7 +288,6 @@ export default async function HomePage() {
               ["/solutions/by-function/move-product-efficiently", "Move Product Efficiently"],
               ["/solutions/by-function/pick-and-pack-faster", "Pick & Pack Faster"],
               ["/solutions/by-function/fulfill-orders-accurately", "Fulfill Orders Accurately"],
-              ["/solutions/by-function/store-more-in-less-space", "Store More in Less Space"],
               ["/solutions/by-industry/aerospace-and-defense", "Aerospace & Defense"],
               ["/solutions/by-industry/cold-storage-warehousing", "Cold Storage & Warehousing"],
               ["/solutions/by-industry/food-and-beverage", "Food & Beverage"],
