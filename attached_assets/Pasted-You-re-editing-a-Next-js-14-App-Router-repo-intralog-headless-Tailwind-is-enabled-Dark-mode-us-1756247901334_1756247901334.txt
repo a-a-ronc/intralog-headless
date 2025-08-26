@@ -1,0 +1,90 @@
+You’re editing a Next.js 14+ (App Router) repo: intralog-headless. Tailwind is enabled. Dark mode uses the dark class on <html> with CSS vars in globals.css. Do not add inline <style> blocks that could cause hydration diffs.
+
+Goal
+
+When a user clicks a top-level nav tab (not just the dropdown), they should land on a well-structured index page:
+
+/design-build → shows Our Process (first) then Why Design-Build
+
+/solutions → 3 columns: By Function, By Industry, By Technology (links go to existing pages)
+
+/software → “Our Software” with cards for each product (links to existing detail pages)
+
+/services → same 3-column pattern as Solutions but for Services
+
+/resources → a single long page that aggregates Project Spotlights (Case Studies), Videos, Blog
+
+Keep styling consistent with existing site (cards, section spacing, dark mode). No CLS or flash when theme toggles.
+
+Files to create/update
+1) Update the nav so top-level items are clickable
+
+File: components/Header.tsx (or layout/Header.tsx if that’s where it lives)
+
+Ensure each top-level menu item has an href to its index page while preserving the existing dropdowns.
+
+“Design-Build” → /design-build
+
+“Solutions” → /solutions
+
+“Software” → /software
+
+“Services” → /services
+
+“Resources” → /resources
+
+On desktop, hovering still shows the submenu; on click, navigate to the index page.
+
+On mobile, tapping the label should navigate; the chevron (if any) can expand submenus.
+
+2) Design-Build index (compose existing subpages)
+
+Create: app/design-build/page.tsx
+
+Refactor the two existing subpages into reusable sections if needed:
+
+Move “Our Process” into components/design-build/ProcessSection.tsx
+
+Move “Why Design-Build” into components/design-build/WhySection.tsx
+
+page.tsx imports those and renders:
+
+hero with title “Design-Build”
+
+<ProcessSection />
+
+<WhySection />
+
+Ensure cards/steps increment visually; dark mode backgrounds use CSS vars (no hardcoded hex blacks).
+
+3) Solutions index (3 columns of lists)
+
+Create: app/solutions/page.tsx
+
+Render a hero “Solutions” and a 3-column responsive grid:
+
+By Function → links that already exist under /solutions/by-function/*
+
+By Industry → /solutions/by-industry/*
+
+By Technology → /solutions/by-technology/*
+
+Use data arrays in the file so it’s easy to add/remove links. Each item: { href, label, blurb? }
+
+Each link is a small card: title, optional 1-line blurb, right-chevron; respects dark mode.
+
+4) Software index (cards)
+
+Create: app/software/page.tsx
+
+Title: “Our Software”. Below, cards for each product (name + 1–2 line description + link):
+
+Warehousr
+
+Density Pro
+
+Painless Permit
+
+(include any others already routed under /software/*)
+
+The href for each card points to the existing detail page.

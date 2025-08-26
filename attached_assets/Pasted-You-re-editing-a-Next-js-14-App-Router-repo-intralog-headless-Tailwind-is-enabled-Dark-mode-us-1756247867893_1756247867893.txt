@@ -1,0 +1,197 @@
+You’re editing a Next.js 14+ (App Router) repo: intralog-headless. Tailwind is enabled. Dark mode uses the dark class on <html> with CSS vars in globals.css. Do not add inline <style> blocks that could cause hydration diffs.
+
+Goal
+
+When a user clicks a top-level nav tab (not just the dropdown), they should land on a well-structured index page:
+
+/design-build → shows Our Process (first) then Why Design-Build
+
+/solutions → 3 columns: By Function, By Industry, By Technology (links go to existing pages)
+
+/software → “Our Software” with cards for each product (links to existing detail pages)
+
+/services → same 3-column pattern as Solutions but for Services
+
+/resources → a single long page that aggregates Project Spotlights (Case Studies), Videos, Blog
+
+Keep styling consistent with existing site (cards, section spacing, dark mode). No CLS or flash when theme toggles.
+
+Files to create/update
+1) Update the nav so top-level items are clickable
+
+File: components/Header.tsx (or layout/Header.tsx if that’s where it lives)
+
+Ensure each top-level menu item has an href to its index page while preserving the existing dropdowns.
+
+“Design-Build” → /design-build
+
+“Solutions” → /solutions
+
+“Software” → /software
+
+“Services” → /services
+
+“Resources” → /resources
+
+On desktop, hovering still shows the submenu; on click, navigate to the index page.
+
+On mobile, tapping the label should navigate; the chevron (if any) can expand submenus.
+
+2) Design-Build index (compose existing subpages)
+
+Create: app/design-build/page.tsx
+
+Refactor the two existing subpages into reusable sections if needed:
+
+Move “Our Process” into components/design-build/ProcessSection.tsx
+
+Move “Why Design-Build” into components/design-build/WhySection.tsx
+
+page.tsx imports those and renders:
+
+hero with title “Design-Build”
+
+<ProcessSection />
+
+<WhySection />
+
+Ensure cards/steps increment visually; dark mode backgrounds use CSS vars (no hardcoded hex blacks).
+
+3) Solutions index (3 columns of lists)
+
+Create: app/solutions/page.tsx
+
+Render a hero “Solutions” and a 3-column responsive grid:
+
+By Function → links that already exist under /solutions/by-function/*
+
+By Industry → /solutions/by-industry/*
+
+By Technology → /solutions/by-technology/*
+
+Use data arrays in the file so it’s easy to add/remove links. Each item: { href, label, blurb? }
+
+Each link is a small card: title, optional 1-line blurb, right-chevron; respects dark mode.
+
+4) Software index (cards)
+
+Create: app/software/page.tsx
+
+Title: “Our Software”. Below, cards for each product (name + 1–2 line description + link):
+
+Warehousr
+
+Density Pro
+
+Painless Permit
+
+(include any others already routed under /software/*)
+
+The href for each card points to the existing detail page.
+
+5) Services index (3 columns like Solutions)
+
+Create: app/services/page.tsx
+
+Same layout pattern as Solutions. Use buckets like:
+
+Consulting & Design (e.g., Data Analysis, Right-Sizing, Concepting, Compliance in Design)
+
+Implementation (e.g., Procurement, Vendor Bids, Project Management, Commissioning)
+
+Lifecycle & Optimization (e.g., Training, Support, Preventive Maintenance, Throughput Tuning)
+
+If a subpage exists, link to it; if not, point to a sensible placeholder path and generate a minimal page.
+
+Use the same card list component/utility as Solutions index for visual consistency.
+
+6) Resources index (long page)
+
+Create: app/resources/page.tsx
+
+Sections in order:
+
+“Project Spotlights” (Case Studies) – reuse existing WordPress fetch util if present (wpFetch and CASE_STUDIES_QUERY). Render a grid of CaseStudy cards linking to detail pages.
+
+“Videos” – list items linking to /resources/videos (or render thumbnails if those are available)
+
+“Blog” – link list to blog entries (reuse any WP query/helpers if they exist; otherwise link to /blog)
+
+Each section should have a “View all →” CTA to the existing sub-hub where applicable.
+
+7) Shared list/card utilities (keep it DRY)
+
+Create: components/nav/IndexList.tsx
+A small presentational component that renders a titled block with a list of links as mini-cards:
+
+Props:
+
+type Item = { href: string; label: string; blurb?: string }
+interface IndexListProps { title: string; items: Item[] }
+
+
+Styling:
+
+Container uses site spacing (section padding or Tailwind equivalent)
+
+Cards: rounded, border using rgb(var(--border)), background rgb(var(--card)), hover ring
+
+Text colors from CSS vars (rgb(var(--fg)), rgb(var(--muted-fg)))
+
+Fully keyboard accessible; focus ring visible.
+
+8) SEO/Metadata
+
+Each new page should export a metadata object with sensible title and description.
+
+9) Dark mode
+
+No inline <style> blocks.
+
+Use CSS variables already defined in globals.css:
+
+bg: bg-[rgb(var(--bg))]
+
+text: text-[rgb(var(--fg))]
+
+surface/card/border via inline Tailwind style or better: style={{}} not required—prefer utility classes that reference the vars (e.g., border-[rgb(var(--border))] via arbitrary value classes).
+
+Ensure all cards/sections look correct in light and dark.
+
+Acceptance criteria (don’t mark done until all pass)
+
+Clicking a top-level nav item navigates to the new index page (desktop + mobile).
+
+/design-build renders “Our Process” then “Why Design-Build” without duplicating text or breaking existing subpages. No hydration warnings.
+
+/solutions shows 3 columns; each link resolves to existing pages. Layout stacks cleanly at mobile widths.
+
+/software shows product cards linking to existing pages (at least “Warehousr”, “Density Pro”, “Painless Permit”).
+
+/services shows 3 columns; links resolve if subpages exist, otherwise create minimal placeholder pages so there are no 404s.
+
+/resources aggregates Case Studies (uses existing fetch/util if available), Videos, and Blog links; each section has a “View all →” link.
+
+All new pages respect dark mode and pass Lighthouse color-contrast.
+
+pnpm build succeeds with zero TypeScript errors and no React hydration warnings.
+
+No inline <style> with :root/.dark in React trees.
+
+Hints about existing code
+
+Reuse wpFetch, CASE_STUDIES_QUERY, and any cards like CaseStudyCard if present.
+
+Keep file paths consistent with the current repo (check /app, /components, /layout).
+
+Prefer server components for pages; use Link from next/link.
+
+Keep section spacing consistent with the .section and .container patterns already in globals.css.
+
+When you’re done, list:
+
+All files created/changed with paths
+
+A short diff summary per file
+
+Any placeholder routes added for Services (so we can fill content later)
