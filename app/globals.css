@@ -396,3 +396,38 @@ body {
 
 /* Helper for secondary text */
 .muted { color: rgb(var(--muted-fg)); }
+/* --- Dark-mode fixes for legacy home-page classes --- */
+.dark body {
+  background: #0b1020;               /* deep slate */
+  color: #e5e7eb;                    /* slate-200 */
+}
+
+/* Header */
+.dark .header {
+  background: rgba(2, 6, 23, 0.75);  /* slate-950 w/ blur */
+  border-bottom-color: #1f2937;      /* slate-800 */
+  backdrop-filter: saturate(160%) blur(10px);
+}
+
+/* Cards / stats / generic panels */
+.dark .card,
+.dark .stat {
+  background: #0f172a;               /* slate-900 */
+  color: #e5e7eb;
+  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset,
+              0 12px 30px rgba(0,0,0,.35);
+}
+.dark .small { color: #94a3b8; }      /* slate-400 */
+
+/* Hero section */
+.dark .hero {
+  background: linear-gradient(135deg, #0b1220 0%, #0f172a 45%, #111827 100%);
+}
+.dark .hero::before {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(59,130,246,.20) 0%, transparent 55%),
+    radial-gradient(circle at 70% 80%, rgba(56,189,248,.18) 0%, transparent 55%);
+}
+
+/* Footer stays branded but tune contrast for dark */
+.dark .footer { color: #cbd5e1; }     /* slate-300 text */
