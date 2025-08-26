@@ -138,7 +138,7 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
           <div className="mb-8 flex items-baseline justify-between">
             <h2 className="text-2xl font-semibold">How we work</h2>
-            <a href="/solutions" className="text-sm font-medium text-slate-900 underline-offset-4 hover:underline">See full process</a>
+            <a href="/design-build/our-process" className="text-sm font-medium text-slate-900 underline-offset-4 hover:underline">See full process</a>
           </div>
           <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {process.map((step, idx) => (
