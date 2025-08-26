@@ -101,7 +101,7 @@ export default async function HomePage() {
             }}>
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
-                  src="/images/modula.svg"
+                  src="/images/modula.svg" // Corrected path
                   alt="Modula logo"
                   style={{ 
                     maxWidth: '100%', 

@@ -78,7 +78,7 @@ export default function Page() {
       title="Pallet Shuttle Systems"
       description="Stow LoadMatic and semi‑automated pallet shuttles maximize storage density while maintaining selectivity—ideal for high‑volume SKUs and cold storage."
       videos={[
-        { url: "https://www.youtube.com/embed/H9dpOGAcnWU", title: "Stow LoadMatic Pallet Shuttle" },
+        { url: "https://www.youtube.com/embed/BF7HCTcsN2s?si=Ap3h-C9btFy_rTf0", title: "Stow LoadMatic Shuttle System"},
         { url: "https://www.youtube.com/embed/vZdz8M9c3AQ", title: "Four‑Directional Shuttle System" },
         { url: "https://www.youtube.com/embed/7j7c1P8Cx3E", title: "Cold Storage Shuttle Implementation" },
       ]}
