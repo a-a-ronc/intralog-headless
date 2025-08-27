@@ -74,9 +74,9 @@ const options = [
 
 const gallery =
   demoSolutionImages.softwareDensityPro ?? [
-    { src: "/images/software/densitypro/optimization-dashboard.jpg", alt: "DensityPro optimization dashboard" },
-    { src: "/images/software/densitypro/shuttle-coordination.jpg", alt: "Multi-shuttle coordination interface" },
-    { src: "/images/software/densitypro/operator-interface.jpg", alt: "Forklift operator interface integration" }
+    { src: "/images/software/densitypro/step1.png", alt: "DensityPro Step 1" },
+    { src: "/images/software/densitypro/step2.png", alt: "DensityPro Step 2" },
+    { src: "/images/software/densitypro/step3.png", alt: "DensityPro Step 3" }
   ];
 
 const useCases = [
