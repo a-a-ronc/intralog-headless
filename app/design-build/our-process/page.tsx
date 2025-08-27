@@ -177,7 +177,7 @@ const steps: Step[] = [
     number: 10,
     title: "Commissioning, Training & Optimization",
     description:
-      "FAT/SAT, ramp plans, SOPs, and training. DensityPro can boost picker throughput 15–25% by sequencing optimal paths. Seasonal re-slotting stays easy.",
+      "FAT/SAT, ramp plans, SOPs, and training. DensityPro can boost picker throughput up to 20% by sequencing optimal paths. Seasonal re-slotting stays easy.",
     Graphic: GraphicRocket,
   },
 ];

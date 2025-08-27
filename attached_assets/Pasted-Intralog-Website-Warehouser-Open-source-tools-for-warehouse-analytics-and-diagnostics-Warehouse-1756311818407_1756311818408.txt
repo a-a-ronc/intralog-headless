@@ -1,0 +1,25 @@
+Intralog Website – Warehouser
+Open-source tools for warehouse analytics and diagnostics.
+Warehouses generate a wealth of operational data - every transaction, every movement, every SKU. Yet too often, decisions are still made using rules of thumb or oversimplified ratios. We built Warehouser to change that.
+Developed and maintained by the engineering team at Intralog, Warehouser is a Python package designed to help supply chain professionals, analysts, and engineers turn raw warehouse data into insight. It’s our contribution back to the community - a free, open-source toolkit anyone can use to better understand, optimize, and improve warehouse operations.
+________________________________________
+Why Warehouser?
+•	From data to decisions
+Import your warehouse activity, product, and labor datasets into Warehouser and instantly apply functions that clean, aggregate, and transform your data into usable insights.
+•	Visualize with clarity
+Generate plots and dashboards that reveal transaction patterns, SKU profiles, space utilization, and throughput bottlenecks. Built on top of packages such as pandas and plotly, Warehouser makes warehouse data digestible and actionable.
+•	Industry expertise baked in
+Every function reflects how real warehouses operate - activity profiles, product dimensions, pick behavior, labor performance, and more - so you’re not just analyzing data, you’re analyzing operations.
+•	Accessible to all
+Whether you’re a student, consultant, engineer, or operator, Warehouser helps you explore data with the rigor of warehouse science, without the barrier of expensive software.
+________________________________________
+
+
+
+A contribution from Intralog
+At Intralog, we believe in data-driven design. Warehouser is a core tool in how we analyze warehouses—now shared openly to help others learn, experiment, and improve their own operations, while contributing back so together we advance the practice of warehousing.
+We don’t see open source as competition. We see it as progress. By sharing tools like Warehouser, we hope to advance the practice of warehouse engineering, encourage transparency, and empower a new generation of supply chain professionals with modern, accessible tools.
+________________________________________
+👉 Get started on GitHub
+Clone the repo, explore the docs, and start diagnosing your warehouse today.
+
