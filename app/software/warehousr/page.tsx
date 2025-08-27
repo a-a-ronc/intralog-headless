@@ -20,58 +20,72 @@ const steps = [
 
 const options = [
   {
-    name: "Optimization Modes",
+    name: "Core Analytics",
     items: [
-      { title: "Capacity balance" },
-      { title: "Throughput focus" },
-      { title: "Travel reduction" },
+      { title: "Activity profile analysis" },
+      { title: "SKU velocity & classification" },
+      { title: "Transaction pattern recognition" },
+      { title: "Space utilization metrics" },
+      { title: "Labor performance tracking" },
     ],
   },
   {
-    name: "Constraints & Rules",
+    name: "Visualization & Reporting",
     items: [
-      { title: "SKU orientation (lay-flat, on-edge, on-end)" },
-      { title: "Weight & deflection limits" },
-      { title: "Ergonomic & safety clearances" },
+      { title: "Interactive plotly dashboards" },
+      { title: "Activity heatmaps" },
+      { title: "Throughput trend analysis" },
+      { title: "Pick behavior visualization" },
+      { title: "Bottleneck identification charts" },
     ],
   },
   {
-    name: "Seasonality",
+    name: "Data Integration",
     items: [
-      { title: "Peak vs. average plans" },
-      { title: "Delta exports for re-slotting" },
+      { title: "Pandas-based data processing" },
+      { title: "CSV/Excel import capabilities" },
+      { title: "WMS/ERP data compatibility" },
+      { title: "Clean export formats" },
+      { title: "Python ecosystem integration" },
     ],
   },
 ];
 
+const gallery =
+  demoSolutionImages.softwareWarehousr ?? [
+    { src: "/images/software/warehousr/data-analysis.jpg", alt: "Warehousr data analysis interface" },
+    { src: "/images/software/warehousr/visualization-dashboard.jpg", alt: "Interactive warehouse data visualization" },
+    { src: "/images/software/warehousr/github-repo.jpg", alt: "Open source GitHub repository" }
+  ];
+
 const useCases = [
-  "Re-slotting before peak season or promos",
-  "Greenfield bay design—size levels and select bin SKUs",
-  "Recover capacity in constrained pick modules",
-  "Travel reduction in high-velocity zones",
+  "Supply chain professionals analyzing operational performance",
+  "Students and researchers studying warehouse operations",
+  "Consultants diagnosing client facility inefficiencies",
+  "Engineers optimizing layouts and processes",
+  "Analysts turning raw data into actionable insights",
 ];
 
 export default function Page() {
   return (
     <SolutionPage
-      title="Warehousr — Slotting & Space Planning"
-      description="Engineer-grade bin assignment and shelf design—season-aware, rules-driven, and ready for WMS import."
-      videos={[]}
+      title="Warehousr"
+      description="Open-source tools for warehouse analytics and diagnostics. Warehouses generate a wealth of operational data - every transaction, every movement, every SKU. Yet too often, decisions are still made using rules of thumb or oversimplified ratios. We built Warehousr to change that."
       benefits={benefits}
       steps={steps}
       options={options}
-      gallery={[]}
+      gallery={gallery}
       useCases={useCases}
       brochureCta={{
-        blurb: "Want a sample slotting study and export format? Share your email and we’ll send a sanitized example.",
-        buttonText: "Request sample export",
-        href: "/contact",
+        blurb: "A contribution from Intralog. We believe in data-driven design and open-source progress. Warehousr is our contribution back to the community.",
+        buttonText: "View on GitHub",
+        href: "https://github.com/intralog/warehousr",
       }}
       cta={{
-        title: "Want us to run a quick slotting study?",
-        body: "Send your SKU master and a bin catalog. We’ll return assignments, shelf plans, and season deltas.",
-        buttonText: "Request a demo",
-        href: "/contact",
+        title: "Get started on GitHub",
+        body: "Clone the repo, explore the docs, and start diagnosing your warehouse today. It's free, open-source, and built by warehouse engineers for warehouse professionals.",
+        buttonText: "Start analyzing your warehouse",
+        href: "https://github.com/intralog/warehousr",
       }}
     />
   );
