@@ -4,11 +4,10 @@ import SolutionPage from "@/components/SolutionPage";
 export const metadata = { title: "Warehousr | Intralog" };
 
 const benefits = [
-  { title: "Right-size every slot", body: "Map SKUs to the smallest safe bin that fits orientation and weight rules—freeing capacity without buying more rack." },
-  { title: "Design shelves in minutes", body: "Auto-calc level spacing and count within your vertical envelope, with ergonomic and safety clearances baked in." },
-  { title: "Season-ready plans", body: "Peak vs. average assignments and clean deltas so re-slotting before Q4 or promo season is painless." },
-  { title: "Objective-driven", body: "Choose capacity balance, throughput, or travel reduction. Swap objectives and compare exports." },
-  { title: "CSV in, CSV out", body: "Works with your SKU master and bin catalogs. Clean exports for WMS imports and field teams." },
+  { title: "•	From data to decisions", body: "Import your warehouse activity, product, and labor datasets into Warehouser and instantly apply functions that clean, aggregate, and transform your data into usable insights." },
+  { title: "•	Visualize with clarity", body: "Generate plots and dashboards that reveal transaction patterns, SKU profiles, space utilization, and throughput bottlenecks. Built on top of packages such as pandas and plotly, Warehouser makes warehouse data digestible and actionable." },
+  { title: "•	Industry expertise baked in", body: "Every function reflects how real warehouses operate - activity profiles, product dimensions, pick behavior, labor performance, and more - so you’re not just analyzing data, you’re analyzing operations." },
+  { title: "•	Accessible to all", body: "Whether you’re a student, consultant, engineer, or operator, Warehouser helps you explore data with the rigor of warehouse science, without the barrier of expensive software." },
 ];
 
 const steps = [
@@ -38,6 +37,7 @@ const steps = [
   },
 ];
 
+const gallery = [];
 
 const options = [
   {
