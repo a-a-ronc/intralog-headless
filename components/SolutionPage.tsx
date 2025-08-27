@@ -104,36 +104,33 @@ export default function SolutionPage({
             <h2 className="text-2xl font-semibold mb-4 underline underline-offset-4 decoration-2">How it works</h2>
           {/* 4 columns on wide screens */}
             <div className="grid" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}>
-              {steps.map((s, index) => (
-                <div key={`step-${index}-${s.step}`} className="card text-left">
-                  <div className="small text-slate-500 font-semibold">Step {s.step}</div>
-                  <h3 className="font-semibold">{s.title}</h3>
-                  <p className="text-slate-700">{s.body}</p>
-                  {s.image && (
-                    <div className="mt-4">
-                      {s.image.src.endsWith('.mp4') ? (
-                        <video
-                          src={s.image.src}
-                          className="rounded-lg w-full h-auto"
-                          controls
-                          muted
-                          loop
-                          playsInline
-                        >
-                          <source src={s.image.src} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      ) : (
-                        <Image
-                          src={s.image.src}
-                          alt={s.image.alt}
-                          width={400}
-                          height={300}
-                          className="rounded-lg w-full h-auto"
-                        />
-                      )}
-                    </div>
-                  )}
+              {steps.map((s) => (
+                <div key={s.step} className="space-y-4">
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+
+                  {s.video ? (
+                    <video
+                      src={s.video.src}
+                      poster={s.video.poster}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto rounded-xl"
+                    >
+                      <source src={s.video.src} type="video/mp4" />
+                      {/* Fallback text */}
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : s.image ? (
+                    // if you use next/image, otherwise plain <img>
+                    <img
+                      src={s.image.src}
+                      alt={s.image.alt}
+                      className="w-full h-auto rounded-xl"
+                      loading="lazy"
+                    />
+                  ) : null}
                 </div>
               ))}
             </div>

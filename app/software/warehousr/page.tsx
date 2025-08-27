@@ -28,7 +28,7 @@ const steps = [
     step: 3, 
     title: "Run assignment & shelf design", 
     body: "Warehousr computes bin fits, shelf levels, and generates the slotting plan.", 
-    image: { src: "/images/software/warehousr/step3.mp4", alt: "Assignment and shelf design process" }
+    video: { src: "/images/software/warehousr/step3.mp4", alt: "Assignment and shelf design process" }
   },
   { 
     step: 4, 
@@ -69,12 +69,6 @@ const options = [
       { title: "Python ecosystem integration" },
     ],
   },
-];
-
-const gallery = [
-  { title: "Data Analysis Interface", src: "/images/software/warehousr/data-analysis.jpg", alt: "Warehousr data analysis interface" },
-  { title: "Visualization Dashboard", src: "/images/software/warehousr/visualization-dashboard.jpg", alt: "Interactive warehouse data visualization" },
-  { title: "GitHub Repository", src: "/images/software/warehousr/github-repo.jpg", alt: "Open source GitHub repository" }
 ];
 
 const useCases = [
