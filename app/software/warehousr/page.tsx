@@ -12,10 +12,10 @@ const benefits = [
 ];
 
 const steps = [
-  { step: 1, title: "Import data", body: "Load SKU master (L×W×H, weight, demand) and bin catalog or current map." },
-  { step: 2, title: "Pick objectives & rules", body: "Select optimization objective, orientation rules, safety clearances, and season (peak/avg)." },
-  { step: 3, title: "Run assignment & shelf design", body: "Warehousr computes bin fits, shelf levels, and generates the slotting plan." },
-  { step: 4, title: "Export & implement", body: "Download assignments and deltas for WMS and field execution, plus a simple review report." },
+  { step: 1, title: "Import data", body: "Load SKU master (L×W×H, weight, demand) and bin catalog or current map.", src: "/images/software/warehousr/step1.svg", alt: "Import Data"  },
+  { step: 2, title: "Pick objectives & rules", body: "Select optimization objective, orientation rules, safety clearances, and season (peak/avg).", src: "/images/software/warehousr/step2.svg", alt: "Pick Objectives and Rules"  },
+  { step: 3, title: "Run assignment & shelf design", body: "Warehousr computes bin fits, shelf levels, and generates the slotting plan.", , src: "/images/software/warehousr/step3.mp4", alt: "Pick Objectives and Rules" },
+  { step: 4, title: "Export & implement", body: "Download assignments and deltas for WMS and field execution, plus a simple review report.", , src: "/images/software/warehousr/step4.svg", alt: "Pick Objectives and Rules"  },
 ];
 
 const options = [
