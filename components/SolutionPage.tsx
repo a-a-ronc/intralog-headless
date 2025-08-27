@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type Benefit = { title: string; body: string };
-type Step = { step: number; title: string; body: string };
+type Step = { step: number; title: string; body: string; image?: { src: string; alt: string } };
 type GalleryImage = { title: string; src: string; alt?: string };
 type OptionItem = { title: string; caption?: string; icon?: string };
 type OptionsCategory = { name: string; items: OptionItem[] };
@@ -109,6 +109,17 @@ export default function SolutionPage({
                   <div className="small text-slate-500 font-semibold">Step {s.step}</div>
                   <h3 className="font-semibold">{s.title}</h3>
                   <p className="text-slate-700">{s.body}</p>
+                  {s.image && (
+                    <div className="mt-4">
+                      <Image
+                        src={s.image.src}
+                        alt={s.image.alt}
+                        width={400}
+                        height={300}
+                        className="rounded-lg w-full h-auto"
+                      />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

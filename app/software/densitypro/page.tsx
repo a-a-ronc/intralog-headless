@@ -1,4 +1,3 @@
-
 import SolutionPage from "@/components/SolutionPage";
 import { demoSolutionImages } from "@/lib/demo";
 
@@ -26,18 +25,21 @@ const benefits = [
 const steps = [
   {
     step: 1,
-    title: "Data In",
-    body: "Your WMS pushes pick tasks into DensityPro for processing and optimization."
+    title: "Import & analyze",
+    body: "Upload SKU master, order history, and current slotting. DensityPro profiles velocity, cube movement, and pick density.",
+    image: { src: "/images/software/densitypro/step1.png", alt: "DensityPro data import and analysis interface" }
   },
   {
     step: 2,
-    title: "Optimization Engine",
-    body: "DensityPro sequences and orchestrates the picks—prioritizing by lane, depth, and shuttle availability to minimize travel and maximize throughput."
+    title: "Generate sequences",
+    body: "AI determines optimal pick paths, batching rules, and zone transitions to minimize travel and maximize throughput.",
+    image: { src: "/images/software/densitypro/step2.png", alt: "DensityPro sequence generation and optimization" }
   },
   {
     step: 3,
-    title: "Data Out",
-    body: "Optimized instructions are sent directly to the forklift operator's interface, enabling precise, efficient execution."
+    title: "Deploy & optimize",
+    body: "Export pick lists, WMS integration files, and real-time operator guidance. Continuous learning improves performance.",
+    image: { src: "/images/software/densitypro/step3.png", alt: "DensityPro deployment and optimization dashboard" }
   },
 ];
 
@@ -72,12 +74,7 @@ const options = [
   },
 ];
 
-const gallery =
-  demoSolutionImages.softwareDensityPro ?? [
-    { src: "/images/software/densitypro/step1.png", alt: "DensityPro Step 1" },
-    { src: "/images/software/densitypro/step2.png", alt: "DensityPro Step 2" },
-    { src: "/images/software/densitypro/step3.png", alt: "DensityPro Step 3" }
-  ];
+const gallery = [];
 
 const useCases = [
   "Deep-lane pallet shuttle systems with multiple simultaneous operations",

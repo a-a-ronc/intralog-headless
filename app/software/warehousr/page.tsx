@@ -51,12 +51,11 @@ const options = [
   },
 ];
 
-const gallery =
-  demoSolutionImages.softwareWarehousr ?? [
-    { src: "/images/software/warehousr/data-analysis.jpg", alt: "Warehousr data analysis interface" },
-    { src: "/images/software/warehousr/visualization-dashboard.jpg", alt: "Interactive warehouse data visualization" },
-    { src: "/images/software/warehousr/github-repo.jpg", alt: "Open source GitHub repository" }
-  ];
+const gallery = [
+  { title: "Data Analysis Interface", src: "/images/software/warehousr/data-analysis.jpg", alt: "Warehousr data analysis interface" },
+  { title: "Visualization Dashboard", src: "/images/software/warehousr/visualization-dashboard.jpg", alt: "Interactive warehouse data visualization" },
+  { title: "GitHub Repository", src: "/images/software/warehousr/github-repo.jpg", alt: "Open source GitHub repository" }
+];
 
 const useCases = [
   "Supply chain professionals analyzing operational performance",
