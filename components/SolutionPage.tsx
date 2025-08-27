@@ -106,7 +106,7 @@ export default function SolutionPage({
             <div className="grid" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}>
               {steps.map((s) => (
                 <div key={s.step} className="space-y-4">
-                  <h3>{s.title}</h3>
+                  <h3 className="font-semibold text-lg">{s.title}</h3>
                   <p>{s.body}</p>
 
                   {s.image && s.image.src.endsWith('.mp4') ? (
