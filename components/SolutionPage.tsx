@@ -109,7 +109,20 @@ export default function SolutionPage({
                   <h3>{s.title}</h3>
                   <p>{s.body}</p>
 
-                  {s.video ? (
+                  {s.image && s.image.src.endsWith('.mp4') ? (
+                    <video
+                      src={s.image.src}
+                      controls
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto rounded-xl"
+                    >
+                      <source src={s.image.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : s.video ? (
                     <video
                       src={s.video.src}
                       poster={s.video.poster}
@@ -119,11 +132,9 @@ export default function SolutionPage({
                       className="w-full h-auto rounded-xl"
                     >
                       <source src={s.video.src} type="video/mp4" />
-                      {/* Fallback text */}
                       Your browser does not support the video tag.
                     </video>
                   ) : s.image ? (
-                    // if you use next/image, otherwise plain <img>
                     <img
                       src={s.image.src}
                       alt={s.image.alt}
