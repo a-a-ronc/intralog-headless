@@ -38,7 +38,6 @@ const steps = [
   },
 ];
 
-const gallery = [];
 
 const options = [
   {
