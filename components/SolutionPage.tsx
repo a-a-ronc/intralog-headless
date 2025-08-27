@@ -111,13 +111,27 @@ export default function SolutionPage({
                   <p className="text-slate-700">{s.body}</p>
                   {s.image && (
                     <div className="mt-4">
-                      <Image
-                        src={s.image.src}
-                        alt={s.image.alt}
-                        width={400}
-                        height={300}
-                        className="rounded-lg w-full h-auto"
-                      />
+                      {s.image.src.endsWith('.mp4') ? (
+                        <video
+                          src={s.image.src}
+                          className="rounded-lg w-full h-auto"
+                          controls
+                          muted
+                          loop
+                          playsInline
+                        >
+                          <source src={s.image.src} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <Image
+                          src={s.image.src}
+                          alt={s.image.alt}
+                          width={400}
+                          height={300}
+                          className="rounded-lg w-full h-auto"
+                        />
+                      )}
                     </div>
                   )}
                 </div>
