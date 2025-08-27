@@ -28,7 +28,7 @@ const steps = [
     step: 3, 
     title: "Run assignment & shelf design", 
     body: "Warehousr computes bin fits, shelf levels, and generates the slotting plan.", 
-    video: { src: "/images/software/warehousr/step3.mp4", alt: "Assignment and shelf design process" }
+    image: { src: "/images/software/warehousr/step3.mp4", alt: "Assignment and shelf design process" }
   },
   { 
     step: 4, 
@@ -37,6 +37,8 @@ const steps = [
     image: { src: "/images/software/warehousr/step4.svg", alt: "Export and implementation" }
   },
 ];
+
+const gallery = [];
 
 const options = [
   {
