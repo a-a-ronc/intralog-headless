@@ -130,8 +130,6 @@ const GraphicLoop = () => (
 );
  
 
-// TODO: i will be adding animated files from canva and need to figure out how best to export so it renders quickly and does not have a play button; wwill want to have hoveron 
-// function where graphic is grey and white background and when user hovers over graphic the animation starts working and it is illuminated with the original colors
 const steps: Step[] = [
   {
     number: 1,
