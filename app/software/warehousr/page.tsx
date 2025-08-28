@@ -37,7 +37,11 @@ const steps = [
   },
 ];
 
-const gallery = [];
+const gallery = [
+  {title: "A contribution from Intralog", 
+   body: "we believe in data-driven design. Warehouser is a core tool in how we analyze warehouses—now shared openly to help others learn, experiment, and improve their own operations, while contributing back so together we advance the practice of warehousing. We don’t see open source as competition. We see it as progress. By sharing tools like Warehouser, we hope to advance the practice of warehouse engineering, encourage transparency, and empower a new generation of supply chain professionals with modern, accessible tools.",
+  }
+   ];
 
 const options = [
   {
@@ -91,7 +95,7 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       brochureCta={{
-        blurb: "A contribution from Intralog. We believe in data-driven design and open-source progress. Warehousr is our contribution back to the community.",
+        blurb: "At Intralog,we believe in data-driven design. Warehouser is a core tool in how we analyze warehouses—now shared openly to help others learn, experiment, and improve their own operations, while contributing back so together we advance the practice of warehousing. We don’t see open source as competition. We see it as progress. By sharing tools like Warehouser, we hope to advance the practice of warehouse engineering, encourage transparency, and empower a new generation of supply chain professionals with modern, accessible tools.",
         buttonText: "View on GitHub",
         href: "https://github.com/intralog/warehousr",
       }}
