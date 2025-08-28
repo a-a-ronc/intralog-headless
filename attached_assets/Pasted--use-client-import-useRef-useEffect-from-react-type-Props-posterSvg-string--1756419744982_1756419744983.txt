@@ -1,0 +1,69 @@
+"use client";
+import { useRef, useEffect } from "react";
+
+type Props = {
+  posterSvg?: string;   // e.g. /icons/process/step-01-discovery-idle.svg
+  mp4?: string;         // e.g. /animations/process/step-01-discovery.mp4
+  webm?: string;        // e.g. /animations/process/step-01-discovery.webm
+  title: string;
+  accent: string;       // hex color for hover illumination
+  className?: string;
+};
+
+export default function HoverMedia({ posterSvg, mp4, webm, title, accent, className }: Props) {
+  const vref = useRef<HTMLVideoElement | null>(null);
+
+  // reset on unhover
+  const onLeave = () => {
+    const v = vref.current;
+    if (v) { v.pause(); v.currentTime = 0; }
+  };
+
+  // respect reduced motion: don’t autoplay on hover
+  const prefersReduced = typeof window !== "undefined" &&
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  useEffect(() => onLeave, []);
+
+  const hasVideo = !!(mp4 || webm);
+
+  return (
+    <div
+      className={`group relative rounded-xl p-4 transition-all ${className || ""}`}
+      style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,.06)" }}
+      onMouseLeave={onLeave}
+    >
+      {/* idle layer: grayscale SVG */}
+      {posterSvg && (
+        <img
+          src={posterSvg}
+          alt={`${title} icon`}
+          className="w-full h-24 object-contain block transition-[filter,opacity] duration-200"
+          style={{ filter: "grayscale(1) brightness(.95)" }}
+        />
+      )}
+
+      {/* video layer: appears on hover if provided */}
+      {hasVideo && (
+        <video
+          ref={vref}
+          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-[calc(6rem)] object-contain opacity-0 transition-opacity duration-200"
+          muted
+          loop
+          playsInline
+          preload="none"
+          onMouseEnter={() => { if (!prefersReduced) vref.current?.play(); }}
+        >
+          {webm && <source src={webm} type="video/webm" />}
+          {mp4 && <source src={mp4} type="video/mp4" />}
+        </video>
+      )}
+
+      <style>{`
+        .group:hover { box-shadow: inset 0 0 0 1px ${accent}33, 0 0 0 4px ${accent}11; }
+        .group:hover img { filter: grayscale(0); }
+        .group:hover video { opacity: 1; }
+      `}</style>
+    </div>
+  );
+}
