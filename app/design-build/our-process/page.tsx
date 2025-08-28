@@ -1,5 +1,6 @@
 // app/design-build/our-process/page.tsx
 import type { Metadata } from "next";
+import HoverIcon from "./HoverIcon";
 
 export const metadata: Metadata = {
   title: "Our Process | Design–Build",
@@ -12,7 +13,26 @@ type Step = {
   title: string;
   description: string;
   Graphic: () => JSX.Element;
+  // Optional hover animation media (export from Canva)
+  // poster: static grayscale-friendly still image
+  // anim: animated WebP/GIF (no play button) revealed on hover
+  poster?: string;
+  anim?: string;
+  lottieSrc?: string;
 };
+
+const ACCENTS = [
+  "#3DA9FC", // 1 Discovery – electric blue
+  "#A3E635", // 2 Data – lime
+  "#FACC15", // 3 Footprint – amber
+  "#3DA9FC", // 4 Concept – blue
+  "#0A1F44", // 5 Slotting – navy
+  "#A3E635", // 6 Simulation/ROI – lime
+  "#EF4444", // 7 Compliance – red
+  "#3DA9FC", // 8 Implementation – blue
+  "#A3E635", // 9 Commissioning – lime
+];
+
 
 const Card = ({ children }: { children: React.ReactNode }) => (
   <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -108,7 +128,10 @@ const GraphicLoop = () => (
     <polyline points="70,30 120,30 150,18 180,30" fill="none" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
+ 
 
+// TODO: i will be adding animated files from canva and need to figure out how best to export so it renders quickly and does not have a play button; wwill want to have hoveron 
+// function where graphic is grey and white background and when user hovers over graphic the animation starts working and it is illuminated with the original colors
 const steps: Step[] = [
   {
     number: 1,
@@ -161,20 +184,13 @@ const steps: Step[] = [
   },
   {
     number: 8,
-    title: "Vendor RFQs & Schedule",
-    description:
-      "We source and equalize bids from our partner network (equipment + install). You see apples-to-apples comparisons and a realistic critical path.",
-    Graphic: GraphicGantt,
-  },
-  {
-    number: 9,
     title: "Implementation & Project Management",
     description:
       "Single-point accountability for procurement, installation, safety, and change control. Weekly dashboards keep risk, cost, and schedule on track.",
     Graphic: GraphicGantt,
   },
   {
-    number: 10,
+    number: 9,
     title: "Commissioning, Training & Optimization",
     description:
       "FAT/SAT, ramp plans, SOPs, and training. DensityPro can boost picker throughput up to 20% by sequencing optimal paths. Seasonal re-slotting stays easy.",
@@ -196,8 +212,8 @@ export default function Page() {
         </p>
       </header>
 
-      <section className="grid gap-6 sm:grid-cols-2">
-        {steps.map(({ number, title, description, Graphic }) => (
+      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {steps.map(({ number, title, description, Graphic, poster, anim, lottieSrc }) => (
           <Card key={number}>
             <div className="flex items-start gap-4">
               <Badge n={number} />
@@ -206,9 +222,14 @@ export default function Page() {
                 <p className="mt-1 text-zinc-600">{description}</p>
               </div>
             </div>
-            <div className="mt-4 text-zinc-800">
-              <Graphic />
-            </div>
+            <HoverIcon
+              accent="#2563eb"
+              Graphic={Graphic}
+              poster={poster}
+              anim={anim}
+              lottieSrc={lottieSrc}
+              title={title}
+            />
           </Card>
         ))}
       </section>
