@@ -140,7 +140,7 @@ export default function Page() {
             </div>
 
             <HoverMedia
-              className="mt-4"
+              className="mt-4 h-32"
               posterSvg={s.poster}
               mp4={s.mp4}
               webm={s.webm}

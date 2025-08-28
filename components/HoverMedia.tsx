@@ -46,7 +46,7 @@ export default function HoverMedia({
       <img
         src={posterSvg}
         alt={`${title} icon`}
-        className="w-full h-24 object-contain block transition-[filter] duration-200"
+        className="w-full h-full object-contain block transition-[filter] duration-200"
         style={{ filter: "grayscale(1) brightness(.95)" }}
         loading="lazy"
         decoding="async"
@@ -56,7 +56,7 @@ export default function HoverMedia({
       {(mp4 || webm) && (
         <video
           ref={ref}
-          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-24 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-full object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           muted
           loop
           playsInline
