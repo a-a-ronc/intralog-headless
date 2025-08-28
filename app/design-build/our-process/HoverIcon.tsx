@@ -1,4 +1,3 @@
-<img src = "/public/images/design-build/our-process/discovery-alignment.svg" alt = "Discovery & Alignment" className = "w-full h-24" />
 
 "use client";
 
@@ -138,4 +137,3 @@ export default function HoverIcon({
     </div>
   );
 }
-
