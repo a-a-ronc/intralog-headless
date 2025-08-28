@@ -1,69 +1,77 @@
-
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 type Props = {
-  posterSvg?: string;   // e.g. /icons/process/step-01-discovery-idle.svg
-  mp4?: string;         // e.g. /animations/process/step-01-discovery.mp4
-  webm?: string;        // e.g. /animations/process/step-01-discovery.webm
+  /** idle grayscale SVG poster (from /public) */
+  posterSvg: string;
+  /** optional animated video (from /public) */
+  mp4?: string;
+  webm?: string;
+  /** label used for alt text */
   title: string;
-  accent: string;       // hex color for hover illumination
+  /** hex accent color for glow on hover (e.g. "#3DA9FC") */
+  accent?: string;
   className?: string;
 };
 
-export default function HoverMedia({ posterSvg, mp4, webm, title, accent, className }: Props) {
-  const vref = useRef<HTMLVideoElement | null>(null);
+export default function HoverMedia({
+  posterSvg,
+  mp4,
+  webm,
+  title,
+  accent = "#3DA9FC",
+  className,
+}: Props) {
+  const ref = useRef<HTMLVideoElement>(null);
 
-  // reset on unhover
-  const onLeave = () => {
-    const v = vref.current;
-    if (v) { v.pause(); v.currentTime = 0; }
+  const play = () => {
+    const p = ref.current?.play?.();
+    if (p && typeof p.catch === "function") p.catch(() => {}); // ignore autoplay promise errors
   };
-
-  // respect reduced motion: don't autoplay on hover
-  const prefersReduced = typeof window !== "undefined" &&
-    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  useEffect(() => onLeave, []);
-
-  const hasVideo = !!(mp4 || webm);
+  const reset = () => {
+    const v = ref.current;
+    if (!v) return;
+    v.pause();
+    v.currentTime = 0;
+  };
 
   return (
     <div
-      className={`group relative rounded-xl p-4 transition-all ${className || ""}`}
+      className={`relative group rounded-xl p-4 ${className || ""}`}
       style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,.06)" }}
-      onMouseLeave={onLeave}
+      onMouseEnter={mp4 || webm ? play : undefined}
+      onMouseLeave={mp4 || webm ? reset : undefined}
     >
-      {/* idle layer: grayscale SVG */}
-      {posterSvg && (
-        <img
-          src={posterSvg}
-          alt={`${title} icon`}
-          className="w-full h-24 object-contain block transition-[filter,opacity] duration-200"
-          style={{ filter: "grayscale(1) brightness(.95)" }}
-        />
-      )}
+      {/* Idle poster (grayscale) */}
+      <img
+        src={posterSvg}
+        alt={`${title} icon`}
+        className="w-full h-24 object-contain block transition-[filter] duration-200"
+        style={{ filter: "grayscale(1) brightness(.95)" }}
+        loading="lazy"
+        decoding="async"
+      />
 
-      {/* video layer: appears on hover if provided */}
-      {hasVideo && (
+      {/* Animated overlay video (fades in on hover) */}
+      {(mp4 || webm) && (
         <video
-          ref={vref}
-          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-[calc(6rem)] object-contain opacity-0 transition-opacity duration-200"
+          ref={ref}
+          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-24 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           muted
           loop
           playsInline
-          preload="none"
-          onMouseEnter={() => { if (!prefersReduced) vref.current?.play(); }}
+          preload="metadata"
+          // make it playable on touch devices
+          onTouchStart={play}
         >
-          {webm && <source src={webm} type="video/webm" />}
-          {mp4 && <source src={mp4} type="video/mp4" />}
+          {webm ? <source src={webm} type="video/webm" /> : null}
+          {mp4 ? <source src={mp4} type="video/mp4" /> : null}
         </video>
       )}
 
       <style>{`
         .group:hover { box-shadow: inset 0 0 0 1px ${accent}33, 0 0 0 4px ${accent}11; }
         .group:hover img { filter: grayscale(0); }
-        .group:hover video { opacity: 1; }
       `}</style>
     </div>
   );

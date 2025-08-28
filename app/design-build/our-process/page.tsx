@@ -12,9 +12,9 @@ type Step = {
   number: number;
   title: string;
   description: string;
-  poster?: string;      // /icons/process/step-xx-...-idle.svg
-  mp4?: string;         // /animations/process/step-xx-....mp4
-  webm?: string;        // /animations/process/step-xx-....webm
+  poster: string; // idle svg (required)
+  mp4?: string;   // optional animation
+  webm?: string;  // optional animation
 };
 
 const ACCENTS = [
@@ -23,10 +23,82 @@ const ACCENTS = [
   "#FACC15", // 3 Footprint – amber
   "#3DA9FC", // 4 Concept – blue
   "#0A1F44", // 5 Slotting – navy
-  "#A3E635", // 6 Simulation/ROI – lime
+  "#A3E635", // 6 Simulation – lime
   "#EF4444", // 7 Compliance – red
   "#3DA9FC", // 8 Implementation – blue
   "#A3E635", // 9 Commissioning – lime
+];
+
+const steps: Step[] = [
+  {
+    number: 1,
+    title: "Discovery & Alignment",
+    description:
+      "We clarify goals, constraints, SLAs, growth assumptions, and success metrics. You’ll leave with a shared charter and data checklist.",
+    poster: "/icons/process/discovery_alignment.svg",
+    mp4: "/animations/process/discovery_alignment.mp4",
+  },
+  {
+    number: 2,
+    title: "Data Intake & Diagnostic",
+    description:
+      "Securely ingest WMS/ERP extracts (orders, lines, SKU master, velocities). Python/R analysis highlights constraints, failure modes, and quick wins.",
+    poster: "/icons/process/step-02-data-idle.svg",
+    mp4: "/animations/process/data_intake_diagnostic.mp4",
+  },
+  {
+    number: 3,
+    title: "Footprint Modeling",
+    description:
+      "Our capacity/throughput model sizes the exact building envelope you need (clear height, docks, staging) at today’s volume and your target growth rate.",
+    poster: "/icons/process/step-03-footprint-idle.svg",
+    mp4: "/animations/process/step-03-footprint.mp4",
+  },
+  {
+    number: 4,
+    title: "Concept & Flow Design",
+    description:
+      "Map inbound → storage → pick/pack → outbound. Evaluate conventional vs. automated flows with options matrix and staffing models.",
+    poster: "/icons/process/step-04-concept-idle.svg",
+  },
+  {
+    number: 5,
+    title: "Slotting & Equipment Selection",
+    description:
+      "Use Warehousr for bin right-sizing and pick-module design. Layer in conveyors/sortation, GTP, VLMs, robotics, or conventional rack as justified by data.",
+    poster: "/icons/process/step-05-slotting-idle.svg",
+  },
+  {
+    number: 6,
+    title: "Simulation & Business Case",
+    description:
+      "Stress-test scenarios (peaks, promotions, seasonality). Build an ROI with sensitivity around labor rates, service levels, and future growth.",
+    poster: "/icons/process/step-06-simulation-idle.svg",
+    mp4: "/animations/process/step-06-simulation.mp4",
+  },
+  {
+    number: 7,
+    title: "Compliance & Vendor Coordination",
+    description:
+      "Design to NFPA, FM Global, IBC and OSHA from day one. Painless Permit automates submittals and reviewer responses—compressing timelines significantly.",
+    poster: "/icons/process/step-07-compliance-idle.svg",
+  },
+  {
+    number: 8,
+    title: "Implementation & Project Management",
+    description:
+      "Single-point accountability for procurement, installation, safety, and change control. Weekly dashboards keep risk, cost, and schedule on track.",
+    poster: "/icons/process/step-08-implementation-idle.svg",
+    mp4: "/animations/process/step-08-implementation.mp4",
+  },
+  {
+    number: 9,
+    title: "Commissioning, Training & Optimization",
+    description:
+      "FAT/SAT, ramp plans, SOPs, and training. DensityPro can boost picker throughput up to 20% by sequencing optimal paths. Seasonal re-slotting stays easy.",
+    poster: "/icons/process/step-09-commissioning-idle.svg",
+    mp4: "/animations/process/step-09-commissioning.mp4",
+  },
 ];
 
 const Card = ({ children }: { children: React.ReactNode }) => (
@@ -41,77 +113,6 @@ const Badge = ({ n }: { n: number }) => (
   </div>
 );
 
-const steps: Step[] = [
-  {
-    number: 1,
-    title: "Discovery & Alignment",
-    description:
-      "We clarify goals, constraints, SLAs, growth assumptions, and success metrics. You'll leave with a shared charter and data checklist.",
-    poster: "/images/design-build/our-process/discovery_alignment.svg",
-    mp4: "/animations/process/discovery_alignment.mp4",
-  },
-  {
-    number: 2,
-    title: "Data Intake & Diagnostic",
-    description:
-      "Securely ingest WMS/ERP extracts (orders, lines, SKU master, velocities). Python/R analysis highlights constraints, failure modes, and quick wins.",
-    mp4: "/animations/process/data_intake_diagnostic.mp4",
-  },
-  {
-    number: 3,
-    title: "Footprint Modeling",
-    description:
-      "Our capacity/throughput model sizes the exact building envelope you need (clear height, docks, staging) at today’s volume and your target growth rate.",
-    poster: "/images/design-build/our-process/footprint_modeling.svg",
-    mp4: "/animations/process/footprint_modeling.mp4",
-  },
-  {
-    number: 4,
-    title: "Concept & Flow Design",
-    description:
-      "Map inbound → storage → pick/pack → outbound. Evaluate conventional vs. automated flows with options matrix and staffing models.",
-    mp4: "/animations/process/concept_flow_design.mp4",
-  },
-  {
-    number: 5,
-    title: "Slotting & Equipment Selection",
-    description:
-      "Use Warehousr for bin right-sizing and pick-module design. Layer in conveyors/sortation, GTP, VLMs, robotics, or conventional rack as justified by data.",
-    poster: "/images/design-build/our-process/slotting_equipment_selection.svg",
-    mp4: "/animations/process/slotting_equipment_selection.mp4",
-  },
-  {
-    number: 6,
-    title: "Simulation & Business Case",
-    description:
-      "Stress-test scenarios (peaks, promotions, seasonality). Build an ROI with sensitivity around labor rates, service levels, and future growth.",
-    mp4: "/animations/process/simulation_business_case.mp4",
-  },
-  {
-    number: 7,
-    title: "Codes & Permits (Fast-Track)",
-    description:
-      "Design to NFPA, FM Global, IBC and OSHA from day one. Painless Permit automates submittals and reviewer responses—compressing timelines significantly.",
-    poster: "/images/design-build/our-process/codes_permits.svg",
-    mp4: "/animations/process/codes_permits.mp4",
-  },
-  {
-    number: 8,
-    title: "Implementation & Project Management",
-    description:
-      "Single-point accountability for procurement, installation, safety, and change control. Weekly dashboards keep risk, cost, and schedule on track.",
-    mp4: "/animations/process/implementation_project_management.mp4",
-  },
-  {
-    number: 9,
-    title: "Commissioning, Training & Optimization",
-    description:
-      "FAT/SAT, ramp plans, SOPs, and training. DensityPro can boost picker throughput up to 20% by sequencing optimal paths. Seasonal re-slotting stays easy.",
-    poster: "/images/design-build/our-process/commissioning_training_optimization.svg",
-    mp4: "/animations/process/commissioning_training_optimization.mp4",
-  },
-];
-
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-12">
@@ -121,7 +122,7 @@ export default function Page() {
         <p className="mt-3 text-zinc-600">
           A transparent, repeatable path from idea to live operations—powered by our in-house tools:
           <span className="font-medium"> Warehousr</span> (slotting & space planning),
-          <span className="font-medium">DensityPro</span> (pick path sequencing),
+          <span className="font-medium"> DensityPro</span> (pick path sequencing),
           and <span className="font-medium">Painless Permit</span> (code compliance & permits).
         </p>
       </header>
@@ -137,15 +138,14 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="mt-4">
-              <HoverMedia
-                posterSvg={s.poster}
-                mp4={s.mp4}
-                webm={s.webm}
-                title={s.title}
-                accent={ACCENTS[i] || "#3DA9FC"}
-              />
-            </div>
+            <HoverMedia
+              className="mt-4"
+              posterSvg={s.poster}
+              mp4={s.mp4}
+              webm={s.webm}
+              title={s.title}
+              accent={ACCENTS[i] || "#3DA9FC"}
+            />
           </Card>
         ))}
       </section>
@@ -179,7 +179,7 @@ export default function Page() {
       <footer className="mt-12 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="text-xl font-semibold">Ready to walk the process with us?</h3>
-          <p className="text-zinc-600">Share your data extract and constraints—we'll return a concrete plan and timeline.</p>
+          <p className="text-zinc-600">Share your data extract and constraints—we’ll return a concrete plan and timeline.</p>
         </div>
         <a
           href="/contact"
