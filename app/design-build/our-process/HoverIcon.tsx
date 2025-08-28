@@ -10,6 +10,7 @@ type HoverIconProps = {
   Graphic: () => JSX.Element;
   poster?: string;
   anim?: string; // animated WebP/GIF or MP4
+  video?: { src: string; poster?: string };
   lottieSrc?: string;
   title: string;
 };
@@ -19,6 +20,7 @@ export default function HoverIcon({
   Graphic,
   poster,
   anim,
+  video,
   lottieSrc,
   title,
 }: HoverIconProps) {
@@ -82,23 +84,40 @@ export default function HoverIcon({
                 />
               ) : null}
 
-              {isMP4 ? (
+              {anim && (
+                <>
+                  {isMP4 ? (
+                    <video
+                      ref={videoRef}
+                      src={anim}
+                      muted
+                      loop
+                      playsInline
+                      preload="none"
+                      className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-200 anim-overlay object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={anim}
+                      alt=""
+                      className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-200 anim-overlay"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
+                </>
+              )}
+              
+              {video && (
                 <video
                   ref={videoRef}
-                  src={anim}
+                  src={video.src}
+                  poster={video.poster}
                   muted
                   loop
                   playsInline
                   preload="none"
                   className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-200 anim-overlay object-cover"
-                />
-              ) : (
-                <img
-                  src={anim!}
-                  alt=""
-                  className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-200 anim-overlay"
-                  loading="lazy"
-                  decoding="async"
                 />
               )}
             </div>

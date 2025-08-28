@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type Benefit = { title: string; body: string };
-type Step = { step: number; title: string; body: string; image?: { src: string; alt: string } };
+type Step = { step: number; title: string; body: string; image?: { src: string; alt: string }; video?: { src: string; poster?: string } };
 type GalleryImage = { title: string; src: string; alt?: string };
 type OptionItem = { title: string; caption?: string; icon?: string };
 type OptionsCategory = { name: string; items: OptionItem[] };

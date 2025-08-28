@@ -128,7 +128,7 @@ const GraphicLoop = () => (
     <polyline points="70,30 120,30 150,18 180,30" fill="none" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
- 
+
 
 const steps: Step[] = [
   {
@@ -137,6 +137,8 @@ const steps: Step[] = [
     description:
       "We clarify goals, constraints, SLAs, growth assumptions, and success metrics. You’ll leave with a shared charter and data checklist.",
     Graphic: GraphicCompass,
+    poster: "/images/design-build/our-process/discovery_alignment.svg",
+    anim: "/animations/process/discovery_alignment.mp4",
   },
   {
     number: 2,
@@ -144,6 +146,7 @@ const steps: Step[] = [
     description:
       "Securely ingest WMS/ERP extracts (orders, lines, SKU master, velocities). Python/R analysis highlights constraints, failure modes, and quick wins.",
     Graphic: GraphicData,
+    anim: "/animations/process/data_intake_diagnostic.mp4",
   },
   {
     number: 3,
@@ -151,6 +154,8 @@ const steps: Step[] = [
     description:
       "Our capacity/throughput model sizes the exact building envelope you need (clear height, docks, staging) at today’s volume and your target growth rate.",
     Graphic: GraphicFootprint,
+    poster: "/images/design-build/our-process/footprint_modeling.svg",
+    anim: "/animations/process/footprint_modeling.mp4",
   },
   {
     number: 4,
@@ -158,6 +163,7 @@ const steps: Step[] = [
     description:
       "Map inbound → storage → pick/pack → outbound. Evaluate conventional vs. automated flows with options matrix and staffing models.",
     Graphic: GraphicFlow,
+    anim: "/animations/process/concept_flow_design.mp4",
   },
   {
     number: 5,
@@ -165,6 +171,8 @@ const steps: Step[] = [
     description:
       "Use Warehousr for bin right-sizing and pick-module design. Layer in conveyors/sortation, GTP, VLMs, robotics, or conventional rack as justified by data.",
     Graphic: GraphicSlotting,
+    poster: "/images/design-build/our-process/slotting_equipment_selection.svg",
+    anim: "/animations/process/slotting_equipment_selection.mp4",
   },
   {
     number: 6,
@@ -172,6 +180,7 @@ const steps: Step[] = [
     description:
       "Stress-test scenarios (peaks, promotions, seasonality). Build an ROI with sensitivity around labor rates, service levels, and future growth.",
     Graphic: GraphicChart,
+    anim: "/animations/process/simulation_business_case.mp4",
   },
   {
     number: 7,
@@ -179,6 +188,8 @@ const steps: Step[] = [
     description:
       "Design to NFPA, FM Global, IBC and OSHA from day one. Painless Permit automates submittals and reviewer responses—compressing timelines significantly.",
     Graphic: GraphicPermit,
+    poster: "/images/design-build/our-process/codes_permits.svg",
+    anim: "/animations/process/codes_permits.mp4",
   },
   {
     number: 8,
@@ -186,6 +197,7 @@ const steps: Step[] = [
     description:
       "Single-point accountability for procurement, installation, safety, and change control. Weekly dashboards keep risk, cost, and schedule on track.",
     Graphic: GraphicGantt,
+    anim: "/animations/process/implementation_project_management.mp4",
   },
   {
     number: 9,
@@ -193,6 +205,8 @@ const steps: Step[] = [
     description:
       "FAT/SAT, ramp plans, SOPs, and training. DensityPro can boost picker throughput up to 20% by sequencing optimal paths. Seasonal re-slotting stays easy.",
     Graphic: GraphicRocket,
+    poster: "/images/design-build/our-process/commissioning_training_optimization.svg",
+    anim: "/animations/process/commissioning_training_optimization.mp4",
   },
 ];
 
@@ -205,7 +219,7 @@ export default function Page() {
         <p className="mt-3 text-zinc-600">
           A transparent, repeatable path from idea to live operations—powered by our in-house tools:
           <span className="font-medium"> Warehousr</span> (slotting & space planning),
-          <span className="font-medium"> DensityPro</span> (pick path sequencing),
+          <span className="font-medium">DensityPro</span> (pick path sequencing),
           and <span className="font-medium">Painless Permit</span> (code compliance & permits).
         </p>
       </header>
