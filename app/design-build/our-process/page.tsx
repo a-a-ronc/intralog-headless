@@ -44,7 +44,7 @@ const steps: Step[] = [
     description:
       "Securely ingest WMS/ERP extracts (orders, lines, SKU master, velocities). Python/R analysis highlights constraints, failure modes, and quick wins.",
     poster: "/icons/process/Data Intake & Diagnostic.svg",
-    mp4: "/animations/process/data_intake_diagnostic.mp4",
+    colorSvg: "/icons/process/Data Intake & Diagnostic.svg",
   },
   {
     number: 3,
@@ -68,6 +68,7 @@ const steps: Step[] = [
     description:
       "Use Warehousr for bin right-sizing and pick-module design. Layer in conveyors/sortation, GTP, VLMs, robotics, or conventional rack as justified by data.",
     poster: "/icons/process/slottingEquipmentSelection.svg",
+    colorSvg: "/icons/process/slottingEquipmentSelection.svg",
   },
   {
     number: 6,

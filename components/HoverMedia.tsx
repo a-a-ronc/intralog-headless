@@ -1,15 +1,13 @@
+// components/HoverMedia.tsx
 "use client";
 import { useRef } from "react";
 
 type Props = {
-  /** idle grayscale SVG poster (from /public) */
-  posterSvg: string;
-  /** optional animated video (from /public) */
-  mp4?: string;
-  webm?: string;
-  /** label used for alt text */
+  posterSvg: string;     // idle grayscale SVG
+  mp4?: string;          // optional animation
+  webm?: string;         // optional animation
+  colorSvg?: string;     // NEW: optional colored SVG (used if no video)
   title: string;
-  /** hex accent color for glow on hover (e.g. "#3DA9FC") */
   accent?: string;
   className?: string;
 };
@@ -18,6 +16,7 @@ export default function HoverMedia({
   posterSvg,
   mp4,
   webm,
+  colorSvg,
   title,
   accent = "#3DA9FC",
   className,
@@ -26,7 +25,7 @@ export default function HoverMedia({
 
   const play = () => {
     const p = ref.current?.play?.();
-    if (p && typeof p.catch === "function") p.catch(() => {}); // ignore autoplay promise errors
+    if (p && typeof p.catch === "function") p.catch(() => {});
   };
   const reset = () => {
     const v = ref.current;
@@ -35,33 +34,34 @@ export default function HoverMedia({
     v.currentTime = 0;
   };
 
+  const hasVideo = !!(mp4 || webm);
+
   return (
     <div
       className={`relative group rounded-xl p-4 ${className || ""}`}
       style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,.06)" }}
-      onMouseEnter={mp4 || webm ? play : undefined}
-      onMouseLeave={mp4 || webm ? reset : undefined}
+      onMouseEnter={hasVideo ? play : undefined}
+      onMouseLeave={hasVideo ? reset : undefined}
     >
       {/* Idle poster (grayscale) */}
       <img
         src={posterSvg}
         alt={`${title} icon`}
-        className="w-full h-full object-contain block transition-[filter] duration-200"
+        className="w-full h-24 object-contain block transition-[filter,opacity] duration-200"
         style={{ filter: "grayscale(1) brightness(.95)" }}
         loading="lazy"
         decoding="async"
       />
 
-      {/* Animated overlay video (fades in on hover) */}
-      {(mp4 || webm) && (
+      {/* If we have video, use it on hover */}
+      {hasVideo && (
         <video
           ref={ref}
-          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-full object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-24 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           muted
           loop
           playsInline
           preload="metadata"
-          // make it playable on touch devices
           onTouchStart={play}
         >
           {webm ? <source src={webm} type="video/webm" /> : null}
@@ -69,9 +69,20 @@ export default function HoverMedia({
         </video>
       )}
 
+      {/* If NO video but a colored SVG is provided, fade it in on hover */}
+      {!hasVideo && colorSvg && (
+        <img
+          src={colorSvg}
+          alt=""
+          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-24 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          loading="lazy"
+          decoding="async"
+        />
+      )}
+
       <style>{`
         .group:hover { box-shadow: inset 0 0 0 1px ${accent}33, 0 0 0 4px ${accent}11; }
-        .group:hover img { filter: grayscale(0); }
+        .group:hover img:first-of-type { filter: grayscale(0); } /* base poster de-grays */
       `}</style>
     </div>
   );
