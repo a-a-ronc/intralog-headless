@@ -34,7 +34,7 @@ const steps: Step[] = [
     number: 1,
     title: "Discovery & Alignment",
     description:
-      "We clarify goals, constraints, SLAs, growth assumptions, and success metrics. You’ll leave with a shared charter and data checklist.",
+      "We clarify goals, constraints, SLAs, growth assumptions, and success metrics. You'll leave with a shared charter and data checklist.",
     poster: "/icons/process/discovery_alignment.svg",
     mp4: "/animations/process/discovery_alignment.mp4",
   },
@@ -43,61 +43,62 @@ const steps: Step[] = [
     title: "Data Intake & Diagnostic",
     description:
       "Securely ingest WMS/ERP extracts (orders, lines, SKU master, velocities). Python/R analysis highlights constraints, failure modes, and quick wins.",
-    poster: "/icons/process/step-02-data-idle.svg",
+    poster: "/icons/process/Data Intake & Diagnostic.svg",
     mp4: "/animations/process/data_intake_diagnostic.mp4",
   },
   {
     number: 3,
     title: "Footprint Modeling",
     description:
-      "Our capacity/throughput model sizes the exact building envelope you need (clear height, docks, staging) at today’s volume and your target growth rate.",
-    poster: "/icons/process/step-03-footprint-idle.svg",
-    mp4: "/animations/process/step-03-footprint.mp4",
+      "Our capacity/throughput model sizes the exact building envelope you need (clear height, docks, staging) at today's volume and your target growth rate.",
+    poster: "/icons/process/footprintModeling.svg",
+    mp4: "/animations/process/footprintModeling.mp4",
   },
   {
     number: 4,
     title: "Concept & Flow Design",
     description:
       "Map inbound → storage → pick/pack → outbound. Evaluate conventional vs. automated flows with options matrix and staffing models.",
-    poster: "/icons/process/step-04-concept-idle.svg",
+    poster: "/icons/process/conceptFlowDesign.svg",
+    mp4: "/animations/process/conceptFlowDesign.mp4",
   },
   {
     number: 5,
     title: "Slotting & Equipment Selection",
     description:
       "Use Warehousr for bin right-sizing and pick-module design. Layer in conveyors/sortation, GTP, VLMs, robotics, or conventional rack as justified by data.",
-    poster: "/icons/process/step-05-slotting-idle.svg",
+    poster: "/icons/process/slottingEquipmentSelection.svg",
   },
   {
     number: 6,
     title: "Simulation & Business Case",
     description:
       "Stress-test scenarios (peaks, promotions, seasonality). Build an ROI with sensitivity around labor rates, service levels, and future growth.",
-    poster: "/icons/process/step-06-simulation-idle.svg",
-    mp4: "/animations/process/step-06-simulation.mp4",
+    poster: "/icons/process/simulationBusinessCase.svg",
   },
   {
     number: 7,
     title: "Compliance & Vendor Coordination",
     description:
       "Design to NFPA, FM Global, IBC and OSHA from day one. Painless Permit automates submittals and reviewer responses—compressing timelines significantly.",
-    poster: "/icons/process/step-07-compliance-idle.svg",
+    poster: "/icons/process/codesPermits.svg",
+    mp4: "/animations/process/codesPermits.mp4",
   },
   {
     number: 8,
     title: "Implementation & Project Management",
     description:
       "Single-point accountability for procurement, installation, safety, and change control. Weekly dashboards keep risk, cost, and schedule on track.",
-    poster: "/icons/process/step-08-implementation-idle.svg",
-    mp4: "/animations/process/step-08-implementation.mp4",
+    poster: "/icons/process/implementationProjectManagement.svg",
+    mp4: "/animations/process/implementationProjectManagement.mp4",
   },
   {
     number: 9,
     title: "Commissioning, Training & Optimization",
     description:
       "FAT/SAT, ramp plans, SOPs, and training. DensityPro can boost picker throughput up to 20% by sequencing optimal paths. Seasonal re-slotting stays easy.",
-    poster: "/icons/process/step-09-commissioning-idle.svg",
-    mp4: "/animations/process/step-09-commissioning.mp4",
+    poster: "/icons/process/commissioningTrainingOptimization.svg",
+    mp4: "/animations/process/commissioningTrainingOptimization.mp4",
   },
 ];
 
@@ -122,7 +123,7 @@ export default function Page() {
         <p className="mt-3 text-zinc-600">
           A transparent, repeatable path from idea to live operations—powered by our in-house tools:
           <span className="font-medium"> Warehousr</span> (slotting & space planning),
-          <span className="font-medium"> DensityPro</span> (pick path sequencing),
+          <span className="font-medium">DensityPro</span> (pick path sequencing),
           and <span className="font-medium">Painless Permit</span> (code compliance & permits).
         </p>
       </header>
