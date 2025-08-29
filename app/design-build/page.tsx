@@ -36,8 +36,21 @@ export default function DesignBuildPage() {
         </div>
       </section>
 
-      {/* Our Process Section */}
-      <ProcessSection />
+      {/* Our Process Section - Link to detailed process page */}
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-[rgb(var(--fg))] mb-4">Our Process</h2>
+          <p className="text-[rgb(var(--muted-fg))] mb-8 max-w-2xl mx-auto">
+            A transparent, repeatable path from idea to live operations with our data-driven approach.
+          </p>
+          <Link 
+            href="/design-build/our-process" 
+            className="inline-flex items-center justify-center rounded-xl bg-black px-6 py-3 text-white font-medium hover:bg-zinc-800"
+          >
+            View Our 9-Step Process
+          </Link>
+        </div>
+      </section>
 
       {/* Why Design-Build Section */}
       <WhySection />
