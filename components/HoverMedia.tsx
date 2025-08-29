@@ -57,7 +57,7 @@ export default function HoverMedia({
       {hasVideo && (
         <video
           ref={ref}
-          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-32 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           muted
           loop
           playsInline
@@ -74,7 +74,7 @@ export default function HoverMedia({
         <img
           src={colorSvg}
           alt=""
-          className="pointer-events-none absolute inset-4 w-[calc(100%-2rem)] h-32 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           loading="lazy"
           decoding="async"
         />

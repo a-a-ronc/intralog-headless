@@ -145,6 +145,7 @@ export default function Page() {
             <HoverMedia
               className="mt-4 h-32"
               posterSvg={s.poster}
+              colorSvg={s.colorSvg}
               mp4={s.mp4}
               webm={s.webm}
               title={s.title}
