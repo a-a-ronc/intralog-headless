@@ -43,11 +43,11 @@ export default function HoverMedia({
       onMouseEnter={hasVideo ? play : undefined}
       onMouseLeave={hasVideo ? reset : undefined}
     >
-      {/* Idle poster (grayscale) */}
+      {/* Idle poster (grayscale) - fades out on hover */}
       <img
         src={posterSvg}
         alt={`${title} icon`}
-        className="w-full h-32 object-contain block transition-[filter,opacity] duration-200"
+        className="w-full h-32 object-contain block transition-[filter,opacity] duration-200 group-hover:opacity-0"
         style={{ filter: "grayscale(1) brightness(.95)" }}
         loading="lazy"
         decoding="async"
@@ -57,7 +57,7 @@ export default function HoverMedia({
       {hasVideo && (
         <video
           ref={ref}
-          className="pointer-events-none absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 w-full h-32 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           muted
           loop
           playsInline
@@ -74,7 +74,7 @@ export default function HoverMedia({
         <img
           src={colorSvg}
           alt=""
-          className="pointer-events-none absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 w-full h-32 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           loading="lazy"
           decoding="async"
         />
@@ -82,7 +82,6 @@ export default function HoverMedia({
 
       <style>{`
         .group:hover { box-shadow: inset 0 0 0 1px ${accent}33, 0 0 0 4px ${accent}11; }
-        .group:hover img:first-of-type { filter: grayscale(0); } /* base poster de-grays */
       `}</style>
     </div>
   );
