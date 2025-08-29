@@ -65,7 +65,7 @@ export default function WhySection() {
       </div>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-3">
-        <Stat value="15–25%" label="Picker throughput lift with DensityPro sequencing" />
+        <Stat value="15–20%" label="Picker throughput lift with DensityPro sequencing" />
         <Stat value="Weeks faster" label="Permitting vs. legacy processes" />
         <Stat value="Right-sized" label="Facility footprints driven by math, not guesswork" />
       </div>
