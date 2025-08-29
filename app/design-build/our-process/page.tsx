@@ -13,6 +13,7 @@ type Step = {
   title: string;
   description: string;
   poster: string; // idle svg (required)
+  colorSvg?: string;
   mp4?: string;   // optional animation
   webm?: string;  // optional animation
 };
@@ -44,7 +45,7 @@ const steps: Step[] = [
     description:
       "Securely ingest WMS/ERP extracts (orders, lines, SKU master, velocities). Python/R analysis highlights constraints, failure modes, and quick wins.",
     poster: "/icons/process/Data Intake & Diagnostic.svg",
-    colorSvg: "/icons/process/Data Intake & Diagnostic.svg",
+    mp4: "/animations/process/data_intake_diagnostic.mp4",
   },
   {
     number: 3,
@@ -68,7 +69,7 @@ const steps: Step[] = [
     description:
       "Use Warehousr for bin right-sizing and pick-module design. Layer in conveyors/sortation, GTP, VLMs, robotics, or conventional rack as justified by data.",
     poster: "/icons/process/slottingEquipmentSelection.svg",
-    colorSvg: "/icons/process/slottingEquipmentSelection.svg",
+    mp4: "/animations/process/slottingEquipmentSelection.mp4 ",
   },
   {
     number: 6,
