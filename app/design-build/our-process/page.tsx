@@ -13,7 +13,7 @@ type Step = {
   title: string;
   description: string;
   poster: string; // idle svg (required)
-  colorSvg?: string;
+  colorSvg?: string; // optional colored SVG
   mp4?: string;   // optional animation
   webm?: string;  // optional animation
 };
@@ -77,6 +77,7 @@ const steps: Step[] = [
     description:
       "Stress-test scenarios (peaks, promotions, seasonality). Build an ROI with sensitivity around labor rates, service levels, and future growth.",
     poster: "/icons/process/simulationBusinessCase.svg",
+    colorSvg: "/icons/process/simulationBusinessCase.svg", // Added for hover effect
   },
   {
     number: 7,
