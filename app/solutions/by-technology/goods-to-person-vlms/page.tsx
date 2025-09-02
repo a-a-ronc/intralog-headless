@@ -1,6 +1,6 @@
 // app/solutions/by-technology/goods-to-person-vlms/page.tsx
 import SolutionPage from "@/components/SolutionPage";
-import { demoSolutionImages } from "@/lib/demo";
+// import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Goods-to-Person / VLMs | Intralog" };
 
@@ -70,11 +70,12 @@ const options = [
 ];
 
 /** Demo/gallery images — add real assets under /public when ready */
-const gallery = demoSolutionImages.vlm ?? [
-  { src: "/images/solutions/vlm/vlm-hero.jpg", alt: "VLM pick station" },
-  { src: "/images/solutions/vlm/vlm-station.jpg", alt: "Operator guidance on VLM" },
-  { src: "/images/solutions/vlm/robot-interface.jpg", alt: "Batch picking with totes" },
-];
+const gallery = [
+    { title: "Flexibox fast movers", src: "/images/solutions/vlm/flexibox.jpg", alt: "FlexiBox: fast movers" },
+    { title: "VLM in cold storage", src: "/images/solutions/vlm/modula-lift.jpg", alt: "VLM in cold storage" },
+    { title: "Put to light", src: "/images/solutions/vlm/put-to-light.jpg", alt: "Put to light" },
+    { title: "Robot interface", src: "/images/solutions/vlm/robot-interface.jpg", alt: "Robot interface" },
+  ];
 
 const useCases = [
   "Spare parts/MRO: secure, serialized items with audit trails",
