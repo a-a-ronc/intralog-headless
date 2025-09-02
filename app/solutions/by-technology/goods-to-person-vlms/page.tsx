@@ -73,7 +73,7 @@ const options = [
 const gallery = demoSolutionImages.vlm ?? [
   { src: "/images/solutions/vlm/vlm-hero.jpg", alt: "VLM pick station" },
   { src: "/images/solutions/vlm/vlm-station.jpg", alt: "Operator guidance on VLM" },
-  { src: "/images/solutions/vlm/batch-picking.jpg", alt: "Batch picking with totes" },
+  { src: "/images/solutions/vlm/robot-interface.jpg", alt: "Batch picking with totes" },
 ];
 
 const useCases = [
@@ -89,7 +89,7 @@ export default function Page() {
       title="Goods-to-Person / VLMs"
       description="Increase speed and density by bringing inventory to the operator. We deploy VLMs, shuttle/mini-load AS/RS, and ACR robots with guided pick stations and tight WMS/WCS integration."
       videos={[
-        { url: "https://www.youtube.com/embed/vcI5c8AIPqA", title: "VLM Overview" },
+        { url: "https://www.youtube.com/embed/H5GIY7PTyR0?si=j2KUmn6mtzAPnQgk", title: "Flexibox" },
         { url: "https://www.youtube.com/embed/7t1YqC6FQ7M", title: "Mini-load AS/RS" },
         { url: "https://www.youtube.com/embed/BVwzBPA0XQ0", title: "Shuttle AS/RS G2P" },
       ]}

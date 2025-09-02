@@ -6,8 +6,8 @@ import { demoSolutionImages } from "@/lib/demo";
 export const metadata = { title: "Pallet Shuttle Systems | Intralog" };
 
 const benefits = [
-  { title: "High‑density storage", body: "Store up to 10× more pallets per square foot vs. selective racking with deep‑lane configurations." },
-  { title: "FIFO or LIFO flexibility", body: "Configure for first‑in‑first‑out food safety or last‑in‑first‑out efficiency based on your inventory needs." },
+  { title: "High‑density storage", body: "Store up to 60-100% more pallets per square foot vs. selective racking with deep‑lane configurations." },
+  { title: "FIFO or LIFO flexibility", body: "Configure for first‑in‑first‑out or last‑in‑first‑out efficiency based on your inventory needs." },
   { title: "Reduced forklift traffic", body: "Shuttles move pallets within lanes while forklifts focus on loading/unloading, improving safety and cycle times." },
   { title: "Cold storage optimized", body: "Minimize door‑open time and energy loss with rapid pallet movements in freezer environments." },
   { title: "NFPA compliant", body: "Maintains proper flue space for sprinkler systems while maximizing storage density." },
@@ -76,7 +76,7 @@ export default function Page() {
   return (
     <SolutionPage
       title="Pallet Shuttle Systems"
-      description="Stow LoadMatic and semi‑automated pallet shuttles maximize storage density while maintaining selectivity—ideal for high‑volume SKUs and cold storage."
+      description="Semi‑automated pallet shuttles maximize storage density while maintaining selectivity—ideal for high‑volume SKUs and cold storage."
       videos={[
         { url: "https://www.youtube.com/embed/BF7HCTcsN2s?si=Ap3h-C9btFy_rTf0", title: "Stow LoadMatic Shuttle System"},
         { url: "https://www.youtube.com/embed/vZdz8M9c3AQ", title: "Four‑Directional Shuttle System" },
