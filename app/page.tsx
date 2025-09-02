@@ -264,45 +264,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--light)' }}>
-        <div className="container">
-          <h2 style={{ 
-            marginTop: 0, 
-            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', 
-            textAlign: 'center',
-            marginBottom: '2rem'
-          }}>
-            Quick Links (Dev Sanity Check)
-          </h2>
-          <div className="grid" style={{ 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: 'clamp(1rem, 3vw, 1.5rem)'
-          }}>
-            {[
-              ["/solutions/by-technology/pallet-shuttle-systems", "Pallet Shuttle Systems"],
-              ["/solutions/by-technology/goods-to-person-vlms", "Goods-to-Person / VLMs"],
-              ["/solutions/by-technology/conveyor-and-sortation", "Conveyor & Sortation"],
-              ["/solutions/amr-agv", "AMRs & AGVs"],
-              ["/solutions/robotics", "Robotics"],
-              ["/solutions/by-function/store-more-in-less-space", "Store More in Less Space"],
-              ["/solutions/by-function/move-product-efficiently", "Move Product Efficiently"],
-              ["/solutions/by-function/pick-and-pack-faster", "Pick & Pack Faster"],
-              ["/solutions/by-function/fulfill-orders-accurately", "Fulfill Orders Accurately"],
-              ["/solutions/by-industry/aerospace-and-defense", "Aerospace & Defense"],
-              ["/solutions/by-industry/cold-storage-warehousing", "Cold Storage & Warehousing"],
-              ["/solutions/by-industry/food-and-beverage", "Food & Beverage"],
-              ["/solutions/wcs-wes", "WCS/WES"],
-              ["/resources/videos", "Videos"],
-              ["/case-studies", "Showcase"],
-            ].map(([href, label]) => (
-              <Link key={href as string} href={href as string} className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ fontWeight: '600', marginBottom: '0.5rem' }}>{label}</div>
-                <div className="small" style={{ color: '#64748b' }}>{href}</div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      */}
 
       <section className="section" style={{ background: 'var(--brand-blue)', color: '#fff' }}>
         <div className="container" style={{ 
