@@ -1,7 +1,8 @@
 
 // app/solutions/by-technology/pallet-shuttle-systems/page.tsx
 import SolutionPage from "@/components/SolutionPage";
-import { demoSolutionImages } from "@/lib/demo";
+import { media } from "@/lib/media"; //central registry for all solution images/videos
+// import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Pallet Shuttle Systems | Intralog" };
 
@@ -62,7 +63,7 @@ const options = [
   },
 ];
 
-const gallery = demoSolutionImages.palletShuttles;
+// const gallery = demoSolutionImages.palletShuttles;
 
 const useCases = [
   "Cold storage & freezer warehouses: high‑density storage with minimal door‑open time",
@@ -73,19 +74,21 @@ const useCases = [
 ];
 
 export default function Page() {
+  const group = media.solutions.palletShuttle; // ← pulls hero + gallery from lib/media.ts
   return (
     <SolutionPage
       title="Pallet Shuttle Systems"
       description="Semi‑automated pallet shuttles maximize storage density while maintaining selectivity—ideal for high‑volume SKUs and cold storage."
       videos={[
-        { url: "https://www.youtube.com/embed/BF7HCTcsN2s?si=Ap3h-C9btFy_rTf0", title: "Stow LoadMatic Shuttle System"},
+        { url: "https://www.youtube.com/embed/BF7HCTcsN2s?si=Ap3h-C9btFy_rTf0", title: "Semi Automatic Shuttle System"},
         { url: "https://www.youtube.com/embed/vZdz8M9c3AQ", title: "Four‑Directional Shuttle System" },
         { url: "https://www.youtube.com/embed/7j7c1P8Cx3E", title: "Cold Storage Shuttle Implementation" },
       ]}
       benefits={benefits}
       steps={steps}
       options={options}
-      gallery={gallery}
+      gallery={group.gallery} // central registry
+      heroImage={group.hero} // central registry
       useCases={useCases}
       brochureCta={{
         blurb: "Want detailed shuttle specifications and ROI calculations? Share your contact info for our complete systems guide.",

@@ -1,6 +1,6 @@
 // app/solutions/by-technology/conveyor-and-sortation/page.tsx
 import SolutionPage from "@/components/SolutionPage";
-import { demoSolutionImages } from "@/lib/demo";
+import { media } from "@/lib/media"; // central registry for all solution images/videos
 
 export const metadata = { title: "Conveyor & Sortation | Intralog" };
 
@@ -102,8 +102,6 @@ const options = [
     },
 ];
 
-/** Demo/gallery images (ensure these exist under /public) */
-const gallery = demoSolutionImages.conveyor;
 
 /** Representative use cases */
 const useCases = [
@@ -115,6 +113,7 @@ const useCases = [
 ];
 
 export default function Page() {
+  const group = media.solutions.conveyor; // ← pulls hero + gallery from lib/media.ts
   return (
     <SolutionPage
       title="Conveyor & Sortation Systems"
@@ -129,7 +128,8 @@ export default function Page() {
       benefits={benefits}
       steps={steps}
       options={options}
-      gallery={gallery}
+      gallery={group.gallery} // central registry
+      heroImage={group.hero} // central registry
       useCases={useCases}
       brochureCta={{
         blurb: "Want detailed specifications, layouts, and selection guidance? Share your email to get our Conveyor & Sortation Playbook.",

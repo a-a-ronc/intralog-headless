@@ -1,6 +1,6 @@
 // app/solutions/by-technology/goods-to-person-vlms/page.tsx
 import SolutionPage from "@/components/SolutionPage";
-// import { demoSolutionImages } from "@/lib/demo";
+import { media } from "@/lib/media"; // central registry for all solution images/videos
 
 export const metadata = { title: "Goods-to-Person / VLMs | Intralog" };
 
@@ -69,14 +69,7 @@ const options = [
   },
 ];
 
-/** Demo/gallery images — add real assets under /public when ready */
-const gallery = [
-    { title: "Flexibox fast movers", src: "/images/solutions/vlm/flexibox.jpg", alt: "FlexiBox: fast movers" },
-    { title: "VLM in cold storage", src: "/images/solutions/vlm/modula-lift.jpg", alt: "VLM in cold storage" },
-    { title: "Put to light", src: "/images/solutions/vlm/put-to-light.jpg", alt: "Put to light" },
-    { title: "Robot interface", src: "/images/solutions/vlm/robot-interface.jpg", alt: "Robot interface" },
-  ];
-
+/** Use cases */
 const useCases = [
   "Spare parts/MRO: secure, serialized items with audit trails",
   "E-commerce: smalls and medium movers with high order mix",
@@ -85,6 +78,8 @@ const useCases = [
 ];
 
 export default function Page() {
+  const group = media.solutions.vlm; // ← pulls hero + gallery from lib/media.ts
+
   return (
     <SolutionPage
       title="Goods-to-Person / VLMs"
@@ -97,7 +92,8 @@ export default function Page() {
       benefits={benefits}
       steps={steps}
       options={options}
-      gallery={gallery}
+      gallery={group.gallery}   // central registry
+      heroImage={group.hero}    // central registry
       useCases={useCases}
       brochureCta={{
         blurb: "Get our G2P Selection Guide—throughput bands, station designs, and slotting templates.",
