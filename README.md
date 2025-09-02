@@ -12,11 +12,11 @@ Our team specializes in **mid-market distribution centers (300k–500k sq ft)**,
 
 This website serves to:
 
-- Present **solutions by category** (e.g., Pallet Shuttles, VLMs, Conveyor & Sortation, AMRs/AGVs, Robotics).
-- Highlight **services** (consulting, design/engineering, implementation, support).
-- Showcase **industries we serve** (retail/e-commerce, food & beverage, manufacturing, 3PL, etc.).
-- Feature **customer projects** (Showcase gallery with photos, videos, drawings).
-- Provide **resources** (blog, videos, events).
+- Describe **design-build** process (why it is important and how we are unique in our approach)
+- Present **solutions by category** (e.g., Function, Industry, Technology along with respective sub categories).
+- Showcase our in house developed **software solutions** (Warehousr, DensityPro, Painless Permit)
+- Highlight **services** (engineering and design and implementation along with respective sub categories).
+- Provide **resources** (blog, videos, project spotlights).
 - Offer **company insights** (About, Partners, Careers).
 - Convert visitors via **contact forms and CTAs**.
 
@@ -24,13 +24,13 @@ This website serves to:
 
 ## 🛠 Tech Stack
 
-- **Framework**: [Next.js 13+ (App Router)](https://nextjs.org/)  
-- **CMS**: WordPress (Headless, via GraphQL + `wpFetch` queries)  
-- **Styling**: TailwindCSS + custom utility classes  
-- **Deployment**: Vercel / Replit + GitHub workflow  
-- **Assets**: Optimized SVG/PNG logos, hero images, and conceptual graphics  
-- **Videos**: YouTube embeds for solution overviews, vendor demos, and customer highlight reels  
-
+- **Framework:** [Next.js (App Router)](https://nextjs.org/), React, TypeScript   
+- **Styling:** TailwindCSS + custom utility classes
+- **Content:** Local pages + centralized media registry ('lib/media.ts')  
+- **Assets:** Optimized SVG/PNG logos, hero images, embedded video url's and conceptual graphics  
+- **Videos:** YouTube embeds for solution overviews, vendor demos, and customer highlight reels  
+- **Deployment:** Replit + GitHub workflow
+  
 ---
 
 ## 📂 Project Structure
@@ -41,6 +41,7 @@ intralog-headless/
 │  ├─ design-build/             # Design-Build hub (Our Process, Why Design-Build)
 │  ├─ solutions/                # Solution pages (Conveyor, AMR/AGV, Robotics, VLM, etc.)
 │  ├─ api/                      # Route handlers (serverless)
+|  ├─
 │  ├─ layout.tsx                # Root layout (theme provider, metadata)
 │  ├─ globals.css               # Global styles (Tailwind)
 │  └─ page.tsx                  # Homepage
