@@ -25,47 +25,95 @@ This website serves to:
 ## 🛠 Tech Stack
 
 - **Framework:** [Next.js (App Router)](https://nextjs.org/), React, TypeScript   
-- **Styling:** TailwindCSS + custom utility classes
-- **Content:** Local pages + centralized media registry ('lib/media.ts')  
-- **Assets:** Optimized SVG/PNG logos, hero images, embedded video url's and conceptual graphics  
-- **Videos:** YouTube embeds for solution overviews, vendor demos, and customer highlight reels  
-- **Deployment:** Replit + GitHub workflow
-  
+- **Styling:** TailwindCSS
+- **Images:** Next/Image + static assets under public/ (.jpg, .png, .svg, .avif)
+- **Content:** Local pages + lib/media.ts registry (demo data in lib/demo.ts while transitioning) 
+
+---
+
+## Live Links
+- **Production:** add link
+- **Staging/Preview:** add link
+
+---
+
+## Getting Started
+```bash
+# Install
+npm i
+
+# Run dev server
+npm run dev
+
+# Build & start
+npm run build
+npm run start
+
+# Lint / Type-check (add scripts if missing)
+npm run lint
+npm run typecheck
+
+```
+**Requirements:** Node 18+ (Next.js 14+ recommended)
 ---
 
 ## 📂 Project Structure
 ```bash
-intralog-headless/
-├─ app/                         # Next.js App Router (server components by default)
-│  ├─ (marketing)/              # Landing/marketing routes
-│  ├─ design-build/             # Design-Build hub (Our Process, Why Design-Build)
-│  ├─ solutions/                # Solution pages (Conveyor, AMR/AGV, Robotics, VLM, etc.)
-│  ├─ api/                      # Route handlers (serverless)
-|  ├─
-│  ├─ layout.tsx                # Root layout (theme provider, metadata)
-│  ├─ globals.css               # Global styles (Tailwind)
-│  └─ page.tsx                  # Homepage
-├─ components/                  # Reusable UI
-│  ├─ ui/                       # Buttons, cards, toggles, inputs...
-│  ├─ layout/                   # Header, Footer, Nav
-│  ├─ sections/                 # Page/marketing blocks (hero, feature grids)
-│  └─ charts/                   # Data-viz helpers
-├─ lib/                         # Utilities & client/server helpers
-│  ├─ analytics/                # Tracking and instrumentation
-│  ├─ content/                  # MDX/markdown helpers (if applicable)
-│  ├─ theme.ts                  # Dark-mode persistence, tokens
-│  └─ utils.ts                  # Shared utilities (e.g., `cn`, formatters)
-├─ public/                      # Static assets served as-is
-│  ├─ images/                   # Images, diagrams, illustrations
-│  ├─ logos/                    # Partner/customer logos
-│  └─ favicon.ico
-├─ attached_assets/             # Large PDFs, drawings, collateral
-├─ .gitignore
-├─ next.config.js
-├─ package.json
-├─ postcss.config.js
-├─ tailwind.config.js
-└─ README.md
+app/
+  about/
+  api/
+  careers/
+  case-studies/
+  contact/
+  design-build/
+  partners/
+  resources/
+  services/
+  software/
+  solutions/
+  globals.css
+  layout.tsx
+  page.tsx                 # Homepage
+
+attached_assets/           # (temporary holding; thin out over time)
+
+components/
+  design-build/
+  nav/
+  CaseStudyCard.tsx
+  ClientLogo.tsx
+  Footer.tsx
+  Header.tsx
+  HoverMedia.tsx           # image/video hover behavior
+  PartnerLogoRail.tsx
+  SolutionPage.tsx         # core layout for solution verticals
+
+lib/
+  demo.ts                  # legacy/demo media (keeping while we migrate)
+  media.ts                 # ✅ single source of truth for hero/gallery assets
+  queries.ts               # (keep if used; remove if not)
+  wp.ts                    # (keep if used; remove if not)
+
+public/
+  animations/
+  clients/
+  icons/
+  images/                  # all site images live here
+
+# Config
+.next/                     # build output (ignored)
+.env.example
+.gitignore
+next-env.d.ts
+next.config.mjs
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+vite.config.js             # only keep if actively used
+package.json
+package-lock.json
+README.md
+
 ```
 
 
