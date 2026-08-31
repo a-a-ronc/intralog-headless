@@ -1,9 +1,40 @@
 // app/layout.tsx
 import './globals.css'
+import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, localBusinessJsonLd } from "@/lib/site";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} | Warehouse Automation & Material Handling Integration`,
+    // Pages set complete titles (they already include "| Intralog")
+    template: "%s",
+  },
+  description: SITE_DESCRIPTION,
+  alternates: {
+    // Relative canonical resolves against each route's own path
+    canonical: "./",
+  },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    url: "./",
+    locale: "en_US",
+    images: [{ url: "/images/logo.png", alt: SITE_NAME }],
+  },
+  twitter: {
+    card: "summary",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -29,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dark:selection:bg-zinc-700 dark:selection:text-zinc-50
         "
       >
+        <JsonLd data={localBusinessJsonLd} />
         <Header />
         {children}
         <Footer />

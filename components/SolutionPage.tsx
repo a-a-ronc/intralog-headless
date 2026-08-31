@@ -3,6 +3,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, ORGANIZATION_ID } from "@/lib/site";
 
 type Benefit = { title: string; body: string };
 type Step = { step: number; title: string; body: string; image?: { src: string; alt: string }; video?: { src: string; poster?: string } };
@@ -46,8 +49,20 @@ export default function SolutionPage({
   brochureCta?: { blurb: string; buttonText: string; href: string };
   cta?: { title: string; body: string; buttonText: string; href: string };
 }) {
+  const pathname = usePathname();
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: title,
+    description,
+    url: `${SITE_URL}${pathname}`,
+    provider: { "@id": ORGANIZATION_ID },
+    areaServed: "US",
+  };
+
   return (
     <main>
+      <JsonLd data={serviceJsonLd} />
       {/* HERO */}
       <section
         className="hero"
