@@ -139,20 +139,20 @@ export default async function ShowcasePage() {
                       fontSize: '1.125rem',
                       fontWeight: 600,
                       lineHeight: 1.25,
-                      color: '#1e293b',
+                      color: 'rgb(var(--fg))',
                     }}
                   >
                     {cs.title}
                   </h3>
                   <div
                     className="small"
-                    style={{ color: '#475569' }}
+                    style={{ color: 'rgb(var(--muted-fg))' }}
                   >
                     {cs.excerpt}
                   </div>
                   <div
-                    className="small"
-                    style={{ marginTop: '.75rem', color: '#0B2D52', fontWeight: 600 }}
+                    className="small cta-link"
+                    style={{ marginTop: '.75rem' }}
                   >
                     View project →
                   </div>
@@ -164,7 +164,7 @@ export default async function ShowcasePage() {
       </section>
 
       {/* CALL TO ACTION */}
-      <section style={{ background: '#f8fafc', borderTop: '1px solid #f1f5f9' }}>
+      <section style={{ background: 'rgb(var(--surface))', borderTop: '1px solid rgb(var(--border))' }}>
         <div className="container section" style={{ textAlign: 'center' }}>
           <h3
             style={{
@@ -178,7 +178,7 @@ export default async function ShowcasePage() {
           <p
             style={{
               fontSize: '1rem',
-              color: '#64748b',
+              color: 'rgb(var(--muted-fg))',
               margin: '0 0 1.5rem',
             }}
           >

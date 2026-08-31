@@ -25,7 +25,7 @@ export default async function CaseStudyDetail({ params }: Params) {
     <div>
       <section className="section">
         <div className="container" style={{ maxWidth: '768px' }}>
-          <div className="small" style={{ marginBottom: '1rem', color: '#6b7280' }}>
+          <div className="small" style={{ marginBottom: '1rem', color: 'rgb(var(--muted-fg))' }}>
             ← Back to{' '}
             <Link href="/case-studies" style={{ textDecoration: 'underline' }}>
               Project Showcase

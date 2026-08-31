@@ -50,7 +50,7 @@ export default function CaseStudyCard({ cs }: { cs: CS }) {
           fontSize: '1.125rem',
           fontWeight: 600,
           lineHeight: 1.25,
-          color: '#1e293b',
+          color: 'rgb(var(--fg))',
         }}
       >
         {cs.title}
@@ -58,13 +58,13 @@ export default function CaseStudyCard({ cs }: { cs: CS }) {
       {cs.excerpt && (
         <div
           className="small"
-          style={{ color: '#475569' }}
+          style={{ color: 'rgb(var(--muted-fg))' }}
           dangerouslySetInnerHTML={{ __html: cs.excerpt }}
         />
       )}
       <div
-        className="small"
-        style={{ marginTop: '.75rem', color: '#0B2D52', fontWeight: 600 }}
+        className="small cta-link"
+        style={{ marginTop: '.75rem' }}
       >
         View project →
       </div>
