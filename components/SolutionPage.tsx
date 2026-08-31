@@ -6,13 +6,14 @@ import Link from "next/link";
 
 type Benefit = { title: string; body: string };
 type Step = { step: number; title: string; body: string; image?: { src: string; alt: string }; video?: { src: string; poster?: string } };
-type GalleryImage = { title: string; src: string; alt?: string };
+type GalleryImage = { title?: string; src: string; alt?: string };
 type OptionItem = { title: string; caption?: string; icon?: string };
 type OptionsCategory = { name: string; items: OptionItem[] };
 
 export default function SolutionPage({
   title,
   description,
+  heroImage, // optional background image for the hero section
   videos, // optional
   benefits,
   steps,
@@ -35,6 +36,7 @@ export default function SolutionPage({
 }: {
   title: string;
   description: string;
+  heroImage?: string;
   videos?: { url: string; title: string }[];
   benefits: Benefit[];
   steps: Step[];
@@ -47,7 +49,18 @@ export default function SolutionPage({
   return (
     <main>
       {/* HERO */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={
+          heroImage
+            ? {
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${heroImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }
+            : undefined
+        }
+      >
         <div className="container mx-auto text-center max-w-[880px]">
           <h1 className="font-semibold mb-3" style={{ fontSize: "clamp(2rem,4vw,3rem)" }}>
             {title}
@@ -57,7 +70,7 @@ export default function SolutionPage({
       </section>
 
       {/* VIDEO */}
-      {(videos?.length ?? 0) > 0 && (
+      {videos && videos.length > 0 && (
         <section className="section">
           <div className="container">
             <div className={`grid gap-6 max-w-[1200px] mx-auto ${videos.length > 1 ? "md:grid-cols-2" : ""}`}>
@@ -212,7 +225,7 @@ export default function SolutionPage({
                   </h2>
                   <Image
                     src={g.src}
-                    alt={g.alt || g.title}
+                    alt={g.alt || g.title || ""}
                     width={1200}
                     height={800}
                     className="rounded-xl"

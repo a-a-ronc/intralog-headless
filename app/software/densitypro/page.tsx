@@ -74,8 +74,6 @@ const options = [
   },
 ];
 
-const gallery = [];
-
 const useCases = [
   "Deep-lane pallet shuttle systems with multiple simultaneous operations",
   "High-volume distribution centers with dense storage requirements",
@@ -90,7 +88,6 @@ export default function DensityProPage() {
       benefits={benefits}
       steps={steps}
       options={options}
-      gallery={gallery}
       useCases={useCases}
       brochureCta={{
         blurb: "Learn how DensityPro can boost your pallet shuttle productivity by up to 20%.",

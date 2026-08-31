@@ -1,5 +1,5 @@
 // lib/media.ts
-export type MediaItem = { src: string; alt: string; };
+export type MediaItem = { title?: string; src: string; alt: string; };
 export type MediaGroup = { hero?: string; gallery: MediaItem[]; };
 
 export const media = {

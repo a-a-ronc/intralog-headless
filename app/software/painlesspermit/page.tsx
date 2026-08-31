@@ -1,6 +1,5 @@
 // app/software/painlesspermit/page.tsx
 import SolutionPage from "@/components/SolutionPage";
-import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Painless Permit | Intralog" };
 
@@ -47,12 +46,6 @@ const options = [
   },
 ];
 
-const gallery =
-  demoSolutionImages?.softwarePainless ?? [
-    { src: "/images/software/painless-permit/wizard.jpg", alt: "Permit intake wizard" },
-    { src: "/images/software/painless-permit/checklist.jpg", alt: "Auto-built checklist" },
-    { src: "/images/software/painless-permit/pack.jpg", alt: "Submittal pack generator" },
-  ];
 
 const useCases = [
   "Pallet rack/conveyor/mezzanine permits across multiple jurisdictions",
@@ -68,7 +61,6 @@ export default function Page() {
       benefits={benefits}
       steps={steps}
       options={options}
-      gallery={gallery}
       useCases={useCases}
       brochureCta={{
         blurb: "Want early access? Join the private alpha and help shape the rules library.",

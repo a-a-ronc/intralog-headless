@@ -1,6 +1,5 @@
 // app/software/lully/page.tsx
 import SolutionPage from "@/components/SolutionPage";
-import { demoSolutionImages } from "@/lib/demo";
 
 export const metadata = { title: "Lully (Partner Software) | Intralog" };
 
@@ -76,13 +75,6 @@ const options = [
   },
 ];
 
-const gallery =
-  demoSolutionImages.softwareLully ?? [
-    { src: "/images/software/lully/overview.jpg", alt: "Lully warehouse orchestration overview" },
-    { src: "/images/software/lully/grouping.jpg", alt: "Smart order grouping and release" },
-    { src: "/images/software/lully/metrics.jpg", alt: "Operational metrics and improvement" },
-  ];
-
 const useCases = [
   "Manual picking DC: cut travel and stops while raising UPH—no hardware changes.",
   "3PL: improve client SLAs with smarter waves and pack-balanced flow.",
@@ -98,7 +90,6 @@ export default function Page() {
       benefits={benefits}
       steps={steps}
       options={options}
-      gallery={gallery}
       useCases={useCases}
       brochureCta={{
         blurb: "Want results like documented case studies without a rip-and-replace? Ask for a pilot outline.",

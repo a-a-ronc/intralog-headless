@@ -59,7 +59,25 @@ export const demoPartners = [
   },
 ];
 
-export const demoSolutionImages = {
+type DemoGalleryImage = { title: string; src: string };
+
+// Keys with empty arrays have no approved media yet; SolutionPage hides the
+// gallery section when the array is empty.
+export const demoSolutionImages: Record<string, DemoGalleryImage[]> = {
+  printApply: [],
+  threePL: [],
+  palletizing: [],
+  aeroDefense: [],
+  retailEcom: [],
+  manufacturing: [],
+  industrialDistribution: [],
+  coldStorage: [],
+  conventional: [],
+  pickPack: [],
+  foodBev: [],
+  fulfillAccurate: [],
+  storeMore: [],
+  moveEfficiently: [],
   palletShuttles: [
     { title: "Operator staging shuttle", src: "/images/solutions/pallet-shuttles/operator-staging-shuttle.avif" },
     { title: "Position pallets", src: "/images/solutions/pallet-shuttles/position-pallets.avif" },

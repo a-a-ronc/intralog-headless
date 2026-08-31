@@ -41,7 +41,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--light)' }}>
+      <section className="section" style={{ background: 'rgb(var(--surface))' }}>
         <div className="container">
           <h2 style={{ 
             marginTop: 0, 
@@ -263,8 +263,6 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-
-      */}
 
       <section className="section" style={{ background: 'var(--brand-blue)', color: '#fff' }}>
         <div className="container" style={{ 
