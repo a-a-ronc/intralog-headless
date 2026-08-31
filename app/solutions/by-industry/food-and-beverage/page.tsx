@@ -105,8 +105,8 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       videos={[
-        { url: "https://www.youtube.com/embed/1YUo0w3Gx5o", title: "Freezer-Rated Pallet Handling" },
-        { url: "https://www.youtube.com/embed/3qTzV5e2VbQ", title: "Pick Modules & Carton Flow" },
+        { url: "https://www.youtube.com/embed/0g_lH5N6p8E", title: "Freezer-Rated Pallet Handling" },
+        { url: "https://www.youtube.com/embed/ssTZP8tFlbk", title: "Pick Modules & Carton Flow" },
       ]}
       brochureCta={{
         blurb: "Get the F&B Logistics Guide—sanitary design checklist, rack selection, and cold-ready equipment specs.",

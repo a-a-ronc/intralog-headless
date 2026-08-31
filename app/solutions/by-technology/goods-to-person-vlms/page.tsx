@@ -86,8 +86,8 @@ export default function Page() {
       description="Increase speed and density by bringing inventory to the operator. We deploy VLMs, shuttle/mini-load AS/RS, and ACR robots with guided pick stations and tight WMS/WCS integration."
       videos={[
         { url: "https://www.youtube.com/embed/H5GIY7PTyR0?si=j2KUmn6mtzAPnQgk", title: "Flexibox" },
-        { url: "https://www.youtube.com/embed/7t1YqC6FQ7M", title: "Mini-load AS/RS" },
-        { url: "https://www.youtube.com/embed/BVwzBPA0XQ0", title: "Shuttle AS/RS G2P" },
+        { url: "https://www.youtube.com/embed/xpviH4MOB4c", title: "Mini-load AS/RS" },
+        { url: "https://www.youtube.com/embed/QS2uKUwGx8I", title: "Shuttle AS/RS G2P" },
       ]}
       benefits={benefits}
       steps={steps}

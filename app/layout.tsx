@@ -34,7 +34,14 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // Set NEXT_PUBLIC_GSC_VERIFICATION to the token from Search Console
+  // (HTML-tag method) to verify ownership without touching DNS.
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
+    : {}),
 };
+
+const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -60,6 +67,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dark:selection:bg-zinc-700 dark:selection:text-zinc-50
         "
       >
+        {/* GA4 — activates once NEXT_PUBLIC_GA4_ID is set */}
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            `}</Script>
+          </>
+        )}
         <JsonLd data={localBusinessJsonLd} />
         <Header />
         {children}

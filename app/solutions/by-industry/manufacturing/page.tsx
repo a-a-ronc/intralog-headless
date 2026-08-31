@@ -108,7 +108,7 @@ export default function Page() {
       useCases={useCases}
       videos={[
         { url: "https://www.youtube.com/embed/jf3IbA9pigs", title: "MDR Accumulation for Line Feed" },
-        { url: "https://www.youtube.com/embed/vcI5c8AIPqA", title: "Vertical Storage & Kitting" },
+        { url: "https://www.youtube.com/embed/B7bMNXTSV5I", title: "Vertical Storage & Kitting" },
       ]}
       brochureCta={{
         blurb: "Get the Manufacturing Playbook—supermarket sizing, e-kanban triggers, and line-feed patterns.",

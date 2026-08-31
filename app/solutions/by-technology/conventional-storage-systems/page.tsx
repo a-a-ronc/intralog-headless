@@ -107,8 +107,8 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       videos={[
-        { url: "https://www.youtube.com/embed/3qTzV5e2VbQ", title: "Carton Flow & Pick Module Overview" },
-        { url: "https://www.youtube.com/embed/5l5l2Q5mS6Q", title: "Pallet Flow in Cold Storage" },
+        { url: "https://www.youtube.com/embed/ssTZP8tFlbk", title: "Carton Flow & Pick Module Overview" },
+        { url: "https://www.youtube.com/embed/_jf9TRCsu9Y", title: "Automated Pallet Flow Racking" },
       ]}
       brochureCta={{
         blurb: "Download the Storage Mix Guide—slotting templates, flue spacing, and rack selection charts.",

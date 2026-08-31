@@ -107,8 +107,8 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       videos={[
-        { url: "https://www.youtube.com/embed/5l5l2Q5mS6Q", title: "Pallet Flow in Cold Storage" },
-        { url: "https://www.youtube.com/embed/1YUo0w3Gx5o", title: "Freezer-Rated Pallet Handling" },
+        { url: "https://www.youtube.com/embed/_jf9TRCsu9Y", title: "Automated Pallet Flow Racking" },
+        { url: "https://www.youtube.com/embed/0g_lH5N6p8E", title: "Freezer-Rated Pallet Handling" },
       ]}
       brochureCta={{
         blurb: "Download the Cold Storage Playbook—rack selection, door/vestibule details, and low-temp equipment checklist.",

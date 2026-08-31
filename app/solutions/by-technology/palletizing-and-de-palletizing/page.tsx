@@ -101,8 +101,8 @@ export default function Page() {
       title="Palletizing & Depalletizing"
       description="Robotic palletizing, layer-forming, and intelligent depalletizing with vision, robust EOAT, and integrated pallet handling. From recipe-driven patterns to SSCC labeling and wrapper handoffs."
       videos={[
-        { url: "https://www.youtube.com/embed/1YUo0w3Gx5o", title: "Robotic Palletizer Overview" },
-        { url: "https://www.youtube.com/embed/6yvfQ7fGJ3c", title: "Vision-Guided Depalletizing" },
+        { url: "https://www.youtube.com/embed/vzNWLMiQ4hI", title: "Robotic Palletizer Overview" },
+        { url: "https://www.youtube.com/embed/Ds8fLgKT_aY", title: "Mixed-Case Depalletizing" },
       ]}
       benefits={benefits}
       steps={steps}

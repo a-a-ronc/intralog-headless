@@ -10,8 +10,8 @@ const videos = [
   { title: "Conveyor — NBLR", url: "https://www.youtube.com/embed/E5BwPlU46QQ" },
   { title: "Conveyor — V‑Belt", url: "https://www.youtube.com/embed/iOdUktCFxiY" },
   { title: "AMR — SEER", url: "https://www.youtube.com/embed/zlMDJpZYtmY" },
-  { title: "AMR Sortation — Tompkins", url: "https://www.youtube.com/embed/VhG82W2qQwI" },
-  { title: "ACR — HAI Robotics", url: "https://www.youtube.com/embed/7x0Zq7y0CkQ" },
+  { title: "AMR Sortation — Tompkins", url: "https://www.youtube.com/embed/b9ew9KIZLsQ" },
+  { title: "ACR — HAI Robotics", url: "https://www.youtube.com/embed/s4P65Uw5vxw" },
 ];
 
 export default function Page() {

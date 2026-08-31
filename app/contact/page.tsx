@@ -7,12 +7,19 @@ export default function ContactPage(){
   
   async function onSubmit(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault()
+    // Capture the element now — React nulls currentTarget after the await
+    const formEl = e.currentTarget
     setStatus('Sending...')
-    const form = new FormData(e.currentTarget)
+    const form = new FormData(formEl)
     const res = await fetch('/api/contact', { method:'POST', body: form })
-    if (res.ok) setStatus('Thanks! We will be in touch shortly.')
-    else setStatus('Something went wrong. Please try again.')
-    e.currentTarget.reset()
+    if (res.ok) {
+      setStatus('Thanks! We will be in touch shortly.')
+      formEl.reset()
+      // GA4 conversion event (no-op until the GA4 tag is configured)
+      ;(window as any).gtag?.('event', 'generate_lead', { form: 'contact' })
+    } else {
+      setStatus('Something went wrong. Please try again.')
+    }
   }
   
   return (

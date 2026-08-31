@@ -81,8 +81,8 @@ export default function Page() {
       description="Semi‑automated pallet shuttles maximize storage density while maintaining selectivity—ideal for high‑volume SKUs and cold storage."
       videos={[
         { url: "https://www.youtube.com/embed/BF7HCTcsN2s?si=Ap3h-C9btFy_rTf0", title: "Semi Automatic Shuttle System"},
-        { url: "https://www.youtube.com/embed/vZdz8M9c3AQ", title: "Four‑Directional Shuttle System" },
-        { url: "https://www.youtube.com/embed/7j7c1P8Cx3E", title: "Cold Storage Shuttle Implementation" },
+        { url: "https://www.youtube.com/embed/ckQqwnpiujY", title: "Four‑Directional Shuttle System" },
+        { url: "https://www.youtube.com/embed/0g_lH5N6p8E", title: "Cold Storage Shuttle Implementation" },
       ]}
       benefits={benefits}
       steps={steps}

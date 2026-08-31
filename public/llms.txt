@@ -1,0 +1,39 @@
+# Intralog
+
+> Intralog is a warehouse automation integrator (design-build) headquartered in
+> Salt Lake City, Utah. We design and integrate material handling systems —
+> pallet shuttles, vertical lift modules (VLMs), conveyor and sortation, AMRs/AGVs,
+> and robotic palletizing — for 3PLs and mid-market distribution centers
+> (300k–500k sq ft). Phone: (385) 500-4667 · Email: info@intralog.io
+
+## Solutions by technology
+
+- [Pallet Shuttle Systems](https://intralog.io/solutions/by-technology/pallet-shuttle-systems): Semi-automated deep-lane storage, FIFO/LIFO, cold-storage rated
+- [Goods-to-Person / VLMs](https://intralog.io/solutions/by-technology/goods-to-person-vlms): Modula Lift and FlexiBox vertical storage with pick-to-light
+- [Conveyor & Sortation](https://intralog.io/solutions/by-technology/conveyor-and-sortation): Belt, MDR, live roller, and high-speed sortation (Daifuku Wynright)
+- [Palletizing & Depalletizing](https://intralog.io/solutions/by-technology/palletizing-and-de-palletizing): Robotic cells, vision-guided depal, SSCC labeling
+- [Conventional Storage](https://intralog.io/solutions/by-technology/conventional-storage-systems): Selective rack, pushback, pallet flow, carton flow, pick modules
+- [Print & Apply](https://intralog.io/solutions/by-technology/print-and-apply): Inline labeling with verification
+
+## Solutions by industry
+
+- [Third-Party Logistics](https://intralog.io/solutions/by-industry/third-party-logistics)
+- [Cold Storage Warehousing](https://intralog.io/solutions/by-industry/cold-storage-warehousing)
+- [Food & Beverage](https://intralog.io/solutions/by-industry/food-and-beverage)
+- [Retail & eCommerce](https://intralog.io/solutions/by-industry/retail-and-ecommerce)
+- [Manufacturing](https://intralog.io/solutions/by-industry/manufacturing)
+- [Industrial Distribution](https://intralog.io/solutions/by-industry/industrial-distribution)
+- [Aerospace & Defense](https://intralog.io/solutions/by-industry/aerospace-and-defense)
+
+## Software
+
+- [Warehousr](https://intralog.io/software/warehousr): Open-source warehouse analytics and diagnostics toolkit
+- [DensityPro](https://intralog.io/software/densitypro): Orchestration for multi-shuttle deep-lane operations
+- [Painless Permit](https://intralog.io/software/painlesspermit): Permit package automation for rack and automation projects
+
+## Company
+
+- [Design-Build Process](https://intralog.io/design-build): Why single-source design-build de-risks automation projects
+- [About](https://intralog.io/about)
+- [Project Showcase](https://intralog.io/case-studies): Client work including New Balance, Sportsman's Warehouse, Little Giant, Lion Energy, Built Brands
+- [Contact](https://intralog.io/contact)

@@ -107,8 +107,8 @@ export default function Page() {
       gallery={gallery}
       useCases={useCases}
       videos={[
-        { url: "https://www.youtube.com/embed/vcI5c8AIPqA", title: "Secure VLM & Kitting Overview" },
-        { url: "https://www.youtube.com/embed/7t1YqC6FQ7M", title: "Mini-load / Shuttle ASRS for A&D" },
+        { url: "https://www.youtube.com/embed/B7bMNXTSV5I", title: "Secure VLM & Kitting Overview" },
+        { url: "https://www.youtube.com/embed/xpviH4MOB4c", title: "Mini-load / Shuttle ASRS for A&D" },
       ]}
       brochureCta={{
         blurb: "Request the A&D Logistics Guide—FOD checklists, secure storage patterns, and kitting QA templates.",
