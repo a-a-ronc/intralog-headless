@@ -15,7 +15,7 @@ export const BUSINESS = {
   telephone: "+1-385-500-4667",
   email: "info@intralog.io",
   address: {
-    streetAddress: "5225 Wiley Post Way Ste. 200",
+    streetAddress: "5215 Wiley Post Way Ste. 160",
     addressLocality: "Salt Lake City",
     addressRegion: "UT",
     postalCode: "84116",

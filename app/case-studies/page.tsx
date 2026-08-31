@@ -58,7 +58,7 @@ export default async function ShowcasePage() {
       </section>
 
       {/* CLIENT LOGO RAIL */}
-      <section style={{ borderBottom: '1px solid #f1f5f9' }}>
+      <section style={{ borderBottom: '1px solid rgb(var(--border))' }}>
         <div className="container section">
           <h2
             style={{

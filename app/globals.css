@@ -228,6 +228,15 @@ body {
   opacity: 1;
 }
 
+/* Logos are drawn for light grounds; give them a chip in dark mode */
+.dark .logo-rail img {
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  height: 52px;
+  object-fit: contain;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));

@@ -2,7 +2,7 @@
 // lib/demo.ts
 export const demoClients = [
   { name: "New Balance", src: "/clients/newbalance.svg" },
-  { name: "Sportsman's Warehouse", src: "/clients/sportsmans.svg" },
+  { name: "Sportsman's Warehouse", src: "/clients/sportsmans.png" },
   { name: "Little Giant", src: "/clients/littlegiant.avif" },
   { name: "Lion Energy", src: "/clients/lionenergy.svg" },
   { name: "Built Brands", src: "/clients/builtbrands.png" },
